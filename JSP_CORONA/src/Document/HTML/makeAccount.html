@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입 페이지</title>
+<script src="jquery-3.5.1.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#Regist").click(function () {
+			///입력값 개수(count)가 10일 경우 회원가입 성공
+			count=0;
+			
+			///memberType
+			if($("#memberType").val()=="") {
+				$("#memberType").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberType").focus();
+			} else {
+				$("#memberType").css("background-color", "white");
+				count+=1;
+			}
+
+			///memberName
+			if($("#memberName").val()=="") {
+				$("#memberName").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberName").focus();
+			} else {
+				$("#memberName").css("background-color", "white");
+				count+=1;
+			}
+			
+			///memberID
+			if($("#memberID").val()=="") {
+				$("#memberID").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberID").focus();
+			} else {
+				$("#memberID").css("background-color", "white");
+				count+=1;
+			}
+
+			///memberPW
+			if($("#memberPW").val()=="") {
+				$("#memberPW").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberPW").focus();
+			} else {
+				$("#memberPW").css("background-color", "white");
+				count+=1;
+			}
+
+			///memberPWcheck
+			if($("#memberPWcheck").val()=="") {
+				$("#memberPWcheck").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberPWcheck").focus();
+			} else if($("#memberPWcheck").val()==$("#memberPW").val()) {
+				$("#memberPWcheck").css("background-color", "white");
+				count+=1;
+			} else {
+				$("#memberPWcheck").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberPWcheck").focus(); 
+			}
+
+			///memberMainAdress
+			if($("#memberMainAdress").val()=="") {
+				$("#memberMainAdress").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberMainAdress").focus();
+			} else {
+				$("#memberMainAdress").css("background-color", "white");
+				count+=1;
+			}
+
+			///memberSubAdress
+			if($("#memberSubAdress").val()=="") {
+				$("#memberSubAdress").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberSubAdress").focus();
+			} else {
+				$("#memberSubAdress").css("background-color", "white");
+				count+=1;
+			}
+
+			///memberPhone1
+			if($("#memberPhone1").val()=="") {
+				$("#memberPhone1").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberPhone1").focus();
+			} else {
+				$("#memberPhone1").css("background-color", "white");
+				count+=1;
+			}
+
+			///memberPhone2
+			if($("#memberPhone2").val()=="") {
+				$("#memberPhone2").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberPhone2").focus();
+			} else {
+				$("#memberPhone2").css("background-color", "white");
+				count+=1;
+			}
+
+			///memberPhone3
+			if($("#memberPhone3").val()=="") {
+				$("#memberPhone3").css("background-color", "red");
+				$("#Msg").text("입력/선택하지 않은 사항을 입력/선택 해주세요.");
+				$("#memberPhone3").focus();
+			} else {
+				$("#memberPhone3").css("background-color", "white");
+				count+=1;
+			}
+
+			if(count == 10){
+				alert("회원가입 성공")
+			} else {
+				return false
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<form>
+	<table style="border:1px; border-style:solid; border-color:black" >
+		<h1>회원가입</h1>
+		<tr>
+			<td>회원유형</td>
+			<td>
+			<select  id="memberType" >
+			<option value="" >선택</option>
+			<option value="1" >개인</option>
+			<option value="2" >진료소</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>이름</td><td><input type="text"  id="memberName"  placeholder="이름 입력" autofocus size="10"></td>
+		</tr>
+		<tr>
+			<td>아이디</td><td><input type="text"  id="memberID"  placeholder="아이디 입력"  size="10"></td>
+		</tr>
+		<tr>
+			<td>비밀번호</td><td><input type="text"  id="memberPW"  placeholder="비밀번호 입력" size="10"></td>
+		</tr>
+		<tr>
+			<td>비밀번호 확인</td><td><input type="text"  id="memberPWcheck"  placeholder="비밀번호 재입력" size="10"></td>
+		</tr>
+		<tr>
+			<td>주소</td>
+			<td>시도 <select  id="memberMainAdress" >
+			<option value="" >선택</option>
+			<option value="1" >강원</option>
+			<option value="2" >경기</option>
+			<option value="3" >경남</option>
+			<option value="4" >경북</option>
+			<option value="5" >광주</option>
+			<option value="6" >대구</option>
+			<option value="7" >대전</option>
+			<option value="8" >부산</option>
+			<option value="9" >서울</option>
+			<option value="10" >세종</option>
+			<option value="11" >울산</option>
+			<option value="12" >인천</option>
+			<option value="13" >전남</option>
+			<option value="14" >전북</option>
+			<option value="15" >제주</option>
+			<option value="16" >충남</option>
+			<option value="17" >충북</option>
+			</select>
+			시군구 <select  id="memberSubAdress" >
+			<option value="" >선택</option>
+				<optgroup label="서울">
+					<option value="1" >강남구</option>
+					<option value="2" >강동구</option>
+					<option value="3" >강서구</option>
+					<option value="4" >관악구</option>
+					<option value="5" >광진구</option>
+					<option value="6" >구로구</option>
+					<option value="7" >금천구</option>
+					<option value="8" >노원구</option>
+					<option value="9" >동대문구</option>
+					<option value="10" >동작구</option>
+					<option value="11" >서대문구</option>
+					<option value="12" >송파구</option>
+					<option value="13" >양천구</option>
+					<option value="14" >영등포구</option>
+					<option value="15" >용산구</option>
+					<option value="16" >은평구</option>
+					<option value="17" >종로구</option>
+					<option value="18" >중구</option>
+					<option value="19" >중량구</option>
+				</optgroup>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td>전화번호</td>
+			<td><select id="memberPhone1" >
+				<option value="" >선택</option>
+				<optgroup label="휴대전화">
+					<option value="1">010</option>
+					<option value="2">011</option>
+					<option value="3">016</option>
+				</optgroup>
+				<optgroup label="지역번호">
+					<option value="4">공백</option>
+					<option value="5">02</option>
+					<option value="6">031</option>
+					<option value="7">032</option>
+					<option value="8">033</option>
+					<option value="9">041</option>
+					<option value="10">042</option>
+					<option value="11">043</option>
+					<option value="12">044</option>
+					<option value="13">051</option>
+					<option value="14">052</option>
+					<option value="15">053</option>
+					<option value="16">054</option>
+					<option value="17">055</option>
+					<option value="18">061</option>
+					<option value="19">062</option>
+					<option value="20">063</option>
+					<option value="21">064</option>
+				</optgroup>
+			</select>
+			-
+			<input type="text"  id="memberPhone2" size="5">
+			-
+			<input type="text"  id="memberPhone3" size="5"></td>
+		</tr>
+		<tr>
+		<td><input type="button" value="회원가입" id="Regist"> <input type="reset" value="초기화"></td>
+		</tr>
+	</table>
+	&nbsp;<span id="Msg"></span>
+	</form>
+</body>
+</html>
