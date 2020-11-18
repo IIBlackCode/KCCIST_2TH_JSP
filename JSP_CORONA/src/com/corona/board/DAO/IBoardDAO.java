@@ -10,11 +10,11 @@ import com.corona.DataBaseConnection;
 import com.corona.board.DTO.Board;
 
 public class IBoardDAO extends DataBaseConnection implements BoardDAO {
-	
+
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
+
 	public IBoardDAO() {
 		try {
 
@@ -35,17 +35,17 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 
 	@Override
 	public ArrayList<Board> select_BoardList() {
-		
-		//1. SQL 작성
+
+		// 1. SQL 작성
 		String SQL = "SELECT * FROM board";
-		//2. 데이터를 받을 타입인지 구분
+		// 2. 데이터를 받을 타입인지 구분
 		ArrayList<Board> boardList = new ArrayList<Board>();
-		
+
 		try {
-			//3. SQL 실행
-			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			// 3. SQL 실행
+			pstmt = conn.prepareStatement(SQL);
 			rs = pstmt.executeQuery();
-			//4. DataRow를 DTO에 저장
+			// 4. DataRow를 DTO에 저장
 			while (rs.next()) {
 				Board board = new Board();
 				board.setBoard_id(rs.getInt(1));
@@ -58,8 +58,29 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		//5. DTO리턴
+		// 5. DTO리턴
 		return boardList;
-	}//The end of Method
+	}// The end of Method
+
+	@Override
+	public Boolean insert_BoardWrite(Board board) {
+		// 1. SQL 작성
+		String SQL = "INSERT INTO board(member_id, board_title, board_content)VALUES(?,?,?)";
+
+		try {
+			// 2. SQL 실행
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, board.getMember_id());
+			pstmt.setString(2, board.getBoard_title());
+			pstmt.setString(3, board.getBoard_content());
+			rs = pstmt.executeQuery();
+			// 3. 결과 리턴
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 3. 결과 리턴
+		return false;
+	}
 
 }

@@ -12,11 +12,11 @@
 	content="width=device-width, initial-scale=1, user-scalable=0">
 <meta http-equiv="Content-Type" content="text/html; utf-8">
 <meta charset="utf-8">
-<link rel="stylesheet" href="../../CSS/Board.css">
+<link rel="stylesheet" href="/CSS/Board.css">
 </head>
 <body>
 	<!-- HEADER -->
-	<%@include file="../include/header.jsp"%>
+	<%@include file="/corona/include/header.jsp"%>
 	
 	<!-- CONTENT -->
 	<div class="">	
@@ -54,10 +54,10 @@
 				}
 			%>
 		</table>
-		<a href="write.jsp">글쓰기</a>
+		<a href="BoardWrite">글쓰기</a>
 	</div>	
 
 	<!-- FOOTER -->
-	<%@include file="../include/footer.jsp"%>
+	<%@include file="/corona/include/footer.jsp"%>
 </body>
 </html>

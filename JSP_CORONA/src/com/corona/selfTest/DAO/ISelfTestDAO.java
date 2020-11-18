@@ -40,7 +40,7 @@ public class ISelfTestDAO implements SelfTestDAO {
 
 	@Override
 	public boolean update_memberSelfTastResult(Member member) {
-		System.out.println("insert_member()");
+		System.out.println("update_memberSelfTastResult()");
 		String SQL = "update member set member_selfresult =? where member_id = ?";
 		// INSERT INTO member
 		// values('test','test','test','test','test','test','test','test');
