@@ -25,7 +25,7 @@ public class ISelfTestDAO implements SelfTestDAO {
 			String dataBaseId = "root";
 			String dataBasePw = "1234";
 
-			Class.forName(mysql);
+			Class.forName(mysql); 
 			conn = DriverManager.getConnection(dataBaseUrl, dataBaseId, dataBasePw);
 		} catch (Exception e) {
 			e.printStackTrace();
