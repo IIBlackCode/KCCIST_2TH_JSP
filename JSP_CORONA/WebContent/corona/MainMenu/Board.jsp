@@ -1,3 +1,7 @@
+<%@page import="com.corona.board.DAO.IBoardDAO"%>
+<%@page import="com.corona.board.DAO.BoardDAO"%>
+<%@page import="com.corona.board.DTO.Board"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,14 +29,30 @@
 					<th style="background-color: #eeeeee; text-align: center;">작성일</th>
 				</tr>
 			</thead>
-			<tbody>
+			<%
+				IBoardDAO dao = new IBoardDAO();
+				ArrayList<Board> boardList = dao.select_BoardList();
+				for(int i = 0; i<boardList.size(); i++){
+			%>
+			<!-- <tbody>
 				<tr>
 					<td>1</td>
 					<td>안녕하세요.</td>
 					<td>홍길동</td>
 					<td>2020-11-09</td>
 				</tr>
+			</tbody> -->
+			<tbody>
+				<tr>
+					<td><%= boardList.get(i).getBoard_id() 	%></td>
+					<td><%= boardList.get(i).getBoard_title() %></td>
+					<td><%= boardList.get(i).getMember_id() %></td>
+					<td><%= boardList.get(i).getBoard_date() %></td>
+				</tr>
 			</tbody>
+			<%
+				}
+			%>
 		</table>
 		<a href="write.jsp">글쓰기</a>
 	</div>	
