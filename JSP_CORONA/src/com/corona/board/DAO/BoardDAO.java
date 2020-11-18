@@ -9,4 +9,6 @@ public interface BoardDAO {
 	public ArrayList<Board> select_BoardList();
 	//게시글 쓰기
 	public Boolean insert_BoardWrite(Board board);
+	//게시글 읽기
+	public Board select_BoardRead(Board board);
 }

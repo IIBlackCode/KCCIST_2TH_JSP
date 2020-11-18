@@ -15,6 +15,7 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 
+	// DataBase 연결
 	public IBoardDAO() {
 		try {
 
@@ -34,8 +35,8 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	}
 
 	@Override
+	// 게시판
 	public ArrayList<Board> select_BoardList() {
-
 		// 1. SQL 작성
 		String SQL = "SELECT * FROM board";
 		// 2. 데이터를 받을 타입인지 구분
@@ -63,6 +64,7 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	}// The end of Method
 
 	@Override
+	// 게시글 삽입
 	public Boolean insert_BoardWrite(Board board) {
 		// 1. SQL 작성
 		String SQL = "INSERT INTO board(member_id, board_title, board_content)VALUES(?,?,?)";
@@ -81,6 +83,33 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		}
 		// 3. 결과 리턴
 		return false;
+	}// The end of Method
+
+	@Override
+	// 게시글 읽기
+	public Board select_BoardRead(Board board) {
+		// 1. SQL 작성
+		String SQL = "SELECT * FROM board WHERE board_id = ?";
+
+		try {
+			// 3. SQL 실행 준비
+			pstmt = conn.prepareStatement(SQL);
+			// 4. ?에 들어갈 데이터 지정
+			pstmt.setInt(1, board.getBoard_id());
+			// 5. SQL 실행
+			rs = pstmt.executeQuery();
+			// 5. dto로 반환할 데이터 저장
+			board.setBoard_id(rs.getInt(1));
+			board.setMember_id(rs.getString(2));
+			board.setBoard_title(rs.getString(3));
+			board.setBoard_content(rs.getString(4));
+			board.setBoard_date(rs.getString(5));
+			return board;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 5. DTO리턴
+		return board;
 	}
 
 }
