@@ -41,8 +41,19 @@ public class BoardReadController extends HttpServlet {
 		IBoardDAO dao = new IBoardDAO();
 		board = dao.select_BoardRead(board);
 		
-		request.setAttribute("board", board);
-		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board/BoardRead.jsp");
+		System.out.println("Board_title:"+board.getBoard_title());
+		
+//		request.setAttribute("board", board);
+		request.setAttribute("Board_title", board.getBoard_title());
+		request.setAttribute("Board_content", board.getBoard_content());
+		
+		/*script를 사용하기 위한 PrintWriter 선언*/
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board/BoardRead.jsp");
+		script.println("</script>");
+		
+//		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board/BoardRead.jsp");
 //		}//The end of if
 	}
 

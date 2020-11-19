@@ -41,11 +41,11 @@ public class BoardListController extends HttpServlet {
 		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board.jsp");
 		
 		/*script를 사용하기 위한 PrintWriter 선언*/
-//		PrintWriter script = response.getWriter();
-//		script.println("<script>");
-//		script.println("alert('로그인 성공')");
-//		script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board.jsp'");
-//		script.println("</script>");
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인 성공')");
+		script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board.jsp'");
+		script.println("</script>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -102,12 +102,14 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 			// 5. SQL 실행
 			rs = pstmt.executeQuery();
 			// 5. dto로 반환할 데이터 저장
-			board.setBoard_id(rs.getInt(1));
-			board.setMember_id(rs.getString(2));
-			board.setBoard_title(rs.getString(3));
-			board.setBoard_content(rs.getString(4));
-			board.setBoard_date(rs.getString(5));
-			return board;
+			if (rs.next()) {
+				board.setBoard_id(rs.getInt(1));
+				board.setMember_id(rs.getString(2));
+				board.setBoard_title(rs.getString(3));
+				board.setBoard_content(rs.getString(4));
+				board.setBoard_date(rs.getString(5));
+				return board;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
