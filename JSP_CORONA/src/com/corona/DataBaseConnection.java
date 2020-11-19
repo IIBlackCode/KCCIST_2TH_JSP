@@ -6,10 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class DataBaseConnection {
-
-	private Connection conn;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
+	
+	int a = 10;
+	static Connection conn;
 
 	public DataBaseConnection() {
 		try {
@@ -22,7 +21,7 @@ public class DataBaseConnection {
 			String dataBasePw = "1234";
 
 			Class.forName(mysql);
-			conn = DriverManager.getConnection(dataBaseUrl, dataBaseId, dataBasePw);
+			this.conn = DriverManager.getConnection(dataBaseUrl, dataBaseId, dataBasePw);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
