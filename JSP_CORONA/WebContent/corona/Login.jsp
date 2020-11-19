@@ -63,7 +63,7 @@
 						<a href="Join.jsp">
 							<div style="height: 10px;"></div>
 							<button type="button" class="form_submit_button"
-								id="makeAccountBtn">회원가입</button>
+								id="Join">회원가입</button>
 
 						</a>
 						<div style="height: 10px;"></div>
