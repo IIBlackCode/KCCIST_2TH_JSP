@@ -38,7 +38,7 @@
 			<td>주소</td>
 			<td>시도 <select  id="memberMainAdress" name="memberMainAdress">
 			<option value="" >선택</option>
-			<option value="1" >강원</option>
+			<option value="1" >강원</option> 
 			<option value="2" >경기</option>
 			<option value="3" >경남</option>
 			<option value="4" >경북</option>
