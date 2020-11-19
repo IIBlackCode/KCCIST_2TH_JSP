@@ -68,16 +68,19 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	public Boolean insert_BoardWrite(Board board) {
 		// 1. SQL 작성
 		String SQL = "INSERT INTO board(member_id, board_title, board_content)VALUES(?,?,?)";
-
+		int result = 0;
 		try {
 			// 2. SQL 실행
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, board.getMember_id());
 			pstmt.setString(2, board.getBoard_title());
 			pstmt.setString(3, board.getBoard_content());
-			rs = pstmt.executeQuery();
-			// 3. 결과 리턴
-			return true;
+			result = pstmt.executeUpdate();
+			if(result == 0) {
+				return false;
+			}else {
+				return true;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
