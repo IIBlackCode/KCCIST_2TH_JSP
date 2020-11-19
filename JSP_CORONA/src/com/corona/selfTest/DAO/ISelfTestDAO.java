@@ -24,15 +24,15 @@ public class ISelfTestDAO implements SelfTestDAO {
 			String dataBaseUrl = "jdbc:mysql://localhost:3306/corona?serverTimezone=UTC";
 			String dataBaseId = "root";
 			String dataBasePw = "1234";
-
-			Class.forName(mysql);
+ 
+			Class.forName(mysql); 
 			conn = DriverManager.getConnection(dataBaseUrl, dataBaseId, dataBasePw);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	@Override
+	@Override 
 	public void select() {
 		// TODO Auto-generated method stub
 
