@@ -11,7 +11,7 @@
 <body>
 	<form action="Join" method="post">
 	<H1>회원가입</h1>
-	<table style="border:1px; border-style:solid; border-color:black" >
+	<table style="border:1px; border-style:solid; border-color:black" > 
 		<tr>
 			<td>이름(필수)</td><td><input type="text"  id="member_name" name="member_name"  placeholder="이름 입력" autofocus size="10"></td>
 		</tr>

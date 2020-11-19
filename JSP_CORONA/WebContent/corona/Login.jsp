@@ -30,7 +30,7 @@
 						<p class="form_title_p">로그인</p>
 					</div>
 					<div>
-						<div>
+						<div> 
 							<a class="form_item_name">ID</a>
 						</div>
 						<div>
