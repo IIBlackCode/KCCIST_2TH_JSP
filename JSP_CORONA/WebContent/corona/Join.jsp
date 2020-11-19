@@ -13,7 +13,7 @@
 	<table style="border:1px; border-style:solid; border-color:black" >
 		<h1>회원가입</h1>
 		<tr>
-			<td>회원유형</td>
+			<td>회원유형</td> 
 			<td>
 			<select  id="memberType" name="memberType">
 			<option value="" >선택</option>
