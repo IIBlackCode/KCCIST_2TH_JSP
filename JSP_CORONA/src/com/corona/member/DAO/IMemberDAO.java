@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.corona.member.DTO.Member;
+
 public class IMemberDAO implements MemberDAO{
 	
 	private Connection conn;
@@ -55,26 +57,44 @@ public class IMemberDAO implements MemberDAO{
 	}
 
 	@Override
-	public boolean insert_member() {
+	public boolean insert_member(Member member) {
+		System.out.println("insert_member()");
+		String SQL = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+		//INSERT INTO member values('test','test','test','test','test','test','test','test');
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, member.getMember_id());
+			pstmt.setString(2, member.getMember_password());
+			pstmt.setString(3, member.getMember_name());
+			pstmt.setString(4, member.getMember_adress());
+			pstmt.setString(5, member.getMember_rank());
+			pstmt.setString(6, member.getMember_phone());
+			pstmt.setString(7, member.getMember_result());
+			pstmt.setString(8, member.getMember_selfresult());
+//			rs = pstmt.executeQuery();
+			int result = pstmt.executeUpdate();
+			System.out.println("Success Join");
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 		return false;
+	}
+
+	@Override
+	public void delete_member(Member member) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete_member() {
+	public void update_member(Member member) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void update_member() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void select_member() {
+	public void select_member(Member member) {
 		// TODO Auto-generated method stub
 		
 	}
