@@ -69,7 +69,7 @@ public class JoinController extends HttpServlet {
 		if (result) {
 			script.println("<script>");
 			script.println("alert('회원가입 성공')");
-			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Main.jsp'");
+			script.println("location.href ='"+request.getContextPath()+"/corona/Login.jsp'");
 			script.println("</script>");
 		} else {
 			script.println("<script>");

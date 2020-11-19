@@ -60,7 +60,7 @@
 						<button type="submit" class="form_submit_button" onclick="login()">로그인</button>
 					</div>
 					<div id="footer-area" class="section">
-						<a href="makeAccount.html">
+						<a href="Join.jsp">
 							<div style="height: 10px;"></div>
 							<button type="button" class="form_submit_button"
 								id="makeAccountBtn">회원가입</button>
