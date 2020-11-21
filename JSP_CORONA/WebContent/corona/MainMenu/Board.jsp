@@ -1,5 +1,3 @@
-<%@page import="com.corona.board.DAO.IBoardDAO"%>
-<%@page import="com.corona.board.DAO.BoardDAO"%>
 <%@page import="com.corona.board.DTO.Board"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

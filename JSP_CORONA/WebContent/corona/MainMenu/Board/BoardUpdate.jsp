@@ -1,9 +1,7 @@
-<%@page import="com.corona.board.DAO.IBoardDAO"%>
-<%@page import="com.corona.board.DAO.BoardDAO"%>
 <%@page import="com.corona.board.DTO.Board"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% Board board = (Board)request.getAttribute("board"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,23 +19,26 @@
 	<!-- CONTENT -->
 	<div class="container">
 		<div class="">
-			<form action="BoardWrite" method="post">
+			<form action="">
 				<table class="" style="text-align:center; border:1px solid #dddddd">
 					<thead>
 						<tr>
-							<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시판 글쓰기 양식</th>
+							<th colspan="2" style="background-color: #eeeeee; text-align: center;">게시글 양식</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><input type="text" placeholder="글 제목" name="board_title" maxlength="50"></td>
+							<td><input type="text" value="<%=board.getBoard_id()%>"></td>
 						</tr>
 						<tr>
-							<td><textarea placeholder="글 내용" name="board_content" maxlength="2048" style="height: 350px;"></textarea></td>
+							<td><input type="text" value="<%=board.getBoard_title()%>"></td>
+						</tr>
+						<tr>
+							<td><input type="text" value="<%=board.getBoard_content()%>"></td>
 						</tr>
 					</tbody>
 				</table>
-				<input type="submit" class="" value="글쓰기">
+				<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>">저장</a>
 			</form>
 		</div>
 	</div>
