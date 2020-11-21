@@ -128,7 +128,7 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 			pstmt.setString(2, board.getBoard_content());
 			pstmt.setInt(3, board.getBoard_id());
 			// rs = pstmt.executeQuery();
-			int result = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 			System.out.println("Success Update Board");
 			return true;
 		} catch (SQLException e) {
@@ -139,8 +139,19 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 
 	@Override
 	public Boolean delete_BoardRead(Board board) {
-		// TODO Auto-generated method stub
-		return null;
+		String SQL = "DELETE FROM board WHERE board_id = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setInt(1, board.getBoard_id());
+			// rs = pstmt.executeQuery();
+			pstmt.executeUpdate();
+			System.out.println("Success DELETE Board");
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }
