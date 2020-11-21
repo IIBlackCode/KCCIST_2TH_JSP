@@ -11,4 +11,8 @@ public interface BoardDAO {
 	public Boolean insert_BoardWrite(Board board);
 	//게시글 읽기
 	public Board select_BoardRead(Board board);
+	//게시글 수정
+	public Boolean update_BoardRead(Board board);
+	//게시글 삭제
+	public Boolean delete_BoardRead(Board board);
 }

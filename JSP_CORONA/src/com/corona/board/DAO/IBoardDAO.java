@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.corona.DataBaseConnection;
@@ -115,6 +116,31 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		}
 		// 5. DTO리턴
 		return board;
+	}
+
+	@Override
+	public Boolean update_BoardRead(Board board) {
+		String SQL = "UPDATE board SET board_title = ?, board_content=? WHERE board_id = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			
+			pstmt.setString(1, board.getBoard_title());
+			pstmt.setString(2, board.getBoard_content());
+			pstmt.setInt(3, board.getBoard_id());
+			// rs = pstmt.executeQuery();
+			int result = pstmt.executeUpdate();
+			System.out.println("Success Update Board");
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean delete_BoardRead(Board board) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

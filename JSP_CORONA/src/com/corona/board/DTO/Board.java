@@ -2,7 +2,7 @@ package com.corona.board.DTO;
 
 public class Board {
 
-	private int board_id;
+	private Integer board_id;
 	private String member_id;
 	private String board_title;
 	private String board_content;

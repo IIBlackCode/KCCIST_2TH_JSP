@@ -20,20 +20,13 @@ import com.corona.board.DTO.Board;
 public class BoardUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public BoardUpdateController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
-		System.out.println("[BoardUpdateController]");
+		System.out.println("[BoardUpdateController] doGet");
 		Board board = new Board();
 		
 		//BoardUpdate로부터 Board_id를 받아온다
@@ -49,17 +42,53 @@ public class BoardUpdateController extends HttpServlet {
 		System.out.println("Board_title:"+board.getBoard_title());
 		
 		request.setAttribute("board", board);
+		//View에 데이터를 넘기기 위해 forward로 페이지를 전환한다.
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board/BoardUpdate.jsp");
 		dispatcher.forward(request, response);
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		response.setContentType("text/html;charset=utf-8");
+		System.out.println("[BoardUpdateController] doPost");
+		
+		//페이지에서 입력한 데이터를 받아온다.
+		String board_id = request.getParameter("Board_id");
+		String board_title = request.getParameter("Board_title");
+		String board_content = request.getParameter("Board_content");
+		
+		System.out.println("Board_id : "+board_id);
+		System.out.println("Board_title : "+board_title);
+		System.out.println("Board_content : "+board_content);
+		
+		Board board = new Board();
+		board.setBoard_id(Integer.parseInt(board_id));
+		board.setBoard_title(board_title);
+		board.setBoard_content(board_content);
+		
+		IBoardDAO dao = new IBoardDAO();
+		if (dao.update_BoardRead(board)) {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('게시글 수정 성공')");
+			script.println("</script>");
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board.jsp");
+//			dispatcher.forward(request, response);
+			
+			response.sendRedirect(request.getContextPath()+"/corona/MainMenu/BoardList");
+			
+		}else {
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('게시글 수정 실패')");
+			script.println("</script>");
+			
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board.jsp");
+//			dispatcher.forward(request, response);
+			
+			response.sendRedirect(request.getContextPath()+"/corona/MainMenu/BoardList");
+		}
+		
 	}
 
 }
