@@ -4,8 +4,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% ArrayList<Board> boardList = (ArrayList)request.getAttribute("boardList"); %>
-<%-- <jsp:useBean id="boardList" class=java.util.ArrayList scope="request"></jsp:useBean> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,10 +31,18 @@
 				</tr>
 			</thead>
 			<%
-				//ArrayList<Board> boardList = dao.select_BoardList();
-				//ArrayList<Board> boardList = (ArrayList<Board>)request.getAttribute("boardList");
+				IBoardDAO dao = new IBoardDAO();
+				ArrayList<Board> boardList = dao.select_BoardList();
 				for(int i = 0; i<boardList.size(); i++){
 			%>
+			<!-- <tbody>
+				<tr>
+					<td>1</td>
+					<td>안녕하세요.</td>
+					<td>홍길동</td>
+					<td>2020-11-09</td>
+				</tr>
+			</tbody> -->
 			<tbody>
 				<tr>
 					<td><%= boardList.get(i).getBoard_id() 	%></td>

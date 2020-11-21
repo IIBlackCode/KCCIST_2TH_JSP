@@ -37,15 +37,17 @@ public class BoardListController extends HttpServlet {
 			System.out.println("getMember_id :"+dao.select_BoardList().get(i).getMember_id());
 		}
 		
+//		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board.jsp");
 		request.setAttribute("boardList", boardList);
-		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board.jsp");
+		dispatcher.forward(request, response);
 		
 		/*script를 사용하기 위한 PrintWriter 선언*/
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("alert('로그인 성공')");
-		script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board.jsp'");
-		script.println("</script>");
+//		PrintWriter script = response.getWriter();
+//		script.println("<script>");
+//		script.println("alert('로그인 성공')");
+//		script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board.jsp'");
+//		script.println("</script>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

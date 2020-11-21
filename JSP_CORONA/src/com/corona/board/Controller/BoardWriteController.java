@@ -56,12 +56,12 @@ public class BoardWriteController extends HttpServlet {
 		if(dao.insert_BoardWrite(board)) {
 			script.println("<script>");
 			script.println("alert('게시글 작성 성공')");
-			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board.jsp'");
+			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/BoardList'");
 			script.println("</script>");
 		}else {
 			script.println("<script>");
 			script.println("alert('게시글 작성 실패')");
-			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board.jsp'");
+			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/BoardList'");
 			script.println("</script>");
 		}//The end of if
 		

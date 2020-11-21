@@ -2,7 +2,7 @@
 <%@page import="com.corona.board.DAO.BoardDAO"%>
 <%@page import="com.corona.board.DTO.Board"%>
 <%@page import="java.util.ArrayList"%>
-<%-- <jsp:useBean id="board" class="com.corona.board.DTO.Board" scope="session" type="com.corona.board.DTO.Board"/> --%>
+<jsp:useBean id="board" class="com.corona.board.DTO.Board" scope="session" type="com.corona.board.DTO.Board"/>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,16 +32,15 @@
 					<%
 						//Object object = request.getAttribute("board");
 						//board = (Board)object;
-						String title = request.getParameter("Board_title");
-						String content = request.getParameter("Board_content");
 					%> 
 					<tbody>
 						<tr>
-							<td><%=title %></td>
-							<%-- <td><jsp:getProperty property="board_title" name="board"/></td> --%>
+							<%-- <td><%=request.getAttribute("Board_title") %></td> --%>
+							<td><%=request.getAttribute("Board_title")%></td>
 						</tr>
 						<tr>
-							<td><%-- <%=board.getBoard_content() %> --%></td>
+							<%-- <td><%=request.getAttribute("Board_content")%></td> --%>
+							<td><%=request.getAttribute("Board_content")%></td>
 						</tr>
 					</tbody>
 				</table>

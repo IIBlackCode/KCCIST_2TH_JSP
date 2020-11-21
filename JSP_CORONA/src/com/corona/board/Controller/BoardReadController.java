@@ -3,6 +3,7 @@ package com.corona.board.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,21 +41,23 @@ public class BoardReadController extends HttpServlet {
 		
 		IBoardDAO dao = new IBoardDAO();
 		board = dao.select_BoardRead(board);
-		
 		System.out.println("Board_title:"+board.getBoard_title());
 		
-//		request.setAttribute("board", board);
+		
+		request.setAttribute("board", board);
 		request.setAttribute("Board_title", board.getBoard_title());
 		request.setAttribute("Board_content", board.getBoard_content());
 		
 		/*script를 사용하기 위한 PrintWriter 선언*/
-		PrintWriter script = response.getWriter();
-		script.println("<script>");
-		script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board/BoardRead.jsp");
-		script.println("</script>");
+//		PrintWriter script = response.getWriter();
+//		script.println("<script>");
+//		script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board/BoardRead.jsp");
+//		script.println("</script>");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board/BoardRead.jsp");
+		dispatcher.forward(request, response);
 		
 //		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board/BoardRead.jsp");
-//		}//The end of if
 	}
 
 	/**
