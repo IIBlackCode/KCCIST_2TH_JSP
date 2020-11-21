@@ -27,7 +27,6 @@
 				<tr>
 					<th style="background-color: #eeeeee; text-align: center;">번호</th>
 					<th style="background-color: #eeeeee; text-align: center;">제목</th>
-					<th style="background-color: #eeeeee; text-align: center;">제목</th>
 					<th style="background-color: #eeeeee; text-align: center;">작성자</th>
 					<th style="background-color: #eeeeee; text-align: center;">작성일</th>
 				</tr>
@@ -41,7 +40,6 @@
 				<tr>
 					<td><%= boardList.get(i).getBoard_id() 	%></td>
 					<td><a href="Board/BoardRead?Board_id=<%=boardList.get(i).getBoard_id()%>"><%= boardList.get(i).getBoard_title() %></a></td>
-					<td><a href="Board/BoardRead.jsp">TestLink</a></td>
 					<td><%= boardList.get(i).getMember_id() %></td>
 					<td><%= boardList.get(i).getBoard_date() %></td>
 				</tr>
