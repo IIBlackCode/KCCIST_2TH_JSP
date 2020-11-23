@@ -55,7 +55,6 @@ public class JoinController extends HttpServlet {
 		member.setMember_password(member_password);
 		member.setMember_name(member_name);
 		member.setMember_adress(member_adress);
-		member.setMember_rank(member_rank);
 		member.setMember_phone(member_phone);
 		member.setMember_result(member_result);
 		member.setMember_selfresult(member_selfresult);

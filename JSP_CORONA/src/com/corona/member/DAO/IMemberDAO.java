@@ -59,7 +59,8 @@ public class IMemberDAO implements MemberDAO{
 	@Override
 	public boolean insert_member(Member member) {
 		System.out.println("insert_member()");
-		String SQL = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_phone, Member_result, Member_selfresult)";
+				SQL+= "VALUES(?, ?, ?, ?, ?, ?, ?)";
 		//INSERT INTO member values('test','test','test','test','test','test','test','test');
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -67,10 +68,10 @@ public class IMemberDAO implements MemberDAO{
 			pstmt.setString(2, member.getMember_password());
 			pstmt.setString(3, member.getMember_name());
 			pstmt.setString(4, member.getMember_adress());
-			pstmt.setString(5, member.getMember_rank());
-			pstmt.setString(6, member.getMember_phone());
-			pstmt.setString(7, member.getMember_result());
-			pstmt.setString(8, member.getMember_selfresult());
+//			pstmt.setString(5, member.getMember_rank());
+			pstmt.setString(5, member.getMember_phone());
+			pstmt.setString(6, member.getMember_result());
+			pstmt.setString(7, member.getMember_selfresult());
 //			rs = pstmt.executeQuery();
 			int result = pstmt.executeUpdate();
 			System.out.println("Success Join");

@@ -7,11 +7,12 @@
 <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=0">
 <meta http-equiv="Content-Type" content="text/html; utf-8">
    <meta charset="utf-8">
-   <link rel="stylesheet" href="../../CSS/Inform.css">
+   <link rel="stylesheet" href="/CSS/Inform.css">
 </head>
 <body>
 	<!-- HEADER -->
-	<%@include file="../include/header.jsp"%>
+	<%@include file="/corona/include/header.jsp"%>
+	
 <div id="contents-area" class="section">
    <div class="feed">
    <div class= "autor">

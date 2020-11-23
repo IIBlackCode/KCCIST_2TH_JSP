@@ -64,4 +64,6 @@ INSERT INTO board(board_id,member_id,board_title,board_content)
 VALUES(1,'test','Test 제목','test내용');
 UPDATE board SET board_title = 'TEST타이틀 수정', board_content='TEST내용 수정' WHERE board_id = 10;
 
-
+--member 테이블의 member_rank 컬럼에 기본값 설정
+ALTER TABLE member
+MODIFY member_rank VARCHAR(10) DEFAULT '일반회원';
