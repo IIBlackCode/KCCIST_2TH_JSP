@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.corona.board.DAO.IBoardDAO;
 import com.corona.board.DTO.Board;
@@ -34,19 +35,23 @@ public class BoardReadController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		
+		//세션에서 사용자 아이디를 가져온다.
+		HttpSession session = request.getSession();
+		String member_id = (String) session.getAttribute("member_id");
+		
 		Board board = new Board();
+		
+		//게시판 페이지로부터 게시글 아이디를 가져온다. String > int 전환
 		String board_id = request.getParameter("Board_id");
-		System.out.println("board_id : "+board_id+":"+Integer.parseInt(board_id));
 		board.setBoard_id(Integer.parseInt(board_id));
 		
+		//Select 쿼리
 		IBoardDAO dao = new IBoardDAO();
 		board = dao.select_BoardRead(board);
-		System.out.println("Board_title:"+board.getBoard_title());
 		
 		
 		request.setAttribute("board", board);
-		request.setAttribute("Board_title", board.getBoard_title());
-		request.setAttribute("Board_content", board.getBoard_content());
+		request.setAttribute("member_id", member_id);
 		
 		/*script를 사용하기 위한 PrintWriter 선언*/
 //		PrintWriter script = response.getWriter();

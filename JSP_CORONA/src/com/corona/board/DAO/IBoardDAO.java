@@ -35,8 +35,8 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		}
 	}
 
-	@Override
 	// 게시판
+	@Override
 	public ArrayList<Board> select_BoardList() {
 		// 1. SQL 작성
 		String SQL = "SELECT * FROM board";
@@ -64,8 +64,8 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		return boardList;
 	}// The end of Method
 
-	@Override
 	// 게시글 삽입
+	@Override
 	public Boolean insert_BoardWrite(Board board) {
 		// 1. SQL 작성
 		String SQL = "INSERT INTO board(member_id, board_title, board_content)VALUES(?,?,?)";
@@ -89,8 +89,8 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		return false;
 	}// The end of Method
 
-	@Override
 	// 게시글 읽기
+	@Override
 	public Board select_BoardRead(Board board) {
 		// 1. SQL 작성
 		String SQL = "SELECT * FROM board WHERE board_id = ?";
@@ -117,7 +117,8 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		// 5. DTO리턴
 		return board;
 	}
-
+	
+	//게시글 수정
 	@Override
 	public Boolean update_BoardRead(Board board) {
 		String SQL = "UPDATE board SET board_title = ?, board_content=? WHERE board_id = ?";
@@ -136,7 +137,8 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		}
 		return false;
 	}
-
+	
+	//게시글 삭제
 	@Override
 	public Boolean delete_BoardRead(Board board) {
 		String SQL = "DELETE FROM board WHERE board_id = ?";
@@ -152,6 +154,6 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 			e.printStackTrace();
 		}
 		return false;
-	}
+	}// The end of Method
 
 }

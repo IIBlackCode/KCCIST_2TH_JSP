@@ -40,8 +40,10 @@
 					</tr>
 				</tbody>
 			</table>
+			<%if(request.getAttribute("member_id").equals(board.getMember_id())){%>
 			<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>">수정</a>
 			<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>">삭제</a>
+			<%} %>
 		</div>
 	</div>
 
