@@ -15,7 +15,15 @@
 		<a href="SelfTest.jsp">자가진단</a>
 		<a href="Inform.jsp">선별진료소 안내</a>
 		<a href="MyPages.jsp">내정보</a>
+		<%
+			HttpSession sessionRank = request.getSession();
+			sessionRank.getAttribute("member_rank");
+			if(sessionRank.getAttribute("member_rank").equals("일반회원")){ 
+		%>
 		<a href="BoardList">게시판</a>
+		<%}else{ %>
+		<a href="BoardList">관리자 전용 게시판</a>
+		<%} %>
 		<hr>
 	</div>
 </div>

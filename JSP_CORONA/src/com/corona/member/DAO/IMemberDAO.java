@@ -32,15 +32,15 @@ public class IMemberDAO implements MemberDAO{
 	}
 
 	@Override
-	public boolean select_MemberLogin(String member_id, String member_password) {
+	public boolean select_MemberLogin(Member member) {
 		System.out.println("select_MemberLogin()");
 		String SQL = "SELECT member_password FROM member WHERE member_id = ? ";
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, member_id);
+			pstmt.setString(1, member.getMember_id());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				if (rs.getString(1).equals(member_password)) {
+				if (rs.getString(1).equals(member.getMember_password())) {
 					System.out.println("Success Login");
 					return true;
 				}else {
@@ -81,6 +81,25 @@ public class IMemberDAO implements MemberDAO{
 		} 
 		return false;
 	}
+	
+	@Override
+	public Member select_MemberRank(Member member) {
+		System.out.println("select_MemberRank()");
+		String SQL = "SELECT member_rank FROM member WHERE member_id = ? ";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, member.getMember_id());
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				member.setMember_rank(rs.getString(1));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return member;
+	}
 
 	@Override
 	public void delete_member(Member member) {
@@ -99,5 +118,5 @@ public class IMemberDAO implements MemberDAO{
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 }
