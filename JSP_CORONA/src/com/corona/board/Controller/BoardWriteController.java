@@ -53,15 +53,24 @@ public class BoardWriteController extends HttpServlet {
 		//DAO호출 및 script 알람 
 		IBoardDAO dao = new IBoardDAO();
 		PrintWriter script = response.getWriter();
-		if(dao.insert_BoardWrite(board)) {
+		
+		if(dao.insert_AdminBoard(board)) {
 			script.println("<script>");
 			script.println("alert('게시글 작성 성공')");
-			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/BoardList'");
+			if (session.getAttribute("member_rank").equals("일반회원")) {
+				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+			}else {
+				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+			}
 			script.println("</script>");
 		}else {
 			script.println("<script>");
 			script.println("alert('게시글 작성 실패')");
-			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/BoardList'");
+			if (session.getAttribute("member_rank").equals("일반회원")) {
+				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+			}else {
+				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+			}
 			script.println("</script>");
 		}//The end of if
 		

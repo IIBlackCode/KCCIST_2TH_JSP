@@ -38,7 +38,7 @@ public class BoardUpdateController extends HttpServlet {
 		
 		//조회 쿼리 실행
 		IBoardDAO dao = new IBoardDAO();
-		board = dao.select_BoardRead(board);
+		board = dao.select_AdminBoard(board);
 		System.out.println("Board_title:"+board.getBoard_title());
 		
 		request.setAttribute("board", board);
@@ -67,7 +67,7 @@ public class BoardUpdateController extends HttpServlet {
 		board.setBoard_content(board_content);
 		
 		IBoardDAO dao = new IBoardDAO();
-		if (dao.update_BoardRead(board)) {
+		if (dao.update_AdminBoard(board)) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('게시글 수정 성공')");

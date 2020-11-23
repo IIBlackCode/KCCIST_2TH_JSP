@@ -47,7 +47,7 @@ public class BoardReadController extends HttpServlet {
 		
 		//Select 쿼리
 		IBoardDAO dao = new IBoardDAO();
-		board = dao.select_BoardRead(board);
+		board = dao.select_AdminBoard(board);
 		
 		
 		request.setAttribute("board", board);

@@ -39,7 +39,7 @@ public class BoardDeleteController extends HttpServlet {
 		//삭제 쿼리 실행
 		IBoardDAO dao = new IBoardDAO();
 		PrintWriter script = response.getWriter();
-		if (dao.delete_BoardRead(board)) {
+		if (dao.delete_AdminBoard(board)) {
 			script.println("<script>");
 			script.println("alert('게시글 삭제 성공')");
 			script.println("</script>");
