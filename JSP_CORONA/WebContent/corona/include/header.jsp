@@ -25,6 +25,7 @@
 		<a href="AdminBoardList">관리자 게시판</a>
 		<a href="#">회원 정보</a>
 		<%} %>
+		
 		<%if (session.getAttribute("member_id") == null){ %>
 		<h1>로그인이 필요합니다.</h1>
 		<%}else{ %>
