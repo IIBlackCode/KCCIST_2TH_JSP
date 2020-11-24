@@ -4,9 +4,6 @@
 <nav id="menu">
 	<ul class="links">
 		<li><a href="index.jsp">Home</a></li>
-		<li><a href="MyInfo.jsp">내 정보</a></li>
-		<li><a href="Login.jsp">Login</a></li>
-		<li><a href="Join.jsp">Join</a></li>
 		<%
 		if(session.getAttribute("member_id") != null){
 			if(session.getAttribute("member_rank").equals("관리자")){
