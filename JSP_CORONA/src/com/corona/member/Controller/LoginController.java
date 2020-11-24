@@ -19,7 +19,7 @@ import com.mysql.cj.Session;
 /**
  * Servlet implementation class Login
  */
-@WebServlet(urlPatterns= {"/Login","/corona/Login"})
+@WebServlet(urlPatterns= {"/company/Login","/corona/Login"})
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -54,7 +54,8 @@ public class LoginController extends HttpServlet {
 		if (result) {
 			script.println("<script>");
 			script.println("alert('로그인 성공')");
-			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Main.jsp'");
+			script.println("location.href ='"+request.getContextPath()+"/company/index.jsp'");
+//			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Main.jsp'");
 			script.println("</script>");
 		}else {
 			script.println("<script>");

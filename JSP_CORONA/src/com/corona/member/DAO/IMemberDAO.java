@@ -15,7 +15,6 @@ public class IMemberDAO implements MemberDAO{
 	
 	public IMemberDAO() {
 		try {
-			
 			String mariaDB = "org.mariadb.jdbc.Driver";
 //			String mysql = "com.mysql.jdbc.Driver";
 			String mysql = "com.mysql.cj.jdbc.Driver";
@@ -84,7 +83,6 @@ public class IMemberDAO implements MemberDAO{
 	
 	@Override
 	public Member select_MemberRank(Member member) {
-		System.out.println("select_MemberRank()");
 		String SQL = "SELECT member_rank FROM member WHERE member_id = ? ";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -100,23 +98,4 @@ public class IMemberDAO implements MemberDAO{
 		}
 		return member;
 	}
-
-	@Override
-	public void delete_member(Member member) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update_member(Member member) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void select_member(Member member) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

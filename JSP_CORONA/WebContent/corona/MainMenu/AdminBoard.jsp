@@ -30,8 +30,6 @@
 				</tr>
 			</thead>
 			<%
-				//ArrayList<Board> boardList = dao.select_BoardList();
-				//ArrayList<Board> boardList = (ArrayList<Board>)request.getAttribute("boardList");
 				for(int i = 0; i<boardList.size(); i++){
 			%>
 			<tbody>

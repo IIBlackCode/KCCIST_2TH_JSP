@@ -34,8 +34,7 @@
 							<a class="form_item_name">ID</a>
 						</div>
 						<div>
-							<input type="text" name="username" placeholder="사용자 ID"
-								class="form_input" />
+							<input type="text" name="username" placeholder="사용자 ID" class="form_input" />
 						</div>
 						<div class="form_text_alert_padding">
 							<div id="alert_username" class="form_text_alert"></div>
@@ -73,15 +72,6 @@
 			</div>
 		</div>
 
-		<!-- <div id="footer-area" class="section">
-	<a href="makeAccount.html">
-    <div style="height: 10px;"></div>
-        <button type="button" class="form_submit_button" id="makeAccountBtn">회원가입</button>
-		
-    </a>
-    <div style="height: 10px;"></div>
-    <button type="button" class="form_submit_button" id="cancleBtn">취소</button>
-	</div> -->
 	</div>
 </body>
 </html>

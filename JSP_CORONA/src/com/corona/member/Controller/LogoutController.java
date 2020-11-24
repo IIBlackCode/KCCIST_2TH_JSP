@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns= {"/corona/MainMenu/Logout","/corona/MainMenu/Board/Logout"})
+@WebServlet(urlPatterns= {"/company/Logout","/corona/MainMenu/Board/Logout"})
 public class LogoutController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -23,7 +23,8 @@ public class LogoutController extends HttpServlet {
 			session.invalidate(); // 모든세션정보 삭제
 			script.println("<script>");
 			script.println("alert('로그아웃 성공')");
-			script.println("location.href = '"+request.getContextPath()+"/corona/Login.jsp'");
+//			script.println("location.href = '"+request.getContextPath()+"/corona/Login.jsp'");
+			script.println("location.href = '"+request.getContextPath()+"/company/Login.jsp'");
 			script.println("</script>");
 		}else {
 			script.println("<script>");

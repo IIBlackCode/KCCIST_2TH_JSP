@@ -9,7 +9,8 @@
 <body>
 	<script>
 		//해당 페이지에 접속한 모든 사용자들 강제 Main.html화면으로 이동
-		location.href = 'corona/Login.jsp'
+		//location.href = 'corona/Login.jsp'
+		location.href = 'company/Login.jsp'
 	</script>
 	Hello World!
 </body>
