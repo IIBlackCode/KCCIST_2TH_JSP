@@ -30,14 +30,15 @@ public class AdminBoardListController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		IBoardDAO dao = new IBoardDAO();
 		ArrayList<Board> boardList = dao.select_AdminBoardList();
+		/*
 		for (int i = 0; i < dao.select_AdminBoardList().size(); i++) {
 			System.out.println("getBoard_id :"+dao.select_AdminBoardList().get(i).getBoard_id());
 			System.out.println("getBoard_title :"+dao.select_AdminBoardList().get(i).getBoard_title());
 			System.out.println("getBoard_content :"+dao.select_AdminBoardList().get(i).getBoard_content());
 			System.out.println("getMember_id :"+dao.select_AdminBoardList().get(i).getMember_id());
 		}
+		*/
 		
-//		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board.jsp");
 		request.setAttribute("boardList", boardList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardListAdmin.jsp");
 		dispatcher.forward(request, response);
