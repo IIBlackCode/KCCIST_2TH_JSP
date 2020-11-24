@@ -37,7 +37,7 @@
 					<h2>사용자 회원 가입</h2>
 				</header>
 				
-				<!-- Login Form -->
+				<!-- Join Form -->
 				<form action="Join" method="post">
 					<div>
 						<div>

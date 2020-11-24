@@ -36,7 +36,7 @@
 				<header>
 				</header>
 				
-				<!-- Login Form -->
+				<!-- Myinfo Form -->
 				<form action="Login" method="post">
 					<div>
 						<div>
