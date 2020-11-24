@@ -77,6 +77,7 @@
 					<p>
 					<p>
 					<button type="submit" class="form_submit_button" onclick="Join()">회원가입</button>
+					<button type="reset" class="form_submit_button">초기화</button>
 				</form>
 				<!-- The end of LoginForm -->
 				
