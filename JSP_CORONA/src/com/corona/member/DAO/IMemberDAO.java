@@ -29,6 +29,32 @@ public class IMemberDAO implements MemberDAO{
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	@Override
+	public Member select_Member(Member member) {
+		System.out.println("select_MemberLogin()");
+		String SQL = "SELECT member_password FROM member WHERE member_id = ? ";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, member.getMember_id());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				if (rs.getString(1).equals(member.getMember_password())) {
+					System.out.println("Success Login");
+					return member;
+				}else {
+					System.out.println("Fail Login");
+					return null;
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return member;
+	}
 
 	@Override
 	public boolean select_MemberLogin(Member member) {
