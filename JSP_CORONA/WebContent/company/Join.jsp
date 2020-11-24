@@ -38,19 +38,44 @@
 				</header>
 				
 				<!-- Login Form -->
-				<form action="Login" method="post">
+				<form action="Join" method="post">
 					<div>
 						<div>
-							<label>아이디</label><input type="text" name="username" placeholder="사용자 ID"/>
+							<label>이름(필수)</label><input type="text"  id="member_name" name="member_name"  placeholder="이름 입력" autofocus size="10"/>
 						</div>
 					</div>
 
 					<div>
 						<div>
-							<label>비밀번호</label><input type="password" name="password" placeholder="사용자 비밀번호"/>
+							<label>아이디(필수)</label><input type="text"  id="member_id" name="member_id" placeholder="아이디 입력"  size="10"/>
 						</div>
 					</div>
-					<button type="submit" class="form_submit_button" onclick="login()">로그인</button>
+					
+					<div>
+						<div>
+							<label>비밀번호(필수)</label><input type="text"  id="member_password" name="member_password" placeholder="비밀번호 입력" size="10"/>
+						</div>
+					</div>
+					
+					<div>
+						<div>
+							<label>비밀번호확인(필수)</label><input type="text"  id="member_passwordCheck" name="member_passwordCheck" placeholder="비밀번호 재입력" size="10"/>
+						</div>
+					</div>
+					
+					<div>
+						<div>
+							<label>주소(필수)</label><input type="text"  id="memberAdress" name="member_Adress"/>
+						</div>
+					</div>
+					
+					<div>
+						<div>
+							<label>전화번호(필수)</label><input type="text"  id="memberPhone" name="member_Phone"/>
+						</div>
+					</div>
+					
+					<button type="submit" class="form_submit_button" onclick="Join()">회원가입</button>
 				</form>
 				<!-- The end of LoginForm -->
 				
