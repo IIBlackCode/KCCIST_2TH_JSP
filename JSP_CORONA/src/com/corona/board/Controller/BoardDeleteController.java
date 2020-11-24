@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.corona.board.DAO.IBoardDAO;
 import com.corona.board.DTO.Board;
+import com.corona.member.DTO.Member;
 
 /**
  * Servlet implementation class BoardReadController
@@ -42,9 +43,10 @@ public class BoardDeleteController extends HttpServlet {
 		PrintWriter script = response.getWriter();
 		
 		HttpSession session = request.getSession();
+		Member member = (Member) session.getAttribute("member");
+		System.out.println("MEMBER SESSION : "+member.getMember_rank());
 		
-		
-		if (session.getAttribute("member_rank").equals("일반회원")) {
+		if (member.getMember_rank().equals("일반회원")) {
 			dao.update_UserBoardDelete(board);
 			script.println("<script>");
 			script.println("alert('게시글 삭제[일반유저] 성공')");

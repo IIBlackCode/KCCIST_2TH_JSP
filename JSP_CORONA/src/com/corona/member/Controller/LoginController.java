@@ -39,19 +39,19 @@ public class LoginController extends HttpServlet {
 		member.setMember_id(member_id);
 		member.setMember_password(member_password);
 		
-		/*SESSION에 로그인 정보 추가*/
-		HttpSession session = request.getSession();
-		session.setAttribute("member_id", member_id);
-		
 		/*DAO 호출 > select Querry 실행*/
 		IMemberDAO dao = new IMemberDAO();
-		boolean result = dao.select_MemberLogin(member);
-		String member_rank = dao.select_MemberRank(member).getMember_rank();
-		session.setAttribute("member_rank", member_rank);
-		System.out.println("member_rank : "+member_rank);
+		member = dao.select_Member(member);
+
+		/*SESSION에 로그인 정보 추가*/
+		HttpSession session = request.getSession();
+		session.setAttribute("member", member);
+		session.setAttribute("member_rank", member.getMember_rank());
+		session.setAttribute("member_id", member.getMember_id());
+		
 		/*script를 사용하기 위한 PrintWriter 선언*/
 		PrintWriter script = response.getWriter();
-		if (result) {
+		if (dao.select_MemberLogin(member)) {
 			script.println("<script>");
 			script.println("alert('로그인 성공')");
 			script.println("location.href ='"+request.getContextPath()+"/company/index.jsp'");

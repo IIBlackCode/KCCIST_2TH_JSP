@@ -35,13 +35,21 @@ public class IMemberDAO implements MemberDAO{
 	@Override
 	public Member select_Member(Member member) {
 		System.out.println("select_MemberLogin()");
-		String SQL = "SELECT member_password FROM member WHERE member_id = ? ";
+		String SQL = "SELECT * FROM member WHERE member_id = ? ";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, member.getMember_id());
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				if (rs.getString(1).equals(member.getMember_password())) {
+				member.setMember_id(rs.getString(1));
+				member.setMember_password(rs.getString(2));
+				member.setMember_name(rs.getString(3));
+				member.setMember_adress(rs.getString(4));
+				member.setMember_rank(rs.getString(5));
+				member.setMember_phone(rs.getString(6));
+				member.setMember_result(rs.getString(7));
+				member.setMember_selfresult(rs.getString(8));
+				if (rs.getString(2).equals(member.getMember_password())) {
 					System.out.println("Success Login");
 					return member;
 				}else {
