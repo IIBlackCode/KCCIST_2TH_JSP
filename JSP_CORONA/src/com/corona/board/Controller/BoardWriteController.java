@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.corona.board.DAO.IBoardDAO;
 import com.corona.board.DTO.Board;
+import com.corona.member.DTO.Member;
 
 /**
  * Servlet implementation class BoardWriteController
@@ -38,17 +39,18 @@ public class BoardWriteController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		//Session에 저장된 사용자 ID를 가져오기 
 		HttpSession session = request.getSession();
-		String member_id = (String) session.getAttribute("member_id");
+		Member member = (Member)session.getAttribute("member");
+//		String member_id = (String) session.getAttribute("member_id");
 		//BoardWrite.jsp에 입력된 값 가져오기
 		String board_title = request.getParameter("board_title");
 		String board_content = request.getParameter("board_content");
 		//입력을 잘 받았는지 테스트
-		System.out.println("member_id :"+member_id);
+		System.out.println("member_id :"+member.getMember_id());
 		System.out.println("board_title :"+board_title);
 		System.out.println("board_content :"+board_content);
 		//DTO에 데이터 저장
 		Board board = new Board();
-		board.setMember_id(member_id);
+		board.setMember_id(member.getMember_id());
 		board.setBoard_title(board_title);
 		board.setBoard_content(board_content);
 		

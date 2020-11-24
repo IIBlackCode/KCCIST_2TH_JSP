@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.corona.board.DAO.IBoardDAO;
 import com.corona.board.DTO.Board;
+import com.corona.member.DTO.Member;
 
 /**
  * Servlet implementation class BoardReadController
@@ -69,12 +70,12 @@ public class BoardUpdateController extends HttpServlet {
 		board.setBoard_content(board_content);
 		
 		HttpSession session = request.getSession();
-		
+		Member member = (Member)session.getAttribute("member");
 		IBoardDAO dao = new IBoardDAO();
 		if (dao.update_AdminBoard(board)) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			if (session.getAttribute("member_rank").equals("일반회원")) {
+			if (member.getMember_rank().equals("일반회원")) {
 //				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
 				script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
 			}else {

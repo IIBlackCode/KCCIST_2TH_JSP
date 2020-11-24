@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.corona.board.DAO.IBoardDAO;
 import com.corona.board.DTO.Board;
+import com.corona.member.DTO.Member;
 
 /**
  * Servlet implementation class BoardReadController
@@ -37,11 +38,12 @@ public class BoardReadController extends HttpServlet {
 		
 		//세션에서 사용자 아이디를 가져온다.
 		HttpSession session = request.getSession();
-		String member_id = (String) session.getAttribute("member_id");
-		
-		Board board = new Board();
+		Member member = (Member)session.getAttribute("member");
+		String member_id = member.getMember_id();
+		System.out.println("MEMBER SESSION : "+member.getMember_id());
 		
 		//게시판 페이지로부터 게시글 아이디를 가져온다. String > int 전환
+		Board board = new Board();
 		String board_id = request.getParameter("Board_id");
 		board.setBoard_id(Integer.parseInt(board_id));
 		
