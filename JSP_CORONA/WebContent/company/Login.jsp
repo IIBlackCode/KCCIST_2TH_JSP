@@ -44,12 +44,14 @@
 							<label>아이디</label><input type="text" name="username" placeholder="사용자 ID"/>
 						</div>
 					</div>
-
+					<p>
 					<div>
 						<div>
 							<label>비밀번호</label><input type="password" name="password" placeholder="사용자 비밀번호"/>
 						</div>
 					</div>
+					<p>
+					<p>
 					<button type="submit" class="form_submit_button" onclick="login()">로그인</button>
 				</form>
 				<!-- The end of LoginForm -->
