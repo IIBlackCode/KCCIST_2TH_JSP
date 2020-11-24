@@ -34,7 +34,7 @@
 		<div class="inner">
 			<div class="content">
 				<header>
-					<h2>VIP 회원 가입</h2>
+					<h2>사용자 회원 가입</h2>
 				</header>
 				
 				<!-- Login Form -->
@@ -53,25 +53,25 @@
 					<p>
 					<div>
 						<div>
-							<label>비밀번호(필수)</label><input type="text"  id="member_password" name="member_password" placeholder="비밀번호 입력" size="10"/>
+							<label>비밀번호(필수)</label><input type="password"  id="member_password" name="member_password" placeholder="비밀번호 입력" size="10"/>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>비밀번호확인(필수)</label><input type="text"  id="member_passwordCheck" name="member_passwordCheck" placeholder="비밀번호 재입력" size="10"/>
+							<label>비밀번호확인(필수)</label><input type="password"  id="member_passwordCheck" name="member_passwordCheck" placeholder="비밀번호 재입력" size="10"/>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>주소(필수)</label><input type="text"  id="memberAdress" name="member_Adress"/>
+							<label>주소(필수)</label><input type="text"  id="memberAdress" name="member_Adress" placeholder="주소 입력" size="10"/>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>전화번호(필수)</label><input type="text"  id="memberPhone" name="member_Phone"/>
+							<label>전화번호(필수)</label><input type="text"  id="memberPhone" name="member_Phone" placeholder="전화번호 입력" size="10"/>
 						</div>
 					</div>
 					<p>
