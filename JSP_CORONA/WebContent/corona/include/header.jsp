@@ -20,9 +20,9 @@
 			sessionRank.getAttribute("member_rank");
 			if(sessionRank.getAttribute("member_rank").equals("일반회원")){ 
 		%>
-		<a href="AdminBoardList">게시판</a>
+		<a href="UserBoardList">게시판</a>
 		<%}else{ %>
-		<a href="UserBoardList">관리자 전용 게시판</a>
+		<a href="AdminBoardList">관리자 게시판</a>
 		<%} %>
 		<hr>
 	</div>

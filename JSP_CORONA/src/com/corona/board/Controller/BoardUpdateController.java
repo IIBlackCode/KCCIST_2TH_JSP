@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.corona.board.DAO.IBoardDAO;
 import com.corona.board.DTO.Board;
@@ -66,27 +67,37 @@ public class BoardUpdateController extends HttpServlet {
 		board.setBoard_title(board_title);
 		board.setBoard_content(board_content);
 		
+		HttpSession session = request.getSession();
+		
 		IBoardDAO dao = new IBoardDAO();
 		if (dao.update_AdminBoard(board)) {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('게시글 수정 성공')");
+			if (session.getAttribute("member_rank").equals("일반회원")) {
+				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+			}else {
+				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+			}
 			script.println("</script>");
 //			RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board.jsp");
 //			dispatcher.forward(request, response);
 			
-			response.sendRedirect(request.getContextPath()+"/corona/MainMenu/BoardList");
+//			response.sendRedirect(request.getContextPath()+"/corona/MainMenu/BoardList");
 			
 		}else {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('게시글 수정 실패')");
+			if (session.getAttribute("member_rank").equals("일반회원")) {
+				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+			}else {
+				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+			}
 			script.println("</script>");
 			
 //			RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board.jsp");
 //			dispatcher.forward(request, response);
 			
-			response.sendRedirect(request.getContextPath()+"/corona/MainMenu/BoardList");
+//			response.sendRedirect(request.getContextPath()+"/corona/MainMenu/BoardList");
 		}
 		
 	}

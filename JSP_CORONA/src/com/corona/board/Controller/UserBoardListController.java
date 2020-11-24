@@ -29,7 +29,7 @@ public class UserBoardListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		IBoardDAO dao = new IBoardDAO();
-		ArrayList<Board> boardList = dao.select_AdminBoardList();
+		ArrayList<Board> boardList = dao.select_UserBoardList();
 		for (int i = 0; i < dao.select_AdminBoardList().size(); i++) {
 			System.out.println("getBoard_id :"+dao.select_AdminBoardList().get(i).getBoard_id());
 			System.out.println("getBoard_title :"+dao.select_AdminBoardList().get(i).getBoard_title());

@@ -41,8 +41,11 @@
 				</tbody>
 			</table>
 			<%if(request.getAttribute("member_id").equals(board.getMember_id())){%>
-			<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>">수정</a>
-			<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>">삭제</a>
+				<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>">수정</a>
+				<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>">삭제</a>
+			<%}else if(session.getAttribute("member_rank").equals("관리자")){ %>
+				<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>">관리자 권한 수정</a>
+				<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>">관리자 권한 삭제</a>
 			<%} %>
 		</div>
 	</div>

@@ -38,6 +38,7 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	// 게시판
 	@Override
 	public ArrayList<Board> select_AdminBoardList() {
+		System.out.println("select_AdminBoardList()");
 		// 1. SQL 작성
 		String SQL = "SELECT * FROM board";
 		// 2. 데이터를 받을 타입인지 구분
@@ -188,9 +189,10 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	// 사용자 게시글 삭제
 		@Override
 		public Boolean update_UserBoardDelete(Board board) {
-			String SQL = "UPDATE board SET delete = 'Y' ";
+			String SQL = "UPDATE board SET delete_yn = 'Y' WHERE board_id = ?";
 			try {
 				pstmt = conn.prepareStatement(SQL);
+				pstmt.setInt(1, board.getBoard_id());
 				pstmt.executeUpdate();
 				System.out.println("Success Update Board");
 				return true;

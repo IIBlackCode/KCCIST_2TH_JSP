@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.corona.board.DAO.IBoardDAO;
 import com.corona.board.DTO.Board;
@@ -39,19 +40,22 @@ public class BoardDeleteController extends HttpServlet {
 		//삭제 쿼리 실행
 		IBoardDAO dao = new IBoardDAO();
 		PrintWriter script = response.getWriter();
-		if (dao.delete_AdminBoard(board)) {
+		
+		HttpSession session = request.getSession();
+		
+		
+		if (session.getAttribute("member_rank").equals("일반회원")) {
+			dao.update_UserBoardDelete(board);
 			script.println("<script>");
-			script.println("alert('게시글 삭제 성공')");
+			script.println("alert('게시글 삭제[일반유저] 성공')");
+			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
 			script.println("</script>");
-			
-			response.sendRedirect(request.getContextPath()+"/corona/MainMenu/BoardList");
-			
 		}else {
+			dao.delete_AdminBoard(board);
 			script.println("<script>");
-			script.println("alert('게시글 삭제 실패')");
+			script.println("alert('게시글 삭제[관리자] 실패')");
+			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
 			script.println("</script>");
-			
-			response.sendRedirect(request.getContextPath()+"/corona/MainMenu/BoardList");
 		}
 		
 	}

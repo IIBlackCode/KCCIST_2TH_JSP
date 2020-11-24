@@ -50,6 +50,7 @@ public class BoardWriteController extends HttpServlet {
 		board.setMember_id(member_id);
 		board.setBoard_title(board_title);
 		board.setBoard_content(board_content);
+		
 		//DAO호출 및 script 알람 
 		IBoardDAO dao = new IBoardDAO();
 		PrintWriter script = response.getWriter();
