@@ -17,7 +17,7 @@ import com.corona.board.DTO.Board;
 /**
  * Servlet implementation class BoardReadController
  */
-@WebServlet(urlPatterns= {"/corona/MainMenu/BoardRead","/corona/MainMenu/Board/BoardRead"})
+@WebServlet(urlPatterns= {"/company/BoardRead","/corona/MainMenu/Board/BoardRead"})
 public class BoardReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -53,13 +53,8 @@ public class BoardReadController extends HttpServlet {
 		request.setAttribute("board", board);
 		request.setAttribute("member_id", member_id);
 		
-		/*script를 사용하기 위한 PrintWriter 선언*/
-//		PrintWriter script = response.getWriter();
-//		script.println("<script>");
-//		script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board/BoardRead.jsp");
-//		script.println("</script>");
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board/BoardRead.jsp");
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board/BoardRead.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardRead.jsp");
 		dispatcher.forward(request, response);
 		
 //		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board/BoardRead.jsp");

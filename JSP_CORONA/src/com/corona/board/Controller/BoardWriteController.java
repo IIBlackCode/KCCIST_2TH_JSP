@@ -16,7 +16,7 @@ import com.corona.board.DTO.Board;
 /**
  * Servlet implementation class BoardWriteController
  */
-@WebServlet(urlPatterns= {"/corona/MainMenu/BoardWrite","/corona/MainMenu/Board/BoardWrite"})
+@WebServlet(urlPatterns= {"/company/BoardWrite","/company/Board/BoardWrite","/corona/MainMenu/Board/BoardWrite"})
 public class BoardWriteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,7 +30,8 @@ public class BoardWriteController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
-		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board/BoardWrite.jsp");
+//		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board/BoardWrite.jsp");
+		response.sendRedirect(request.getContextPath()+"/company/Board/BoardWrite.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -59,18 +60,22 @@ public class BoardWriteController extends HttpServlet {
 			script.println("<script>");
 			script.println("alert('게시글 작성 성공')");
 			if (session.getAttribute("member_rank").equals("일반회원")) {
-				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+				script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
 			}else {
-				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+				script.println("location.href ='"+request.getContextPath()+"/company/BoardListAdmin'");
 			}
 			script.println("</script>");
 		}else {
 			script.println("<script>");
 			script.println("alert('게시글 작성 실패')");
 			if (session.getAttribute("member_rank").equals("일반회원")) {
-				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+				script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
 			}else {
-				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+				script.println("location.href ='"+request.getContextPath()+"/company/BoardListAdmin'");
 			}
 			script.println("</script>");
 		}//The end of if

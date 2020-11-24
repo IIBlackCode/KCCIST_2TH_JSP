@@ -1,5 +1,8 @@
+<%@page import="com.corona.board.DTO.Board"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% ArrayList<Board> boardList = (ArrayList)request.getAttribute("boardList"); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -18,40 +21,49 @@
 
 	<!-- Nav -->
 	<%@include file="/company/include/nav.jsp"%>
-
-	<!-- Heading -->
-	<div id="heading">
-		<h1>Login Page</h1>
-	</div>
-
-	<!-- Main -->
-	<section id="main" class="wrapper">
+	
+	<!-- Banner -->
+	<section id="banner">
 		<div class="inner">
-			<div class="content">
-				<header>
-					<h2>사용자 로그인</h2>
-				</header>
-				
-				<!-- Login Form -->
-				<form action="Login" method="post">
-					<div>
-						<div>
-							<label>아이디</label><input type="text" name="username" placeholder="사용자 ID"/>
-						</div>
-					</div>
-
-					<div>
-						<div>
-							<label>비밀번호</label><input type="password" name="password" placeholder="사용자 비밀번호"/>
-						</div>
-					</div>
-					<button type="submit" class="form_submit_button" onclick="login()">로그인</button>
-				</form>
-				<!-- The end of LoginForm -->
-				
-			</div>
+			<h1>CORONA COMUNITY</h1>
+			<p>코로나 대책을 위한 회원간의 소통공간입니다.</p>
 		</div>
+		<video autoplay loop muted playsinline src="images/banner.mp4"></video>
 	</section>
+	
+	<!-- Heading -->
+	<!-- <div id="heading">
+		<h1>CORONA COMUNITY</h1>
+	</div> -->
+
+	<!-- CONTENT -->
+	<div class="">	
+		<table class="" style="text-align:center">
+			<thead>
+				<tr>
+					<th style="background-color: #eeeeee; text-align: center;">번호</th>
+					<th style="background-color: #eeeeee; text-align: center;">제목</th>
+					<th style="background-color: #eeeeee; text-align: center;">작성자</th>
+					<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+				</tr>
+			</thead>
+			<%
+				for(int i = 0; i<boardList.size(); i++){
+			%>
+			<tbody>
+				<tr>
+					<td><%= boardList.get(i).getBoard_id() 	%></td>
+					<td><a href="BoardRead?Board_id=<%=boardList.get(i).getBoard_id()%>"><%= boardList.get(i).getBoard_title() %></a></td>
+					<td><%= boardList.get(i).getMember_id() %></td>
+					<td><%= boardList.get(i).getBoard_date() %></td>
+				</tr>
+			</tbody>
+			<%
+				}
+			%>
+		</table>
+		<a href="BoardWrite">글쓰기</a>
+	</div>
 
 	<!-- FOOTER -->
 	<%@include file="/company/include/footer.jsp"%>

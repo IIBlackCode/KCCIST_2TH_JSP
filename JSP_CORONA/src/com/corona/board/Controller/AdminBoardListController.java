@@ -17,7 +17,7 @@ import com.corona.board.DTO.Board;
 /**
  * Servlet implementation class BoardController
  */
-@WebServlet(urlPatterns= {"/AdminBoardList","/corona/MainMenu/AdminBoardList"})
+@WebServlet(urlPatterns= {"/company/BoardListAdmin","/corona/MainMenu/AdminBoardList"})
 public class AdminBoardListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -39,7 +39,7 @@ public class AdminBoardListController extends HttpServlet {
 		
 //		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board.jsp");
 		request.setAttribute("boardList", boardList);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/AdminBoard.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardListAdmin.jsp");
 		dispatcher.forward(request, response);
 		
 	}

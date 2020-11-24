@@ -17,7 +17,7 @@ import com.corona.board.DTO.Board;
 /**
  * Servlet implementation class BoardReadController
  */
-@WebServlet(urlPatterns= {"/corona/MainMenu/BoardDelete","/corona/MainMenu/Board/BoardDelete"})
+@WebServlet(urlPatterns= {"/company/BoardDelete","/corona/MainMenu/Board/BoardDelete"})
 public class BoardDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -48,13 +48,15 @@ public class BoardDeleteController extends HttpServlet {
 			dao.update_UserBoardDelete(board);
 			script.println("<script>");
 			script.println("alert('게시글 삭제[일반유저] 성공')");
-			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+//			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+			script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
 			script.println("</script>");
 		}else {
 			dao.delete_AdminBoard(board);
 			script.println("<script>");
-			script.println("alert('게시글 삭제[관리자] 실패')");
-			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+			script.println("alert('게시글 삭제[관리자] 성공')");
+//			script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+			script.println("location.href ='"+request.getContextPath()+"/company/BoardListAdmin'");
 			script.println("</script>");
 		}
 		

@@ -17,7 +17,7 @@ import com.corona.board.DTO.Board;
 /**
  * Servlet implementation class BoardReadController
  */
-@WebServlet(urlPatterns= {"/corona/MainMenu/BoardUpdate","/corona/MainMenu/Board/BoardUpdate"})
+@WebServlet(urlPatterns= {"/company/BoardUpdate","/corona/MainMenu/Board/BoardUpdate"})
 public class BoardUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,7 +44,8 @@ public class BoardUpdateController extends HttpServlet {
 		
 		request.setAttribute("board", board);
 		//View에 데이터를 넘기기 위해 forward로 페이지를 전환한다.
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board/BoardUpdate.jsp");
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board/BoardUpdate.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardUpdate.jsp");
 		dispatcher.forward(request, response);
 		
 	}
@@ -74,9 +75,11 @@ public class BoardUpdateController extends HttpServlet {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			if (session.getAttribute("member_rank").equals("일반회원")) {
-				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+				script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
 			}else {
-				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+				script.println("location.href ='"+request.getContextPath()+"/company/BoardListAdmin'");
 			}
 			script.println("</script>");
 //			RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board.jsp");
@@ -88,9 +91,11 @@ public class BoardUpdateController extends HttpServlet {
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			if (session.getAttribute("member_rank").equals("일반회원")) {
-				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+				script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
 			}else {
-				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
+				script.println("location.href ='"+request.getContextPath()+"/company/BoardListAdmin'");
 			}
 			script.println("</script>");
 			
