@@ -23,8 +23,10 @@
 	<!-- Banner -->
 		<section id="banner">
 			<div class="inner">
-				<h1>Industrious</h1>
-				<p>A responsive business oriented template with a video background<br />
+				<h1>코로나바이러스감염증-19(COVID-19)</h1>
+				<p>대한민국 정부는 후베이성에서 입국한 외국인의 입국을 금지하고, 중국 및 일본발 입국자 사증심사를 강화하였으며, 중국(홍콩, 마카오 포함), 이탈리아, 이란을 검역관리지역으로 지정하여 입국자 검역을 강화하고 있습니다.
+					특히, 대한민국 정부는 2020년 2월 4일부터 중국으로부터 한국으로 입국하는 모든 승객에 대해 ‘특별입국절차’를 시행하고 있으며, 
+					홍콩‧마카오(2월12일), 일본(3월9일), 이탈리아‧이란(3월12일), 유럽 주요 5개국(프랑스 · 독일 · 스페인 · 영국 · 네덜란드, 3월 15일), 유럽 전역(3월 16일), 전세계 모든 입국자(3월 19일)로 적용지역을 확대하였습니다.<br />
 				designed by <a href="https://templated.co/">TEMPLATED</a> and released under the Creative Commons License.</p>
 			</div>
 			<video autoplay loop muted playsinline src="images/banner.mp4"></video>
