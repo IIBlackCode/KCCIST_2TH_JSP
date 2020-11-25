@@ -38,25 +38,32 @@
 				</header>
 				
 				<!-- MyinfoUpdate Form -->
-				<form>					
+				<form action="Update" method="post">					
 					<div>
 						<div>
 							<label>아이디</label>
-							<p><%=member.getMember_id()%></p>
+							<p><input type="hidden" name="member_id" value="<%=member.getMember_id()%>"><%=member.getMember_id()%></p>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
 							<label>비밀번호</label>
-							<p><%=member.getMember_password()%></p>
+							<input type="password"  id="member_password" name="member_password" placeholder="변경할 비밀번호 입력" size="10"/>
+						</div>
+					</div>
+					<p>
+					<div>
+						<div>
+							<label>비밀번호 확인</label>
+							<input type="password"  id="member_passwordCheck" name="member_passwordCheck" placeholder="변경할 비밀번호 재입력" size="10"/>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
 							<label>이름</label>
-							<p><%=member.getMember_name()%></p>
+							<p><input type="hidden" name="member_name" value="<%=member.getMember_name()%>"><%=member.getMember_name()%></p>
 						</div>
 					</div>
 					<p>
@@ -64,6 +71,7 @@
 						<div>
 							<label>주소</label>
 							<p><%=member.getMember_adress()%></p>
+							<input type="text"  id="memberAdress" name="member_Adress" placeholder="주소 입력" size="10"/>
 						</div>
 					</div>
 					<p>
@@ -71,12 +79,13 @@
 						<div>
 							<label>전화번호</label>
 							<p><%=member.getMember_phone()%></p>
+							<input type="text"  id="memberPhone" name="member_Phone" placeholder="전화번호 입력" size="10"/>
 						</div>
 					</div>
 					<p>
 					<p>
-					<a href="MemberUpdate.jsp" class="button">회원정보 수정</a>
-					<a href="MemberDelete.jsp" class="button">회원 탈퇴</a>
+					<button type="submit" class="form_submit_button" onclick="Update()">회원정보 수정</button>
+					<button type="reset" class="form_submit_button">초기화</button>
 				</form>
 				<!-- The end of MyinfoUpdate -->
 				

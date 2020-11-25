@@ -86,7 +86,6 @@ public class IMemberDAO implements MemberDAO{
 			e.printStackTrace();
 		}
 		return false;
-		
 	}
 
 	@Override
@@ -108,6 +107,43 @@ public class IMemberDAO implements MemberDAO{
 //			rs = pstmt.executeQuery();
 			int result = pstmt.executeUpdate();
 			System.out.println("Success Join");
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+
+	@Override
+	public boolean update_member(Member member) {
+		System.out.println("update_member()");
+		String SQL = "UPDATE member SET Member_password = ?, Member_adress = ?, Member_phone = ? WHERE member_id = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, member.getMember_password());
+			pstmt.setString(2, member.getMember_adress());
+			pstmt.setString(3, member.getMember_phone());
+			pstmt.setString(4, member.getMember_id());
+//			rs = pstmt.executeQuery();
+			int result = pstmt.executeUpdate();
+			System.out.println("Success Update");
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		return false;
+	}
+	
+	@Override
+	public boolean delete_member(Member member) {
+		System.out.println("delete_member()");
+		String SQL = "DELETE FROM member WHERE member_id = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, member.getMember_id());
+//			rs = pstmt.executeQuery();
+			int result = pstmt.executeUpdate();
+			System.out.println("Success Delete");
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
