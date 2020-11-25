@@ -68,7 +68,7 @@ public class MemberUpdateController extends HttpServlet {
 		if (result) {
 			script.println("<script>");
 			script.println("alert('회원정보 수정 성공')");
-			script.println("location.href ='"+request.getContextPath()+"/company/index.jsp'");
+			script.println("location.href ='"+request.getContextPath()+"/company/Logout");
 			script.println("</script>");
 		} else {
 			script.println("<script>");
