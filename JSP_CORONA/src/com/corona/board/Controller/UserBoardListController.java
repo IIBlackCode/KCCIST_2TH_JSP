@@ -28,26 +28,23 @@ public class UserBoardListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
+
 		IBoardDAO dao = new IBoardDAO();
-		ArrayList<Board> boardList = dao.select_UserBoardList();
-		for (int i = 0; i < dao.select_AdminBoardList().size(); i++) {
-			System.out.println("getBoard_id :"+dao.select_AdminBoardList().get(i).getBoard_id());
-			System.out.println("getBoard_title :"+dao.select_AdminBoardList().get(i).getBoard_title());
-			System.out.println("getBoard_content :"+dao.select_AdminBoardList().get(i).getBoard_content());
-			System.out.println("getMember_id :"+dao.select_AdminBoardList().get(i).getMember_id());
-		}
 		
-//		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board.jsp");
+		//일반 게시글
+		ArrayList<Board> boardList = dao.select_UserBoardList();
 		request.setAttribute("boardList", boardList);
+		
+		//관리자 공지사항
+		Board adminNotice = dao.select_AdminNotice();
+		System.out.println("adminNotice : "+adminNotice.getBoard_id());
+		System.out.println("adminNotice : "+adminNotice.getBoard_title());
+		System.out.println("adminNotice : "+adminNotice.getBoard_date());
+		request.setAttribute("adminNotice", adminNotice);
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardListUser.jsp");
 		dispatcher.forward(request, response);
 		
-		/*script를 사용하기 위한 PrintWriter 선언*/
-//		PrintWriter script = response.getWriter();
-//		script.println("<script>");
-//		script.println("alert('로그인 성공')");
-//		script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/Board.jsp'");
-//		script.println("</script>");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

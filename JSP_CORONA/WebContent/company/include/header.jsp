@@ -7,7 +7,7 @@
 	Member member = (Member)session.getAttribute("member");
 %>
 <header id="header">
-	<a class="logo" href="index.html">KMS COMPANY</a>
+	<a class="logo" href="index.jsp">KMS COMPANY</a>
 	<nav>
 		<%if (member == null){ %>
 		<a href="Login.jsp">로그인</a>

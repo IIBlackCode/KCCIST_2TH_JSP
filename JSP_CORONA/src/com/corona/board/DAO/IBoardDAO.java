@@ -38,9 +38,8 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	// 게시판
 	@Override
 	public ArrayList<Board> select_AdminBoardList() {
-		System.out.println("select_AdminBoardList()");
 		// 1. SQL 작성
-		String SQL = "SELECT * FROM board";
+		String SQL = "SELECT * FROM board ORDER BY board_id DESC";
 		// 2. 데이터를 받을 타입인지 구분
 		ArrayList<Board> boardList = new ArrayList<Board>();
 
@@ -161,7 +160,7 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	@Override
 	public ArrayList<Board> select_UserBoardList() {
 		// 1. SQL 작성
-		String SQL = "SELECT * FROM board WHERE delete_yn = 'N'";
+		String SQL = "SELECT * FROM board WHERE delete_yn = 'N' ORDER BY board_id DESC";
 		// 2. 데이터를 받을 타입인지 구분
 		ArrayList<Board> boardList = new ArrayList<Board>();
 
@@ -184,22 +183,58 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		}
 		// 5. DTO리턴
 		return boardList;
-	}
-	
+	}// The end of Method
+
 	// 사용자 게시글 삭제
-		@Override
-		public Boolean update_UserBoardDelete(Board board) {
-			String SQL = "UPDATE board SET delete_yn = 'Y' WHERE board_id = ?";
-			try {
-				pstmt = conn.prepareStatement(SQL);
-				pstmt.setInt(1, board.getBoard_id());
-				pstmt.executeUpdate();
-				System.out.println("Success Update Board");
-				return true;
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return false;
+	@Override
+	public Boolean update_UserBoardDelete(Board board) {
+		String SQL = "UPDATE board SET delete_yn = 'Y' WHERE board_id = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, board.getBoard_id());
+			pstmt.executeUpdate();
+			System.out.println("Success Update Board");
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		return false;
+	}// The end of Method
+
+	@Override
+	public Board select_AdminNotice() {
+		// 1. SQL 작성
+		String SQL = " SELECT t1.board_id, t1.member_id, t1.board_title, t1.board_content, t1.board_date, t2.member_rank "; 
+			   SQL+= " FROM board t1, member t2 ";
+			   SQL+= " WHERE t1.member_id = t2.member_id AND t2.member_rank = \'관리자\' ";
+			   SQL+= " ORDER BY board_id DESC ";  
+			   SQL+= " LIMIT 1 ";
+		
+		
+		Board board = new Board();
+		try {
+			// 3. SQL 실행 준비
+			pstmt = conn.prepareStatement(SQL);
+			// 4. ?에 들어갈 데이터 지정
+//			pstmt.setInt(1, board.getBoard_id());
+			// 5. SQL 실행
+			rs = pstmt.executeQuery();
+			// 5. dto로 반환할 데이터 저장
+			if (rs.next()) {
+				board.setBoard_id(rs.getInt(1));
+				board.setMember_id(rs.getString(2));
+				board.setBoard_title(rs.getString(3));
+				board.setBoard_content(rs.getString(4));
+				board.setBoard_date(rs.getString(5));
+				return board;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 5. DTO리턴
+		return board;
+	}
+
+	// 관리자 공지사항
 
 }

@@ -62,7 +62,7 @@
 							}
 						%>
 					</table>
-					<a href="BoardWrite">글쓰기</a>
+					<a href="BoardWrite" class="button">글쓰기</a>
 				</div>
 
 			</div>

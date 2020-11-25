@@ -56,12 +56,12 @@
 								</tr>
 							</tbody>
 						</table>
-						<%if(session.getAttribute("member_rank").equals("일반회원")){%>
-							<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>">수정</a>
-							<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>">삭제</a>
-						<%}else if(session.getAttribute("member_rank").equals("관리자")){ %>
-							<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>">관리자 권한 수정</a>
-							<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>">관리자 권한 삭제</a>
+						<%if(member.getMember_rank().equals("일반회원")){%>
+							<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button primary">수정</a>
+							<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>" class="button primary">삭제</a>
+						<%}else if(member.getMember_rank().equals("관리자")){ %>
+							<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button">관리자 권한 수정</a>
+							<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>" class="button">관리자 권한 삭제</a>
 						<%}%>
 					</div>
 				</div>

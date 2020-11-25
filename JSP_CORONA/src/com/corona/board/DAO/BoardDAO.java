@@ -19,4 +19,6 @@ public interface BoardDAO {
 	public ArrayList<Board> select_UserBoardList();
 	//사용자 게시글 삭제
 	public Boolean update_UserBoardDelete(Board board);
+	//관리자 공지사항
+	public Board select_AdminNotice();
 }

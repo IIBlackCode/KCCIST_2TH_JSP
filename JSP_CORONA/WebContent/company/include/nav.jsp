@@ -19,7 +19,7 @@
 		<%
 		session.getAttribute("member_rank");
 		%>
-		<li><a href="SelfTest.jsp">코로나 자가진단</a></li>
+		<li><a href="CoronaSelfTest.jsp">코로나 자가진단</a></li>
 		<li><a href="generic.html">Generic</a></li>
 		<li><a href="elements.html">Elements</a></li>
 	</ul>

@@ -7,6 +7,7 @@ public class Board {
 	private String board_title;
 	private String board_content;
 	private String board_date;
+	
 	public int getBoard_id() {
 		return board_id;
 	}

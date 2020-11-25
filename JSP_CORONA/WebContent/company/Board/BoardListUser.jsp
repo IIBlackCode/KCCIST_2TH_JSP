@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <% ArrayList<Board> boardList = (ArrayList)request.getAttribute("boardList"); %>
+<% Board adminNotice = (Board)request.getAttribute("adminNotice"); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -47,22 +48,36 @@
 					<th style="background-color: #eeeeee; text-align: center;">작성일</th>
 				</tr>
 			</thead>
+			<tbody>
+				<!-- 관리자 공지사항 -->
+				<%-- <tr>
+					<td><B>공지사항</B></td>
+					<td><a href="BoardRead?Board_id=<%=adminNotice.getBoard_id()%>"><b><%= adminNotice.getBoard_title() %></b></a></td>
+					<td><%= adminNotice.getMember_id() %></td>
+					<td><%= adminNotice.getBoard_date() %></td>
+				</tr> --%>
+				<tr>
+					<td><B>공지사항</B></td>
+					<td><b><a href="BoardRead?Board_id=<%=adminNotice.getBoard_id()%>"><%= adminNotice.getBoard_title() %></a></b></td>
+					<td><B>관리자</B></td>
+					<td><B><%=adminNotice.getBoard_date() %></B></td>
+				</tr>
+			<!-- 게시글 -->
 			<%
 				for(int i = 0; i<boardList.size(); i++){
 			%>
-			<tbody>
 				<tr>
 					<td><%= boardList.get(i).getBoard_id() 	%></td>
-					<td><a href="BoardRead?Board_id=<%=boardList.get(i).getBoard_id()%>"><%= boardList.get(i).getBoard_title() %></a></td>
+					<td><a href="BoardRead?Board_id=<%=boardList.get(i).getBoard_id()%>"><b><%= boardList.get(i).getBoard_title() %></b></a></td>
 					<td><%= boardList.get(i).getMember_id() %></td>
 					<td><%= boardList.get(i).getBoard_date() %></td>
 				</tr>
-			</tbody>
 			<%
 				}
 			%>
+			</tbody>
 		</table>
-		<a href="BoardWrite">글쓰기</a>
+		<a href="BoardWrite" class="button primary" style="position: right">글쓰기</a>
 	</div>
 
 	<!-- FOOTER -->
