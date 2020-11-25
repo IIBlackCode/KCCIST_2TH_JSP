@@ -1,4 +1,4 @@
-<%@ page import="com.corona.member.DTO.*"%>
+<%@ page import="com.company.member.DTO.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
