@@ -42,10 +42,10 @@
 		<table class="" style="text-align:center">
 			<thead>
 				<tr>
-					<th style="background-color: #eeeeee; text-align: center;">번호</th>
-					<th style="background-color: #eeeeee; text-align: center;">제목</th>
-					<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-					<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+					<td style="background-color: #eeeeee; text-align: center;">번호</td>
+					<td style="background-color: #eeeeee; text-align: center;">제목</td>
+					<td style="background-color: #eeeeee; text-align: center;">작성자</td>
+					<td style="background-color: #eeeeee; text-align: center;">작성일</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -70,14 +70,26 @@
 					<td><%= boardList.get(i).getNum()	%></td>
 					<td><a href="BoardRead?Board_id=<%=boardList.get(i).getBoard_id()%>"><b><%= boardList.get(i).getBoard_title() %></b></a></td>
 					<td><%= boardList.get(i).getMember_id() %></td>
-					<td><%= boardList.get(i).getBoard_date() %></td>
+					<td>
+					<%= 
+					boardList.get(i).getBoard_date().substring(0,11)+	
+					boardList.get(i).getBoard_date().substring(11,13)+"시"+
+					boardList.get(i).getBoard_date().substring(14,15)+"분"
+					%>
+					</td>
 				</tr>
 			<%
 				}
 			%>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td style="text-align: center;"><a href="BoardWrite" class="button primary" style="position: right">글쓰기</a></td>
+				</tr>
 			</tbody>
 		</table>
-		<a href="BoardWrite" class="button primary" style="position: right">글쓰기</a>
+		
 	</div>
 
 	<!-- FOOTER -->
