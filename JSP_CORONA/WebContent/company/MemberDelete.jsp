@@ -53,13 +53,6 @@
 						</div>
 					</div>
 					<p>
-					<div>
-						<div>
-							<label>비밀번호 확인</label>
-							<input type="password"  id="member_passwordCheck" name="member_passwordCheck" placeholder="변경할 비밀번호 재입력" size="10"/>
-						</div>
-					</div>
-					<p>
 					<p>
 					<button type="submit" class="form_submit_button" onclick="Delete()">회원 탈퇴</button>
 				</form>
