@@ -16,7 +16,7 @@
 		<%if(member.getMember_rank().equals("관리자")){ %>
 			<a href="#">[관리자]</a>
 		<%}else{ %>
-			<a href="#">[<%=member.getMember_name()%>]</a>
+			<a href="MyInfo.jsp">[<%=member.getMember_name()%>]</a>
 		<%} %>
 		<a href="Logout">로그아웃</a>
 		<%} %>

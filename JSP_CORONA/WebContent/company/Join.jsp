@@ -41,12 +41,6 @@
 				<form action="Join" method="post">
 					<div>
 						<div>
-							<label>이름(필수)</label><input type="text"  id="member_name" name="member_name"  placeholder="이름 입력" autofocus size="10"/>
-						</div>
-					</div>
-					<p>
-					<div>
-						<div>
 							<label>아이디(필수)</label><input type="text"  id="member_id" name="member_id" placeholder="아이디 입력"  size="10"/>
 						</div>
 					</div>
@@ -63,6 +57,11 @@
 						</div>
 					</div>
 					<p>
+					<div>
+						<div>
+							<label>이름(필수)</label><input type="text"  id="member_name" name="member_name"  placeholder="이름 입력" autofocus size="10"/>
+						</div>
+					</div>
 					<div>
 						<div>
 							<label>주소(필수)</label><input type="text"  id="memberAdress" name="member_Adress" placeholder="주소 입력" size="10"/>
