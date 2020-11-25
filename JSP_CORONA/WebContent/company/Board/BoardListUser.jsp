@@ -29,7 +29,7 @@
 			<h1>CORONA COMUNITY</h1>
 			<p>코로나 대책을 위한 회원간의 소통공간입니다.</p>
 		</div>
-		<video autoplay loop muted playsinline src="images/banner.mp4"></video>
+		<video autoplay loop muted playsinline src="images/miniproject.mp4"></video>
 	</section>
 	
 	<!-- Heading -->
