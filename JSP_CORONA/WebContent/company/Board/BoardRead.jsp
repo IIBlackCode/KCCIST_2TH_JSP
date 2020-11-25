@@ -52,7 +52,7 @@
 						</table>
 						<p><%=board.getBoard_content()%><p>
 						<%if(member != null){ %>
-						<%if(member.getMember_rank().equals("일반회원")){%>
+						<%if(member.getMember_id().equals(board.getMember_id())){%>
 							<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button primary">수정</a>
 							<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>" class="button primary">삭제</a>
 						<%}else if(member.getMember_rank().equals("관리자")){ %>

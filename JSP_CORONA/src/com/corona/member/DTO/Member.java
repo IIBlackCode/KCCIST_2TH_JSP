@@ -59,4 +59,10 @@ public class Member {
 		this.member_selfresult = member_selfresult;
 	}
 	
+	@Override
+	public String toString() {
+		return "Member [member_id=" + member_id + ", member_password=" + member_password + ", member_name="
+				+ member_name + ", member_adress=" + member_adress + ", member_rank=" + member_rank + ", member_phone="
+				+ member_phone + ", member_result=" + member_result + ", member_selfresult=" + member_selfresult + "]";
+	}
 }

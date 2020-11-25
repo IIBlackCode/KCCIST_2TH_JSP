@@ -34,7 +34,7 @@ public class IMemberDAO implements MemberDAO{
 	
 	@Override
 	public Member select_Member(Member member) {
-		System.out.println("select_MemberLogin()");
+		System.out.println("select_Member()");
 		String SQL = "SELECT * FROM member WHERE member_id = ? ";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -66,7 +66,8 @@ public class IMemberDAO implements MemberDAO{
 
 	@Override
 	public boolean select_MemberLogin(Member member) {
-		System.out.println("select_MemberLogin()");
+		System.out.println("select_MemberLogin() : "+member.toString());
+		String password = member.getMember_password();
 		String SQL = "SELECT member_password FROM member WHERE member_id = ? ";
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -74,15 +75,14 @@ public class IMemberDAO implements MemberDAO{
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				if (rs.getString(1).equals(member.getMember_password())) {
-					System.out.println("Success Login");
+					System.out.println("Success Login"+member.toString());
 					return true;
 				}else {
-					System.out.println("Fail Login");
+					System.out.println("Fail Login"+member.toString());
 					return false;
 				}
-			}
+			}//The end of if
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return false;

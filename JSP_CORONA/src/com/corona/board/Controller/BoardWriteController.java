@@ -44,10 +44,7 @@ public class BoardWriteController extends HttpServlet {
 		//BoardWrite.jsp에 입력된 값 가져오기
 		String board_title = request.getParameter("board_title");
 		String board_content = request.getParameter("board_content");
-		//입력을 잘 받았는지 테스트
-		System.out.println("member_id :"+member.getMember_id());
-		System.out.println("board_title :"+board_title);
-		System.out.println("board_content :"+board_content);
+		
 		//DTO에 데이터 저장
 		Board board = new Board();
 		board.setMember_id(member.getMember_id());
@@ -61,7 +58,7 @@ public class BoardWriteController extends HttpServlet {
 		if(dao.insert_AdminBoard(board)) {
 			script.println("<script>");
 			script.println("alert('게시글 작성 성공')");
-			if (session.getAttribute("member_rank").equals("일반회원")) {
+			if (member.getMember_rank().equals("일반회원")) {
 //				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
 				script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
 			}else {
@@ -72,7 +69,7 @@ public class BoardWriteController extends HttpServlet {
 		}else {
 			script.println("<script>");
 			script.println("alert('게시글 작성 실패')");
-			if (session.getAttribute("member_rank").equals("일반회원")) {
+			if (member.getMember_rank().equals("일반회원")) {
 //				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
 				script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
 			}else {
