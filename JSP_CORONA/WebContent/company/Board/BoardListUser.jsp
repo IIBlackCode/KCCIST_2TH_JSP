@@ -68,7 +68,7 @@
 			%>
 				<tr>
 					<td><%= boardList.get(i).getNum()	%></td>
-					<td><a href="BoardRead?Board_id=<%=boardList.get(i).getBoard_id()%>"><b><%= boardList.get(i).getBoard_title() %></b></a></td>
+					<td><a href="BoardRead?Board_id=<%=boardList.get(i).getBoard_id()%>"><%= boardList.get(i).getBoard_title() %></a></td>
 					<td><%= boardList.get(i).getMember_id() %></td>
 					<td>
 					<%= 
