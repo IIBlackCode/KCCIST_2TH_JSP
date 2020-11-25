@@ -2,12 +2,22 @@ package com.corona.board.DTO;
 
 public class Board {
 
+	private Integer num;
 	private Integer board_id;
 	private String member_id;
 	private String board_title;
 	private String board_content;
 	private String board_date;
 	
+	public Integer getNum() {
+		return num;
+	}
+	public void setNum(Integer num) {
+		this.num = num;
+	}
+	public void setBoard_id(Integer board_id) {
+		this.board_id = board_id;
+	}
 	public int getBoard_id() {
 		return board_id;
 	}
@@ -39,4 +49,9 @@ public class Board {
 		this.board_date = board_date;
 	}
 	
+	@Override
+	public String toString() {
+		return "Board [num=" + num + ", board_id=" + board_id + ", member_id=" + member_id + ", board_title="
+				+ board_title + ", board_content=" + board_content + ", board_date=" + board_date + "]";
+	}
 }

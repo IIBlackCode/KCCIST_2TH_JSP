@@ -46,23 +46,20 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td><%=board.getBoard_id()%></td>
-								</tr>
-								<tr>
-									<td><%=board.getBoard_title()%></td>
-								</tr>
-								<tr>
-									<td><%=board.getBoard_content()%></td>
+									<td>[<%=board.getBoard_id()%>] <%=board.getBoard_title()%></td>
 								</tr>
 							</tbody>
 						</table>
+						<p><%=board.getBoard_content()%><p>
+						<%if(member != null){ %>
 						<%if(member.getMember_rank().equals("일반회원")){%>
 							<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button primary">수정</a>
 							<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>" class="button primary">삭제</a>
 						<%}else if(member.getMember_rank().equals("관리자")){ %>
 							<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button">관리자 권한 수정</a>
 							<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>" class="button">관리자 권한 삭제</a>
-						<%}%>
+						<%	}%>
+						<%}	%>
 					</div>
 				</div>
 				<!-- The end of Content -->

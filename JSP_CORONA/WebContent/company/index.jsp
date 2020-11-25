@@ -121,35 +121,36 @@
 							</blockquote>
 							<div class="author">
 								<div class="image">
-									<img src="images/pic01.jpg" alt="" />
+									<img src="images/KimMinSeo.jpg" alt="" />
 								</div>
-								<p class="credit">- <strong>Jane Doe</strong> <span>CEO - ABC Inc.</span></p>
+								<p class="credit">- <strong>김민서</strong>
+								<span>반장 - <br>자바기반 빅데이더플렛폼 전문가</span></p>
 							</div>
 						</div>
 					</section>
 					<section>
 						<div class="content">
 							<blockquote>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+								<p>조장입니다. 조원들 3대 500 만들어 조지겠습니다.</p>
 							</blockquote>
 							<div class="author">
 								<div class="image">
-									<img src="images/pic03.jpg" alt="" />
+									<img src="images/jihoonkim.jpg" alt="" />
 								</div>
-								<p class="credit">- <strong>John Doe</strong> <span>CEO - ABC Inc.</span></p>
+								<p class="credit">- <strong>김지훈</strong> <span>조장 -<br> 자바기반 빅데이더플렛폼 전문가.</span></p>
 							</div>
 						</div>
 					</section>
 					<section>
 						<div class="content">
 							<blockquote>
-								<p>Nunc lacinia ante nunc ac lobortis ipsum. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus.</p>
+								<p>안녕하세요 부반장 류경선 입니다. 대선에 출마할 예정입니다.</p>
 							</blockquote>
 							<div class="author">
 								<div class="image">
-									<img src="images/pic02.jpg" alt="" />
+									<img src="images/RyuKyungSeon.jpg" alt="" />
 								</div>
-								<p class="credit">- <strong>Janet Smith</strong> <span>CEO - ABC Inc.</span></p>
+								<p class="credit">- <strong>류경선</strong> <span>부반장 -<br> 자바기반 빅데이더플렛폼 전문가.</span></p>
 							</div>
 						</div>
 					</section>

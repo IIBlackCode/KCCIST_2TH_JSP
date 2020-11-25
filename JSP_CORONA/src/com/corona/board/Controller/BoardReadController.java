@@ -36,12 +36,6 @@ public class BoardReadController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		
-		//세션에서 사용자 아이디를 가져온다.
-		HttpSession session = request.getSession();
-		Member member = (Member)session.getAttribute("member");
-		String member_id = member.getMember_id();
-		System.out.println("MEMBER SESSION : "+member.getMember_id());
-		
 		//게시판 페이지로부터 게시글 아이디를 가져온다. String > int 전환
 		Board board = new Board();
 		String board_id = request.getParameter("Board_id");
@@ -50,21 +44,12 @@ public class BoardReadController extends HttpServlet {
 		//Select 쿼리
 		IBoardDAO dao = new IBoardDAO();
 		board = dao.select_AdminBoard(board);
-		
-		
 		request.setAttribute("board", board);
-		request.setAttribute("member_id", member_id);
 		
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board/BoardRead.jsp");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardRead.jsp");
 		dispatcher.forward(request, response);
 		
-//		response.sendRedirect(request.getContextPath()+"/corona/MainMenu/Board/BoardRead.jsp");
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

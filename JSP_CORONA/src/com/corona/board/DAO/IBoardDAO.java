@@ -35,11 +35,15 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		}
 	}
 
-	// 게시판
+	// 관리자 전용 게시판
 	@Override
 	public ArrayList<Board> select_AdminBoardList() {
 		// 1. SQL 작성
-		String SQL = "SELECT * FROM board ORDER BY board_id DESC";
+//		String SQL = "SELECT * FROM board ORDER BY board_id DESC";
+		String SQL = " SELECT @ROWNUM := @ROWNUM + 1 AS num, T.* ";
+			   SQL+= " FROM board T, (SELECT @ROWNUM:=0)TT ";
+//		       SQL+= " WHERE delete_yn = 'N' ";
+			   SQL+= " ORDER BY num DESC; ";
 		// 2. 데이터를 받을 타입인지 구분
 		ArrayList<Board> boardList = new ArrayList<Board>();
 
@@ -50,11 +54,12 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 			// 4. DataRow를 DTO에 저장
 			while (rs.next()) {
 				Board board = new Board();
-				board.setBoard_id(rs.getInt(1));
-				board.setMember_id(rs.getString(2));
-				board.setBoard_title(rs.getString(3));
-				board.setBoard_content(rs.getString(4));
-				board.setBoard_date(rs.getString(5));
+				board.setNum(rs.getInt(1));
+				board.setBoard_id(rs.getInt(2));
+				board.setMember_id(rs.getString(3));
+				board.setBoard_title(rs.getString(4));
+				board.setBoard_content(rs.getString(5));
+				board.setBoard_date(rs.getString(6));
 				boardList.add(board);
 			}
 		} catch (Exception e) {
@@ -160,7 +165,11 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	@Override
 	public ArrayList<Board> select_UserBoardList() {
 		// 1. SQL 작성
-		String SQL = "SELECT * FROM board WHERE delete_yn = 'N' ORDER BY board_id DESC";
+		//String SQL = "SELECT * FROM board WHERE delete_yn = 'N' ORDER BY board_id DESC";
+		String SQL = " SELECT @ROWNUM := @ROWNUM + 1 AS num, T.* ";
+			   SQL+= " FROM board T, (SELECT @ROWNUM:=0)TT ";
+			   SQL+= " WHERE delete_yn = 'N' ";
+			   SQL+= " ORDER BY num DESC; ";
 		// 2. 데이터를 받을 타입인지 구분
 		ArrayList<Board> boardList = new ArrayList<Board>();
 
@@ -171,11 +180,12 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 			// 4. DataRow를 DTO에 저장
 			while (rs.next()) {
 				Board board = new Board();
-				board.setBoard_id(rs.getInt(1));
-				board.setMember_id(rs.getString(2));
-				board.setBoard_title(rs.getString(3));
-				board.setBoard_content(rs.getString(4));
-				board.setBoard_date(rs.getString(5));
+				board.setNum(rs.getInt(1));
+				board.setBoard_id(rs.getInt(2));
+				board.setMember_id(rs.getString(3));
+				board.setBoard_title(rs.getString(4));
+				board.setBoard_content(rs.getString(5));
+				board.setBoard_date(rs.getString(6));
 				boardList.add(board);
 			}
 		} catch (Exception e) {
