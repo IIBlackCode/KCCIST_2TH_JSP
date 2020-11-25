@@ -12,6 +12,7 @@
 		<li><a href="#">회원 정보</a></li>
 			<%}else{%>
 			<li><a href="BoardListUser">게시판</a></li>
+			<li><a href="MyInfo.jsp">나의 회원 정보</a></li>
 			<%} %>
 		<%}else {%>
 			<li><a href="BoardListUser">게시판</a></li>

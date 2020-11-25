@@ -1,3 +1,4 @@
+<%@page import="com.corona.member.DTO.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -41,14 +42,14 @@
 					<div>
 						<div>
 							<label>이름</label>
-							<p>이름</p>
+							<p><%=member.getMember_name()%></p>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
 							<label>아이디</label>
-							<p>아이디</p>
+							<p><%=member.getMember_id()%></p>
 						</div>
 					</div>
 					<p>
@@ -69,7 +70,7 @@
 					<div>
 						<div>
 							<label>주소</label>
-							<p>기존 주소</p>
+							<p><%=member.getMember_adress()%></p>
 							<input type="text"  id="memberAdress" name="member_Adress" placeholder="변경할 주소 입력" size="10"/>
 						</div>
 					</div>
@@ -77,7 +78,7 @@
 					<div>
 						<div>
 							<label>전화번호</label>
-							<p>기존 전화번호</p>
+							<p><%=member.getMember_phone()%></p>
 							<input type="text"  id="memberPhone" name="member_Phone" placeholder="변경할 전화번호 입력" size="10"/>
 						</div>
 					</div>
