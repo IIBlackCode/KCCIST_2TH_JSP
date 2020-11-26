@@ -10,7 +10,7 @@
 		<!-- 관리자인 경우 -->
 			<%if(memberNAV.getMember_rank().equals("관리자")){ %>
 		<li><a href="BoardListAdmin">관리자 게시판</a></li>
-		<li><a href="#">회원 정보</a></li>
+		<li><a href="MemberListAdmin.jsp">회원 정보</a></li>
 			<%}else{ %>
 		<!-- 관리자가 아닌 경우 -->
 		<li><a href="BoardListUser">게시판</a></li>
