@@ -10,7 +10,7 @@
 	<nav>
 		<%if (member == null){ %>
 		<a href="<%=pathHeader%>/Login.jsp">로그인</a>
-		<a href="<%=pathHeader%>/Board/MemberJoin.jsp">회원가입</a>
+		<a href="<%=pathHeader%>/Member/MemberJoin.jsp">회원가입</a>
 		<%}else{ %>
 		<%if(member.getMember_rank().equals("관리자")){ %>
 			<a href="<%=pathHeader%>/Member/MemberInfo.jsp">[관리자]</a>
