@@ -24,16 +24,8 @@
 
 	<!-- Heading -->
 	<div id="heading">
-		<h1>CORONA COMUNITY</h1>
+		<h1>회원관리 페이지</h1>
 	</div>
-
-	<!-- Main -->
-	<section id="main" class="wrapper">
-		<div class="inner">
-			<div class="content">
-				<header>
-					<h2>회원 리스트</h2>
-				</header>
 
 				<!-- CONTENT -->
 				<div class="">
@@ -41,11 +33,13 @@
 						<thead>
 							<tr>
 								<th style="background-color: #eeeeee; text-align: center;">아이디</th>
-								<th style="background-color: #eeeeee; text-align: center;">이름</th>
 								<th style="background-color: #eeeeee; text-align: center;">비밀번호</th>
+								<th style="background-color: #eeeeee; text-align: center;">이름</th>
+								<th style="background-color: #eeeeee; text-align: center;">등급</th>
 								<th style="background-color: #eeeeee; text-align: center;">주소</th>
 								<th style="background-color: #eeeeee; text-align: center;">전화번호</th>
 								<th style="background-color: #eeeeee; text-align: center;">검사결과</th>
+								<th style="background-color: #eeeeee; text-align: center;">가입일</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -54,22 +48,32 @@
 						%>
 							<tr>
 								<td><a href="MemberRead?member_id=<%=memberList.get(i).getMember_id()%>"><%=memberList.get(i).getMember_id()%></a></td>
-								<td><%=memberList.get(i).getMember_name()%></td>
 								<td><%=memberList.get(i).getMember_password()%></td>
+								<td><%=memberList.get(i).getMember_name()%></td>
+								<td><%=memberList.get(i).getMember_rank()%></td>
 								<td><%=memberList.get(i).getMember_adress()%></td>
 								<td><%=memberList.get(i).getMember_phone()%></td>
 								<td><%=memberList.get(i).getMember_selfresult()%></td>
+								<td><%=memberList.get(i).getMember_joindate()%></td>
 							</tr>
 						<%
 							}
 						%>
 						</tbody>
 					</table>
-				</div>
+				</div><!-- The end of Content -->
+	<!-- Main -->
+	<!-- <section id="main" class="wrapper">
+		<div class="inner">
+			<div class="content">
+				<header>
+					<h2>회원 리스트</h2>
+				</header>
+
 
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<!-- FOOTER -->
 	<%@include file="/company/include/footer.jsp"%>
