@@ -18,8 +18,8 @@
 		<%}else{ %>
 		<!-- 로그인을 안했을 때 -->
 		<li><a href="BoardListUser">게시판</a></li>
-		<li><a href="CoronaSelfTest.jsp">코로나 자가진단</a></li>
 		<%} %>
+		<li><a href="CoronaSelfTest.jsp">코로나 자가진단</a></li>
 		<li><a href="generic.html">Generic</a></li>
 		<li><a href="elements.jsp">Elements</a></li>
 	</ul>

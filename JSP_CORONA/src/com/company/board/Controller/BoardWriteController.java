@@ -47,7 +47,14 @@ public class BoardWriteController extends HttpServlet {
 		
 		//DTO에 데이터 저장
 		Board board = new Board();
-		board.setMember_id(member.getMember_id());
+		
+		if (member == null) {
+			//비회원이 글을 작성 할 경우
+			board.setMember_id("비회원");
+		}else {
+			//회원정보로 글을 작성 할 경우
+			board.setMember_id(member.getMember_id());
+		}
 		board.setBoard_title(board_title);
 		board.setBoard_content(board_content);
 		
@@ -58,13 +65,19 @@ public class BoardWriteController extends HttpServlet {
 		if(dao.insert_AdminBoard(board)) {
 			script.println("<script>");
 			script.println("alert('게시글 작성 성공')");
-			if (member.getMember_rank().equals("일반회원")) {
-//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+			
+			if (member == null) {
 				script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
 			}else {
+				if (member.getMember_rank().equals("일반회원")) {
+//				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/UserBoardList'");
+					script.println("location.href ='"+request.getContextPath()+"/company/BoardListUser'");
+				}else {
 //				script.println("location.href ='"+request.getContextPath()+"/corona/MainMenu/AdminBoardList'");
-				script.println("location.href ='"+request.getContextPath()+"/company/BoardListAdmin'");
+					script.println("location.href ='"+request.getContextPath()+"/company/BoardListAdmin'");
+				}
 			}
+			
 			script.println("</script>");
 		}else {
 			script.println("<script>");
