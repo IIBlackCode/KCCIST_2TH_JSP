@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.company.member.DTO.Member;
 
@@ -30,6 +31,36 @@ public class IMemberDAO implements MemberDAO{
 		}
 	}// The end of Method
 	
+	
+	
+	@Override
+	public ArrayList<Member> select_MemberList() {
+		System.out.println("select_MemberList()");
+		String SQL = "SELECT * FROM member";
+		ArrayList<Member> memberList = new ArrayList<Member>();
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Member member = new Member();
+				member.setMember_id(rs.getString(1));
+				member.setMember_password(rs.getString(2));
+				member.setMember_name(rs.getString(3));
+				member.setMember_adress(rs.getString(4));
+				member.setMember_rank(rs.getString(5));
+				member.setMember_phone(rs.getString(6));
+				member.setMember_result(rs.getString(7));
+				member.setMember_selfresult(rs.getString(8));
+				member.setMember_joindate(rs.getString(9));
+				memberList.add(member);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return memberList;
+	}//The end of Method
+
 	@Override
 	public Member select_Member(Member member) {
 		System.out.println("select_Member()");

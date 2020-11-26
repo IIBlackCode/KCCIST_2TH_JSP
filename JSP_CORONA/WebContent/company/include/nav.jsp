@@ -11,7 +11,7 @@
 		<!-- 관리자인 경우 -->
 			<%if(memberNAV.getMember_rank().equals("관리자")){ %>
 		<li><a href="<%=pathNAV%>/BoardListAdmin">관리자 게시판</a></li>
-		<li><a href="<%=pathNAV%>/Member/MemberListAdmin.jsp">회원 정보</a></li>
+		<li><a href="<%=pathNAV%>/Member/MemberListAdmin">회원 정보</a></li>
 			<%}else{ %>
 		<!-- 관리자가 아닌 경우 -->
 		<li><a href="<%=pathNAV%>/BoardListUser">게시판</a></li>

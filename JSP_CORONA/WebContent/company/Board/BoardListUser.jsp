@@ -50,12 +50,6 @@
 			</thead>
 			<tbody>
 				<!-- 관리자 공지사항 -->
-				<%-- <tr>
-					<td><B>공지사항</B></td>
-					<td><a href="BoardRead?Board_id=<%=adminNotice.getBoard_id()%>"><b><%= adminNotice.getBoard_title() %></b></a></td>
-					<td><%= adminNotice.getMember_id() %></td>
-					<td><%= adminNotice.getBoard_date() %></td>
-				</tr> --%>
 				<tr>
 					<td><B>공지사항</B></td>
 					<td><b><a href="BoardRead?Board_id=<%=adminNotice.getBoard_id()%>"><%= adminNotice.getBoard_title() %></a></b></td>

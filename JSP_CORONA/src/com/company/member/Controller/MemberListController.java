@@ -1,7 +1,6 @@
-package com.company.board.Controller;
+package com.company.member.Controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -11,35 +10,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.company.board.DAO.IBoardDAO;
-import com.company.board.DTO.Board;
+import com.company.member.DAO.IMemberDAO;
+import com.company.member.DTO.Member;
 
 /**
- * Servlet implementation class BoardController
+ * Servlet implementation class MemberListController
  */
-@WebServlet(urlPatterns= {"/company/BoardListUser","/corona/MainMenu/UserBoardList"})
-public class UserBoardListController extends HttpServlet {
+@WebServlet(urlPatterns= {"/company/MemberListAdmin","/company/Member/MemberListAdmin"})
+public class MemberListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public UserBoardListController() {
+    public MemberListController() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
-		IBoardDAO dao = new IBoardDAO();
 		
-		//일반 게시글
-		ArrayList<Board> boardList = dao.select_UserBoardList();
-		request.setAttribute("boardList", boardList);
-		
-		//관리자 공지사항
-		Board adminNotice = dao.select_AdminNotice();
-		request.setAttribute("adminNotice", adminNotice);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardListUser.jsp");
+		IMemberDAO dao = new IMemberDAO();
+		ArrayList<Member> memberList = dao.select_MemberList();
+		request.setAttribute("memberList", memberList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Member/MemberListAdmin.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

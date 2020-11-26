@@ -42,24 +42,28 @@
 							<tr>
 								<th style="background-color: #eeeeee; text-align: center;">아이디</th>
 								<th style="background-color: #eeeeee; text-align: center;">이름</th>
+								<th style="background-color: #eeeeee; text-align: center;">비밀번호</th>
 								<th style="background-color: #eeeeee; text-align: center;">주소</th>
 								<th style="background-color: #eeeeee; text-align: center;">전화번호</th>
+								<th style="background-color: #eeeeee; text-align: center;">검사결과</th>
 							</tr>
 						</thead>
+						<tbody>
 						<%
 							for (int i = 0; i < memberList.size(); i++) {
 						%>
-						<tbody>
 							<tr>
 								<td><a href="MemberRead?member_id=<%=memberList.get(i).getMember_id()%>"><%=memberList.get(i).getMember_id()%></a></td>
 								<td><%=memberList.get(i).getMember_name()%></td>
+								<td><%=memberList.get(i).getMember_password()%></td>
 								<td><%=memberList.get(i).getMember_adress()%></td>
 								<td><%=memberList.get(i).getMember_phone()%></td>
+								<td><%=memberList.get(i).getMember_selfresult()%></td>
 							</tr>
-						</tbody>
 						<%
 							}
 						%>
+						</tbody>
 					</table>
 				</div>
 

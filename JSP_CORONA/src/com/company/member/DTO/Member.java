@@ -9,6 +9,7 @@ public class Member {
 	private String member_phone;
 	private String member_result;
 	private String member_selfresult;
+	private String member_joindate;
 	
 	public String getMember_id() {
 		return member_id;
@@ -58,11 +59,19 @@ public class Member {
 	public void setMember_selfresult(String member_selfresult) {
 		this.member_selfresult = member_selfresult;
 	}
+	public String getMember_joindate() {
+		return member_joindate;
+	}
+	public void setMember_joindate(String member_joindate) {
+		this.member_joindate = member_joindate;
+	}
 	
 	@Override
 	public String toString() {
 		return "Member [member_id=" + member_id + ", member_password=" + member_password + ", member_name="
 				+ member_name + ", member_adress=" + member_adress + ", member_rank=" + member_rank + ", member_phone="
-				+ member_phone + ", member_result=" + member_result + ", member_selfresult=" + member_selfresult + "]";
+				+ member_phone + ", member_result=" + member_result + ", member_selfresult=" + member_selfresult
+				+ ", member_joindate=" + member_joindate + "]";
 	}
+	
 }
