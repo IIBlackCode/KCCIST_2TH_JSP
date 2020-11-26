@@ -6,7 +6,7 @@
 <%Member member = (Member)session.getAttribute("member");%>
 <%String pathHeader = request.getContextPath()+"/company"; %>
 <header id="header">
-	<a class="logo" href="index.jsp">KMS COMPANY</a>
+	<a class="logo" href="<%=pathHeader%>/index.jsp">KMS COMPANY</a>
 	<nav>
 		<%if (member == null){ %>
 		<a href="<%=pathHeader%>/Login.jsp">로그인</a>
