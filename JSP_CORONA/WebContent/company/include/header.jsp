@@ -14,7 +14,7 @@
 		<a href="MemberJoin.jsp">회원가입</a>
 		<%}else{ %>
 		<%if(member.getMember_rank().equals("관리자")){ %>
-			<a href="#">[관리자]</a>
+			<a href="MemberInfo.jsp">[관리자]</a>
 		<%}else{ %>
 			<a href="MemberInfo.jsp">[<%=member.getMember_name()%>]</a>
 		<%} %>

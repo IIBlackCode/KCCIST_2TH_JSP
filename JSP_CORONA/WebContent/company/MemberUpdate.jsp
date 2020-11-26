@@ -27,7 +27,7 @@
 
 	<!-- Heading -->
 	<div id="heading">
-		<h1>내 정보</h1>
+		<h1>나의 회원정보 수정</h1>
 	</div>
 
 	<!-- Main -->
@@ -41,8 +41,8 @@
 				<form action="Update" method="post">					
 					<div>
 						<div>
-							<label>아이디</label>
-							<p><input type="hidden" name="member_id" value="<%=member.getMember_id()%>"><%=member.getMember_id()%></p>
+							<label>아이디 : <%=member.getMember_id()%></label>
+							<input type="hidden" name="member_id" value="<%=member.getMember_id()%>">
 						</div>
 					</div>
 					<p>
@@ -55,31 +55,23 @@
 					<p>
 					<div>
 						<div>
-							<label>비밀번호 확인</label>
-							<input type="password"  id="member_passwordCheck" name="member_passwordCheck" placeholder="변경할 비밀번호 재입력" size="10"/>
+							<label>이름 : <%=member.getMember_name()%></label>
+							<input type="hidden" name="member_name" value="<%=member.getMember_name()%>">
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>이름</label>
-							<p><input type="hidden" name="member_name" value="<%=member.getMember_name()%>"><%=member.getMember_name()%></p>
+							<label>기존 주소 : <%=member.getMember_adress()%></label>
+							<p>
+							<input type="text"  id="memberAdress" name="member_Adress" placeholder="변경할 주소 입력" size="10"/>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>주소</label>
-							<p><%=member.getMember_adress()%></p>
-							<input type="text"  id="memberAdress" name="member_Adress" placeholder="주소 입력" size="10"/>
-						</div>
-					</div>
-					<p>
-					<div>
-						<div>
-							<label>전화번호</label>
-							<p><%=member.getMember_phone()%></p>
-							<input type="text"  id="memberPhone" name="member_Phone" placeholder="전화번호 입력" size="10"/>
+							<label>전화번호 : <%=member.getMember_phone()%></label>
+							<input type="text"  id="memberPhone" name="member_Phone" placeholder="변경할 전화번호 입력" size="10"/>
 						</div>
 					</div>
 					<p>

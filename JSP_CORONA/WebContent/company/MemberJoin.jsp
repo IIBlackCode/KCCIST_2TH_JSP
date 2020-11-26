@@ -53,12 +53,6 @@
 					<p>
 					<div>
 						<div>
-							<label>비밀번호확인(필수)</label><input type="password"  id="member_passwordCheck" name="member_passwordCheck" placeholder="비밀번호 재입력" size="10"/>
-						</div>
-					</div>
-					<p>
-					<div>
-						<div>
 							<label>이름(필수)</label><input type="text"  id="member_name" name="member_name"  placeholder="이름 입력" autofocus size="10"/>
 						</div>
 					</div>

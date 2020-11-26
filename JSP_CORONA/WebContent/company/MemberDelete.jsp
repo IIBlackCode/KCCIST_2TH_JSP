@@ -27,7 +27,7 @@
 
 	<!-- Heading -->
 	<div id="heading">
-		<h1>내 정보</h1>
+		<h1>회원 탈퇴</h1>
 	</div>
 
 	<!-- Main -->
@@ -41,15 +41,15 @@
 				<form action="Delete" method="post">					
 					<div>
 						<div>
-							<label>아이디</label>
-							<p><input type="hidden" name="member_id" value="<%=member.getMember_id()%>"><%=member.getMember_id()%></p>
+							<label>아이디 : <%=member.getMember_id()%></label>
+							<input type="hidden" name="member_id" value="<%=member.getMember_id()%>">
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
 							<label>비밀번호</label>
-							<input type="password"  id="member_password" name="member_password" placeholder="변경할 비밀번호 입력" size="10"/>
+							<input type="password"  id="member_password" name="member_password" placeholder="비밀번호 입력" size="10"/>
 						</div>
 					</div>
 					<p>

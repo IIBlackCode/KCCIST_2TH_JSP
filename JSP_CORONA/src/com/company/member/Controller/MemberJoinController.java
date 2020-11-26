@@ -16,14 +16,14 @@ import com.company.member.DTO.Member;
  * Servlet implementation class JoinController
  */
 @WebServlet(urlPatterns={"/company/Join","/corona/Join"})
-public class JoinController extends HttpServlet {
+public class MemberJoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JoinController() {
-    	System.out.println("[JoinController]");
+    public MemberJoinController() {
+    	System.out.println("[MemberJoinController]");
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
