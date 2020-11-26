@@ -78,8 +78,6 @@ public class MemberJoinController extends HttpServlet {
 			script.println("<script>");
 			script.println("alert('회원가입 성공')");
 			script.println("</script>");
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/company/index.jsp");
-//			dispatcher.forward(request, response);
 			response.sendRedirect(request.getContextPath()+"/company/index.jsp");
 		} else {
 			script.println("<script>");

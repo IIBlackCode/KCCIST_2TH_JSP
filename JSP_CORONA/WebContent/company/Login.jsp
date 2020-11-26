@@ -23,8 +23,9 @@
 
 html, body {
 	background-image:
-		/* url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); */
+		/* url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg'); 
 		url('https://cdn.mkhealth.co.kr/news/photo/202009/50473_50434_3933.jpg');
+		*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100%;
@@ -679,6 +680,14 @@ body.is-menu-visible #menu {
 		padding: 2rem 0 0.1rem 0;
 	}
 }
+
+video#bgvid {
+position: fixed; right: 0; bottom: 0;
+min-width: 100%; min-height: 100%;
+width: auto; height: auto; z-index: -100;
+background: url(polina.jpg) no-repeat;
+background-size: cover;
+}
 </style>
 </head>
 <body>
@@ -693,6 +702,8 @@ body.is-menu-visible #menu {
 	<div id="heading">
 		<h1>Login Page</h1>
 	</div>
+	
+	<video autoplay loop muted playsinline src="images/corona.mp4"  id="bgvid"></video>
 
 	<div class="container">
 		<div class="d-flex justify-content-center h-100">
