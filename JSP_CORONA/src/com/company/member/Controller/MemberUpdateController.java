@@ -15,7 +15,7 @@ import com.company.member.DTO.Member;
 /**
  * Servlet implementation class JoinController
  */
-@WebServlet(urlPatterns={"/company/Update","/corona/Update"})
+@WebServlet(urlPatterns={"/company/Member/Update","/corona/Update"})
 public class MemberUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

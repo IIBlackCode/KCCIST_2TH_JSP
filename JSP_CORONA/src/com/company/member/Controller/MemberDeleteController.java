@@ -15,7 +15,7 @@ import com.company.member.DTO.Member;
 /**
  * Servlet implementation class JoinController
  */
-@WebServlet(urlPatterns={"/company/Delete","/corona/Delete"})
+@WebServlet(urlPatterns={"/company/Member/Delete","/corona/Delete"})
 public class MemberDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

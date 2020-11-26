@@ -3,11 +3,13 @@ package com.company.member.Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.company.member.DAO.IMemberDAO;
 import com.company.member.DTO.Member;
@@ -15,7 +17,7 @@ import com.company.member.DTO.Member;
 /**
  * Servlet implementation class JoinController
  */
-@WebServlet(urlPatterns={"/company/Join","/corona/Join"})
+@WebServlet(urlPatterns={"/company/Member/Join","/corona/Join"})
 public class MemberJoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -27,7 +29,11 @@ public class MemberJoinController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.setContentType("text/html;charset=utf-8");
+		System.out.println("[MemberJoinController]");
+	}// The end of Method
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		Member member = new Member();
 		
@@ -40,11 +46,6 @@ public class MemberJoinController extends HttpServlet {
 		String member_phone = request.getParameter("member_Phone");
 		String member_result = request.getParameter("member_result");
 		String member_selfresult = request.getParameter("member_selfresult");
-//		if (member_selfresult==null) {
-//			member_selfresult="미진단";
-//		} else {
-//			return;
-//		};
 		
 		System.out.println("member_id :" +member_id);
 		System.out.println("member_password :" +member_password);
@@ -60,33 +61,32 @@ public class MemberJoinController extends HttpServlet {
 		member.setMember_password(member_password);
 		member.setMember_name(member_name);
 		member.setMember_adress(member_adress);
+		member.setMember_rank("일반회원");
 		member.setMember_phone(member_phone);
-		member.setMember_result(member_result);
-		member.setMember_selfresult(member_selfresult);
+		member.setMember_result("미진단");
+		member.setMember_selfresult("미진단");
+		
+		/*SESSION에 로그인 정보 추가*/
+		HttpSession session = request.getSession();
+		session.setAttribute("member", member);
 		
 		/*DAO 호출 > select Querry 실행*/
 		IMemberDAO dao = new IMemberDAO();
-		boolean result = dao.insert_member(member);
 		
-		/*script를 사용하기 위한 PrintWriter 선언*/
 		PrintWriter script = response.getWriter();
-		if (result) {
+		if (dao.insert_member(member)) {
 			script.println("<script>");
 			script.println("alert('회원가입 성공')");
-			script.println("location.href ='"+request.getContextPath()+"/company/Login.jsp'");
 			script.println("</script>");
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/company/index.jsp");
+//			dispatcher.forward(request, response);
+			response.sendRedirect(request.getContextPath()+"/company/index.jsp");
 		} else {
 			script.println("<script>");
 			script.println("alert('회원가입 실패')");
 			script.println("history.back()");
 			script.println("</script>");
 		}
-		
-	}// The end of Method
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
