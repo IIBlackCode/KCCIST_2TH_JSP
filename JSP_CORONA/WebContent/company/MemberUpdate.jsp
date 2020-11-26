@@ -1,4 +1,4 @@
-<%@page import="com.company.member.DTO.Member"%>
+<%@ page import="com.company.member.DTO.Member"%> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -76,8 +76,8 @@
 					</div>
 					<p>
 					<p>
-					<button type="submit" class="form_submit_button" onclick="Update()">회원정보 수정</button>
-					<button type="reset" class="form_submit_button">초기화</button>
+					<button type="submit" class="button" onclick="Update()">회원정보 수정</button>
+					<a href="MemberInfo.jsp" class="button">이전 페이지로</a>
 				</form>
 				<!-- The end of MyinfoUpdate -->
 				

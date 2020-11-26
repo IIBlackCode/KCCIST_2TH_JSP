@@ -40,6 +40,11 @@ public class MemberJoinController extends HttpServlet {
 		String member_phone = request.getParameter("member_Phone");
 		String member_result = request.getParameter("member_result");
 		String member_selfresult = request.getParameter("member_selfresult");
+//		if (member_selfresult==null) {
+//			member_selfresult="미진단";
+//		} else {
+//			return;
+//		};
 		
 		System.out.println("member_id :" +member_id);
 		System.out.println("member_password :" +member_password);
