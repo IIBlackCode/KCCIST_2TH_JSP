@@ -65,13 +65,13 @@
 					<p>
 					<div>
 						<div>
-							<label>주소</label><input type="text"  id="memberAdress" name="member_Adress" placeholder="주소 입력" size="10"/>
+							<label>주소(선택)</label><input type="text"  id="memberAdress" name="member_Adress" placeholder="주소 입력" size="10"/>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>전화번호</label><input type="text"  id="memberPhone" name="member_Phone" placeholder="전화번호 입력" size="10"/>
+							<label>전화번호(선택)</label><input type="text"  id="memberPhone" name="member_Phone" placeholder="전화번호 입력" size="10"/>
 						</div>
 					</div>
 					<p>

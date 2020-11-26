@@ -41,36 +41,37 @@
 				<form>					
 					<div>
 						<div>
-							<label>아이디</label>
-							<p><%=member.getMember_id()%></p>
+							<label>아이디 : <%=member.getMember_id()%></label>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>비밀번호</label>
-							<p><%=member.getMember_password()%></p>
+							<label>비밀번호 : <%=member.getMember_password()%></label>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>이름</label>
-							<p><%=member.getMember_name()%></p>
+							<label>이름 : <%=member.getMember_name()%></label>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>주소</label>
-							<p><%=member.getMember_adress()%></p>
+							<label>주소 : <%=member.getMember_adress()%></label>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>전화번호</label>
-							<p><%=member.getMember_phone()%></p>
+							<label>전화번호 : <%=member.getMember_phone()%></label>
+						</div>
+					</div>
+					<p>
+					<div>
+						<div>
+							<label>자가진단 결과 : <%=member.getMember_selfresult()%></label>
 						</div>
 					</div>
 					<p>
