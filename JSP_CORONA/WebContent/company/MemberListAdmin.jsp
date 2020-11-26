@@ -1,8 +1,8 @@
-<%@ page import="com.company.board.DTO.Board"%>
+<%@ page import="com.company.member.DTO.*"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% ArrayList<Board> memberList = (ArrayList)request.getAttribute("memberList"); %>
+<% ArrayList<Member> memberList = (ArrayList)request.getAttribute("memberList"); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -40,10 +40,10 @@
 					<table class="" style="text-align: center">
 						<thead>
 							<tr>
-								<th style="background-color: #eeeeee; text-align: center;">번호</th>
-								<th style="background-color: #eeeeee; text-align: center;">제목</th>
-								<th style="background-color: #eeeeee; text-align: center;">작성자</th>
-								<th style="background-color: #eeeeee; text-align: center;">작성일</th>
+								<th style="background-color: #eeeeee; text-align: center;">아이디</th>
+								<th style="background-color: #eeeeee; text-align: center;">이름</th>
+								<th style="background-color: #eeeeee; text-align: center;">주소</th>
+								<th style="background-color: #eeeeee; text-align: center;">전화번호</th>
 							</tr>
 						</thead>
 						<%
@@ -51,11 +51,10 @@
 						%>
 						<tbody>
 							<tr>
-								<td><%=memberList.get(i).getNum()%></td>
-								<td><a
-									href="MemberRead?member_id=<%=memberList.get(i).getBoard_id()%>"><%=memberList.get(i).getBoard_title()%></a></td>
-								<td><%=memberList.get(i).getMember_id()%></td>
-								<td><%=memberList.get(i).getBoard_date()%></td>
+								<td><a href="MemberRead?member_id=<%=memberList.get(i).getMember_id()%>"><%=memberList.get(i).getMember_id()%></a></td>
+								<td><%=memberList.get(i).getMember_name()%></td>
+								<td><%=memberList.get(i).getMember_adress()%></td>
+								<td><%=memberList.get(i).getMember_phone()%></td>
 							</tr>
 						</tbody>
 						<%

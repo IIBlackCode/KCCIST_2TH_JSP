@@ -11,12 +11,12 @@
 	<nav>
 		<%if (member == null){ %>
 		<a href="Login.jsp">로그인</a>
-		<a href="Join.jsp">회원가입</a>
+		<a href="MemberJoin.jsp">회원가입</a>
 		<%}else{ %>
 		<%if(member.getMember_rank().equals("관리자")){ %>
 			<a href="#">[관리자]</a>
 		<%}else{ %>
-			<a href="MyInfo.jsp">[<%=member.getMember_name()%>]</a>
+			<a href="MemberInfo.jsp">[<%=member.getMember_name()%>]</a>
 		<%} %>
 		<a href="Logout">로그아웃</a>
 		<%} %>
