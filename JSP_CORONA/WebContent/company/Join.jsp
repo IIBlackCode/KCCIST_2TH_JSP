@@ -62,6 +62,7 @@
 							<label>이름(필수)</label><input type="text"  id="member_name" name="member_name"  placeholder="이름 입력" autofocus size="10"/>
 						</div>
 					</div>
+					<p>
 					<div>
 						<div>
 							<label>주소</label><input type="text"  id="memberAdress" name="member_Adress" placeholder="주소 입력" size="10"/>
