@@ -16,18 +16,16 @@ import com.company.selfTest.DAO.ISelfTestDAO;
 import com.company.예시.DAO.ITestDAO;
 
 //MainManu/SelfTest
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns={"/company/SelfTest","/corona/MainMenu/SelfTest"})
 public class SelftestController extends HttpServlet {
-   
-
    
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       
       response.setContentType("text/html;charset=utf-8");
       PrintWriter pw = response.getWriter();
-//      session.setAttribute("member_id", member_id);
       HttpSession session = request.getSession();
-      String member_id = (String) session.getAttribute("member_id");
+      Member member = (Member) session.getAttribute("member");
       
       String question1 = request.getParameter("question1");
       String question2 = request.getParameter("question2");
@@ -44,12 +42,11 @@ public class SelftestController extends HttpServlet {
          }
       }
       ISelfTestDAO dao = new ISelfTestDAO();
-      Member member = new Member();
       PrintWriter script = response.getWriter();
       if (count>3) {
          System.out.println("당신은 확진자");
          member.setMember_selfresult("양성");
-         member.setMember_id(member_id);
+         member.setMember_id(member.getMember_id());
          dao.update_memberSelfTastResult(member);
          
          script.println("<script>");
@@ -59,7 +56,7 @@ public class SelftestController extends HttpServlet {
       }else {
          System.out.println("당신은 정상인");
          member.setMember_selfresult("음성");
-         member.setMember_id(member_id);
+         member.setMember_id(member.getMember_id());
          dao.update_memberSelfTastResult(member);
          
          script.println("<script>");
@@ -68,17 +65,8 @@ public class SelftestController extends HttpServlet {
          script.println("</script>");
       }
 
-      
-////      forward : url주소 변경 X
-//      RequestDispatcher dispatcher = request.getRequestDispatcher("corona/Main.jsp");
-//      dispatcher.forward(request, response);
-////      redirect : url주소 변경 o
-//      response.sendRedirect("/corona/Main.html");
    }
 
-   /**
-    * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-    */
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       // TODO Auto-generated method stub
       doGet(request, response);
