@@ -19,7 +19,7 @@ public class LogoutController extends HttpServlet {
 		HttpSession session = request.getSession();
 		/*script를 사용하기 위한 PrintWriter 선언*/
 		PrintWriter script = response.getWriter();
-		if (session.getAttribute("member_id")!= null) {
+		if (session.getAttribute("member")!= null) {
 			session.invalidate(); // 모든세션정보 삭제
 			script.println("<script>");
 			script.println("alert('로그아웃 성공')");
