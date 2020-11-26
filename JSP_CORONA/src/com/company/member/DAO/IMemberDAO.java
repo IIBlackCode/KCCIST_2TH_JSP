@@ -28,9 +28,7 @@ public class IMemberDAO implements MemberDAO{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	
+	}// The end of Method
 	
 	@Override
 	public Member select_Member(Member member) {
@@ -62,7 +60,7 @@ public class IMemberDAO implements MemberDAO{
 			e.printStackTrace();
 		}
 		return member;
-	}
+	}// The end of Method
 
 	@Override
 	public boolean select_MemberLogin(Member member) {
@@ -86,13 +84,13 @@ public class IMemberDAO implements MemberDAO{
 			e.printStackTrace();
 		}
 		return false;
-	}
+	}// The end of Method
 
 	@Override
 	public boolean insert_member(Member member) {
 		System.out.println("insert_member()");
 		String SQL = "INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_phone, Member_result, Member_selfresult)";
-				SQL+= "VALUES(?, ?, ?, ?, ?, ?, ?)";
+			   SQL+= "VALUES(?, ?, ?, ?, ?, ?, ?)";
 		//INSERT INTO member values('test','test','test','test','test','test','test','test');
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -112,12 +110,14 @@ public class IMemberDAO implements MemberDAO{
 			e.printStackTrace();
 		} 
 		return false;
-	}
+	}// The end of Method
 
 	@Override
 	public boolean update_member(Member member) {
-		System.out.println("update_member()");
-		String SQL = "UPDATE member SET Member_password = ?, Member_adress = ?, Member_phone = ? WHERE member_id = ?";
+		System.out.println("update_member() : " + member.toString());
+		String SQL = " UPDATE member ";
+			   SQL+= " SET Member_password = ?, Member_adress = ?, Member_phone = ? ";
+			   SQL+= " WHERE member_id = ? ";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, member.getMember_password());
@@ -132,7 +132,7 @@ public class IMemberDAO implements MemberDAO{
 			e.printStackTrace();
 		} 
 		return false;
-	}
+	}// The end of Method
 	
 	@Override
 	public boolean delete_member(Member member) {
@@ -167,5 +167,5 @@ public class IMemberDAO implements MemberDAO{
 			e.printStackTrace();
 		}
 		return member;
-	}
+	}// The end of Method
 }
