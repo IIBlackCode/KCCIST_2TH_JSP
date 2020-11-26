@@ -21,7 +21,7 @@
 		<li><a href="<%=pathNAV%>/BoardListUser">게시판</a></li>
 		<%} %>
 		<li><a href="<%=pathNAV%>/CoronaSelfTest.jsp">코로나 자가진단</a></li>
-		<li><a href="<%=pathNAV%>/generic.html">Generic</a></li>
+		<li><a href="<%=pathNAV%>/generic.jsp">Generic</a></li>
 		<li><a href="<%=pathNAV%>/elements.jsp">Elements</a></li>
 	</ul>
 </nav>
