@@ -69,7 +69,7 @@ UPDATE board SET board_title = 'TEST타이틀 수정', board_content='TEST내용
 ALTER TABLE member MODIFY member_rank VARCHAR(10) DEFAULT '일반회원';
 #	member_selfResult 자가진단 관련 컬럼 기본값 설정
 ALTER TABLE member MODIFY member_selfResult VARCHAR(10) DEFAULT '미진단';
+#	회원가입시 자동으로 가입일 입력 컬럼 추가
+ALTER TABLE member add member_joindate timestamp default now();
 #	board 테이블에 게시글 삭제여부 컬럼 추가
 ALTER TABLE board add delete_yn char(1) not null default 'N'; 
-#	회원가입시 자동으로 가입일 입력 컬럼 추가
-ALTER TABLE board add member_joindate timestamp default now();
