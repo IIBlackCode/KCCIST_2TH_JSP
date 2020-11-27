@@ -61,7 +61,7 @@
                      <input type="radio" id="question1" name="question1" value="Y">
                      <label for="question1">예(YES)</label>
                      <input type="radio" id="question10" name="question1" value="N">
-                     <label for="question10">아니오(NO))</label>
+                     <label for="question10">아니오(NO)</label>
                      </td>
                   </tr>
             
@@ -80,7 +80,7 @@
                      <input type="radio" id="question2" name="question2" value="Y">
                      <label for="question2">예(YES)</label>
                      <input type="radio" id="question20" name="question2" value="N">
-                     <label for="question20">아니오(NO))</label>
+                     <label for="question20">아니오(NO)</label>
                      </td>
                   </tr>
             </div>
@@ -99,7 +99,7 @@
                      <input type="radio" id="question3" name="question3" value="Y">
                      <label for="question3">예(YES)</label>
                      <input type="radio" id="question30" name="question3" value="N">
-                     <label for="question30">아니오(NO))</label>
+                     <label for="question30">아니오(NO)</label>
                      </td>
                   </tr>
             </div>
@@ -120,7 +120,7 @@
                      <input type="radio" id="question4" name="question4" value="Y">
                      <label for="question4">예(YES)</label>
                      <input type="radio" id="question40" name="question4" value="N">
-                     <label for="question40">아니오(NO))</label>
+                     <label for="question40">아니오(NO)</label>
                      </td>
                   </tr>
             </div>
@@ -138,7 +138,7 @@
                      <input type="radio" id="question5" name="question5" value="Y">
                      <label for="question5">예(YES)</label>
                      <input type="radio" id="question50" name="question5" value="N">
-                     <label for="question50">아니오(NO))</label>
+                     <label for="question50">아니오(NO)</label>
                      </td>
                   </tr>
             </div>
@@ -154,7 +154,7 @@
                      <input type="radio" id="question6" name="question6" value="Y">
                      <label for="question6">예(YES)</label>
                      <input type="radio" id="question60" name="question6" value="N">
-                     <label for="question60">아니오(NO))</label>
+                     <label for="question60">아니오(NO)</label>
                      </td>
                   </tr>
             </div>
