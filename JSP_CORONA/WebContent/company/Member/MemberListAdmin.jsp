@@ -40,6 +40,7 @@
 								<th style="background-color: #eeeeee; text-align: center;">전화번호</th>
 								<th style="background-color: #eeeeee; text-align: center;">검사결과</th>
 								<th style="background-color: #eeeeee; text-align: center;">가입일</th>
+								<th style="background-color: #eeeeee; text-align: center;">수정/삭제</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -55,6 +56,7 @@
 								<td><%=memberList.get(i).getMember_phone()%></td>
 								<td><%=memberList.get(i).getMember_selfresult()%></td>
 								<td><%=memberList.get(i).getMember_joindate()%></td>
+								<td><a class="button small">수정</a> <a class="button small">삭제</a></td>
 							</tr>
 						<%
 							}
