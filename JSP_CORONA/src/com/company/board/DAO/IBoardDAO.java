@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import com.company.DataBaseConnection;
 import com.company.board.DTO.Board;
+import com.company.board.DTO.Criteria;
 
 public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 
@@ -41,9 +42,9 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		// 1. SQL 작성
 //		String SQL = "SELECT * FROM board ORDER BY board_id DESC";
 		String SQL = " SELECT @ROWNUM := @ROWNUM + 1 AS num, T.* ";
-			   SQL+= " FROM board T, (SELECT @ROWNUM:=0)TT ";
+		SQL += " FROM board T, (SELECT @ROWNUM:=0)TT ";
 //		       SQL+= " WHERE delete_yn = 'N' ";
-			   SQL+= " ORDER BY num DESC; ";
+		SQL += " ORDER BY num DESC; ";
 		// 2. 데이터를 받을 타입인지 구분
 		ArrayList<Board> boardList = new ArrayList<Board>();
 
@@ -60,6 +61,7 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 				board.setBoard_title(rs.getString(4));
 				board.setBoard_content(rs.getString(5));
 				board.setBoard_date(rs.getString(6));
+				board.setDelete_yn(rs.getString(7));
 				boardList.add(board);
 			}
 		} catch (Exception e) {
@@ -165,11 +167,12 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	@Override
 	public ArrayList<Board> select_UserBoardList() {
 		// 1. SQL 작성
-		//String SQL = "SELECT * FROM board WHERE delete_yn = 'N' ORDER BY board_id DESC";
+		// String SQL = "SELECT * FROM board WHERE delete_yn = 'N' ORDER BY board_id
+		// DESC";
 		String SQL = " SELECT @ROWNUM := @ROWNUM + 1 AS num, T.* ";
-			   SQL+= " FROM board T, (SELECT @ROWNUM:=0)TT ";
-			   SQL+= " WHERE delete_yn = 'N' ";
-			   SQL+= " ORDER BY num DESC; ";
+		SQL += " FROM board T, (SELECT @ROWNUM:=0)TT ";
+		SQL += " WHERE delete_yn = 'N' ";
+		SQL += " ORDER BY num DESC; ";
 		// 2. 데이터를 받을 타입인지 구분
 		ArrayList<Board> boardList = new ArrayList<Board>();
 
@@ -214,13 +217,12 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 	@Override
 	public Board select_AdminNotice() {
 		// 1. SQL 작성
-		String SQL = " SELECT t1.board_id, t1.member_id, t1.board_title, t1.board_content, t1.board_date, t2.member_rank "; 
-			   SQL+= " FROM board t1, member t2 ";
-			   SQL+= " WHERE t1.member_id = t2.member_id AND t2.member_rank = \'관리자\' ";
-			   SQL+= " ORDER BY board_id DESC ";  
-			   SQL+= " LIMIT 1 ";
-		
-		
+		String SQL = " SELECT t1.board_id, t1.member_id, t1.board_title, t1.board_content, t1.board_date, t2.member_rank ";
+		SQL += " FROM board t1, member t2 ";
+		SQL += " WHERE t1.member_id = t2.member_id AND t2.member_rank = \'관리자\' ";
+		SQL += " ORDER BY board_id DESC ";
+		SQL += " LIMIT 1 ";
+
 		Board board = new Board();
 		try {
 			// 3. SQL 실행 준비
@@ -245,6 +247,38 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		return board;
 	}
 
-	// 관리자 공지사항
+	// 관리자 전용 게시판
+	@Override
+	public ArrayList<Board> select_ListCriteria(Criteria cri) {
+		// 1. SQL 작성
+//			String SQL = "SELECT * FROM board ORDER BY board_id DESC";
+		String SQL = " SELECT board_id, member_id, board_title, board_content, board_date ";
+		 	   SQL+= " FROM board ";
+		 	   SQL+= " WHERE board_id > 0 ";
+		 	   SQL+= " ORDER BY board_id DESC, board_date DESC ";
+		 	   SQL+= " LIMIT "+cri.getPageStart()+","+cri.getPerPageNum();
+		// 2. 데이터를 받을 타입인지 구분
+		ArrayList<Board> boardList = new ArrayList<Board>();
 
+		try {
+			// 3. SQL 실행
+			pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			// 4. DataRow를 DTO에 저장
+			while (rs.next()) {
+				Board board = new Board();
+				board.setNum(rs.getInt(1));
+				board.setBoard_id(rs.getInt(2));
+				board.setMember_id(rs.getString(3));
+				board.setBoard_title(rs.getString(4));
+				board.setBoard_content(rs.getString(5));
+				board.setBoard_date(rs.getString(6));
+				boardList.add(board);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 5. DTO리턴
+		return boardList;
+	}// The end of Method
 }

@@ -8,6 +8,7 @@ public class Board {
 	private String board_title;
 	private String board_content;
 	private String board_date;
+	private String delete_yn;
 	
 	public Integer getNum() {
 		return num;
@@ -48,7 +49,12 @@ public class Board {
 	public void setBoard_date(String board_date) {
 		this.board_date = board_date;
 	}
-	
+	public String getDelete_yn() {
+		return delete_yn;
+	}
+	public void setDelete_yn(String delete_yn) {
+		this.delete_yn = delete_yn;
+	}
 	@Override
 	public String toString() {
 		return "Board [num=" + num + ", board_id=" + board_id + ", member_id=" + member_id + ", board_title="

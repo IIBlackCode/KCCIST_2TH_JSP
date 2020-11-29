@@ -1,9 +1,11 @@
+<%@page import="com.company.board.DTO.PageMaker"%>
 <%@ page import="com.company.board.DTO.Board"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <% ArrayList<Board> boardList = (ArrayList)request.getAttribute("boardList"); %>
 <% Board adminNotice = (Board)request.getAttribute("adminNotice"); %>
+<% PageMaker pageMaker =(PageMaker)request.getAttribute("pageMaker"); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -45,7 +47,6 @@
 								<th style="background-color: #eeeeee; text-align: center;">제목</th>
 								<th style="background-color: #eeeeee; text-align: center;">작성자</th>
 								<th style="background-color: #eeeeee; text-align: center;">작성일</th>
-								<th style="background-color: #eeeeee; text-align: center;">삭제처리</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -55,7 +56,6 @@
 								<td><b><a href="BoardRead?Board_id=<%=adminNotice.getBoard_id()%>"><%= adminNotice.getBoard_title() %></a></b></td>
 								<td><B><%=adminNotice.getMember_id() %></B></td>
 								<td><B><%=adminNotice.getBoard_date() %></B></td>
-								<td><B>삭제불가</B></td>
 							</tr>
 							
 							<!-- 게시글 -->
@@ -71,13 +71,33 @@
 								boardList.get(i).getBoard_date().substring(14,15)+"분"
 								%>
 								</td>
-								<td><%=boardList.get(i).getDelete_yn()%></td>
 							</tr>
 							<%}%>
 							<tr>
 								<td></td>
-								<td style="text-align: center;" colspan="3">
-									< [1][2][3][4][5][6][7][8][9][10] >
+								<td style="text-align: center;" colspan="2">	
+											
+<div>
+	<ul>
+		<%if(pageMaker.prev){ %>
+			<li><a href="listPage${pageMaker.makeQuery(pageMaker.startPage -1)}">&laquo;</a></li>
+		<%} %>
+				
+		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+            <li <c:out value="${pageMaker.criteria.page == idx?'class = active':''}"/>>
+              	<%-- <a href="listPage?page=${idx}">${idx}</a> --%>
+              	<a href="listPage${pageMaker.makeQuery(idx)}">${idx}</a>
+        	</li>
+		</c:forEach>
+		
+		<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+			<%-- <li><a	href="listPage?page=${pageMaker.endPage +1}">&raquo;</a></li> --%>
+			<li><a	href="listPage${pageMaker.makeQuery(pageMaker.endPage +1)}">&raquo;</a></li>
+		</c:if>
+		
+	</ul>
+</div>
+								
 								</td>
 								<td style="text-align: center;"><a href="BoardWrite" class="button primary" style="position: right">글쓰기</a></td>
 							</tr>

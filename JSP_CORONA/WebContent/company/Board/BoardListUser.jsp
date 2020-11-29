@@ -77,8 +77,9 @@
 			%>
 				<tr>
 					<td></td>
-					<td></td>
-					<td></td>
+					<td style="text-align: center;" colspan="2">
+						< [1][2][3][4][5][6][7][8][9][10] >
+					</td>
 					<td style="text-align: center;"><a href="BoardWrite" class="button primary" style="position: right">글쓰기</a></td>
 				</tr>
 			</tbody>

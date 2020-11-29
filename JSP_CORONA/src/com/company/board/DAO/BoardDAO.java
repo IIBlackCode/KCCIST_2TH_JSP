@@ -3,6 +3,7 @@ package com.company.board.DAO;
 import java.util.ArrayList;
 
 import com.company.board.DTO.Board;
+import com.company.board.DTO.Criteria;
 
 public interface BoardDAO {
 	//게시판 게시글 리스트 출력
@@ -21,4 +22,6 @@ public interface BoardDAO {
 	public Boolean update_UserBoardDelete(Board board);
 	//관리자 공지사항
 	public Board select_AdminNotice();
+	
+	public ArrayList<Board> select_ListCriteria(Criteria cri);
 }
