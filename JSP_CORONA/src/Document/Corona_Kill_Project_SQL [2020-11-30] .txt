@@ -63,7 +63,7 @@ select * from reservation;
 INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_rank, Member_phone, Member_selfresult, ip)
 VALUES('master','1234','관리자','알수없음','관리자','알수없음','알수없음','999,999,999,999');
 INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_rank, Member_phone, Member_selfresult, ip)
-VALUES('비회원','????','관리자','알수없음','일반회원','알수없음','알수없음','999,999,999,999');
+VALUES('비회원','????','비회원','알수없음','일반회원','알수없음','알수없음','999,999,999,999');
 INSERT INTO board (member_id,board_title,board_content)
 values('master','BOARD_TITLE','BOARD_CONTENT');
 INSERT INTO board (member_id,board_title,board_content)
