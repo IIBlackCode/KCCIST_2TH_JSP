@@ -34,7 +34,7 @@ public class IMemberDAO implements MemberDAO{
 	@Override
 	public ArrayList<Member> select_MemberList() {
 		System.out.println("select_MemberList()");
-		String SQL = "SELECT * FROM member";
+		String SQL = "SELECT * FROM member ORDER BY member_joindate DESC";
 		ArrayList<Member> memberList = new ArrayList<Member>();
 		try {
 			pstmt = conn.prepareStatement(SQL);

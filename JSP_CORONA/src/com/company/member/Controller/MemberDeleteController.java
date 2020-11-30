@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.company.board.DAO.IBoardDAO;
 import com.company.member.DAO.IMemberDAO;
 import com.company.member.DTO.Member;
 
 /**
  * Servlet implementation class JoinController
  */
-@WebServlet(urlPatterns={"/company/Member/Delete","/corona/Delete"})
+@WebServlet(urlPatterns={"/company/Member/Delete","/corona/Delete","/company/Delete"})
 public class MemberDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -53,14 +54,14 @@ public class MemberDeleteController extends HttpServlet {
 //		member.setMember_selfresult(member_selfresult);
 		
 		/*DAO 호출 > select Querry 실행*/
-		IMemberDAO dao = new IMemberDAO();
+		IMemberDAO memberDao = new IMemberDAO();
 		HttpSession session = request.getSession();
 		Member memberAccount = (Member) session.getAttribute("member");
 		
 		/*script를 사용하기 위한 PrintWriter 선언*/
 		PrintWriter script = response.getWriter();
 		if (memberAccount.getMember_rank().equals("일반회원")) {
-				if (dao.update_UserMemberDelete(member)) {
+				if (memberDao.update_UserMemberDelete(member)) {
 				script.println("<script>");
 				script.println("alert('회원탈퇴 성공')");
 				script.println("location.href ='"+request.getContextPath()+"/company/Logout'");
@@ -72,17 +73,20 @@ public class MemberDeleteController extends HttpServlet {
 				script.println("</script>");
 			}
 		}else {
-			if (dao.delete_member(member)) {
-				script.println("<script>");
-				script.println("alert('[관리자 권한]회원탈퇴 성공')");
-				script.println("location.href ='"+request.getContextPath()+"/company/MemberListAdmin'");
-				script.println("</script>");
-			} else {
-				script.println("<script>");
-				script.println("alert('[관리자 권한]회원탈퇴 실패')");
-				script.println("history.back()");
-				script.println("</script>");
+			IBoardDAO boardDAO = new IBoardDAO();
+			
+			script.println("<script>");
+			if (boardDAO.delete_AdminBoardList(member)) {
+				script.println("alert('[관리자 권한] "+member.getMember_id()+" 게시글 삭제 성공')");
+				if (memberDao.delete_member(member)) {
+					script.println("alert('[관리자 권한]회원탈퇴 성공')");
+					script.println("location.href ='"+request.getContextPath()+"/company/MemberListAdmin'");
+				} else {
+					script.println("alert('[관리자 권한]회원탈퇴 실패')");
+					script.println("history.back()");
+				}
 			}
+			script.println("</script>");
 		}
 		
 	}// The end of Method

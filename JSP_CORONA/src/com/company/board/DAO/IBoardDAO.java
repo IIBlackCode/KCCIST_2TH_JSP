@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import com.company.DataBaseConnection;
 import com.company.board.DTO.Board;
 import com.company.board.DTO.Criteria;
+import com.company.member.DTO.Member;
 
 public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 
@@ -253,10 +254,10 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		// 1. SQL 작성
 //			String SQL = "SELECT * FROM board ORDER BY board_id DESC";
 		String SQL = " SELECT board_id, member_id, board_title, board_content, board_date ";
-		 	   SQL+= " FROM board ";
-		 	   SQL+= " WHERE board_id > 0 ";
-		 	   SQL+= " ORDER BY board_id DESC, board_date DESC ";
-		 	   SQL+= " LIMIT "+cri.getPageStart()+","+cri.getPerPageNum();
+		SQL += " FROM board ";
+		SQL += " WHERE board_id > 0 ";
+		SQL += " ORDER BY board_id DESC, board_date DESC ";
+		SQL += " LIMIT " + cri.getPageStart() + "," + cri.getPerPageNum();
 		// 2. 데이터를 받을 타입인지 구분
 		ArrayList<Board> boardList = new ArrayList<Board>();
 
@@ -280,5 +281,23 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		}
 		// 5. DTO리턴
 		return boardList;
+	}// The end of Method
+
+	// 회원탈퇴 게시글 삭제
+	@Override
+	public Boolean delete_AdminBoardList(Member member) {
+		String SQL = "DELETE FROM board WHERE member_id = ?";
+		try {
+			pstmt = conn.prepareStatement(SQL);
+
+			pstmt.setString(1, member.getMember_id());
+			// rs = pstmt.executeQuery();
+			pstmt.executeUpdate();
+			System.out.println("Success DELETE Board");
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}// The end of Method
 }
