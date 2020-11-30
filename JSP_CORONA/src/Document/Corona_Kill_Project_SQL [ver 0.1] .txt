@@ -78,3 +78,5 @@ ALTER TABLE member add delete_yn char(1) not null default 'N';
 #	회원 삭제시 해당 회원이 쓴 게시글 삭제 제약조건 추가
 ALTER TABLE board ADD CONSTRAINT memberDelteToBoard FOREIGN KEY (member_id)  
 REFERENCES member(member_id) ON DELETE CASCADE; 
+#	회원 테이블에서 불필요한 result 컬럼 삭제
+ALTER TABLE member DROP member_result;
