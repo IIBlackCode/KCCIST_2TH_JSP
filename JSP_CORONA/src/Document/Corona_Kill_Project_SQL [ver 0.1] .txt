@@ -74,4 +74,7 @@ ALTER TABLE member add member_joindate timestamp default now();
 #	board 테이블에 게시글 삭제여부 컬럼 추가
 ALTER TABLE board add delete_yn char(1) not null default 'N';
 # 	member 데이블에 회원 삭제컬럼 추가
-ALTER TABLE member add delete_yn char(1) not null default 'N'; 
+ALTER TABLE member add delete_yn char(1) not null default 'N';
+#	회원 삭제시 해당 회원이 쓴 게시글 삭제 제약조건 추가
+ALTER TABLE board ADD CONSTRAINT memberDelteToBoard FOREIGN KEY (member_id)  
+REFERENCES member(member_id) ON DELETE CASCADE; 
