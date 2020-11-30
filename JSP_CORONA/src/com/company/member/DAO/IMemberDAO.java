@@ -51,6 +51,7 @@ public class IMemberDAO implements MemberDAO{
 				member.setMember_selfresult(rs.getString(8));
 				member.setMember_joindate(rs.getString(9));
 				member.setDelete_yn(rs.getString(10));
+				member.setIp(rs.getString(11));
 				memberList.add(member);
 			}
 		} catch (Exception e) {
@@ -119,8 +120,8 @@ public class IMemberDAO implements MemberDAO{
 	@Override
 	public boolean insert_member(Member member) {
 		System.out.println("insert_member()");
-		String SQL = "INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_phone, Member_result, Member_selfresult)";
-			   SQL+= "VALUES(?, ?, ?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_phone, Member_result, Member_selfresult, ip)";
+			   SQL+= "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 		//INSERT INTO member values('test','test','test','test','test','test','test','test');
 		try {
 			pstmt = conn.prepareStatement(SQL);
@@ -131,6 +132,7 @@ public class IMemberDAO implements MemberDAO{
 			pstmt.setString(5, member.getMember_phone());
 			pstmt.setString(6, member.getMember_result());
 			pstmt.setString(7, member.getMember_selfresult());
+			pstmt.setString(8, member.getIp());
 //			rs = pstmt.executeQuery();
 			int result = pstmt.executeUpdate();
 			System.out.println("Success Join");

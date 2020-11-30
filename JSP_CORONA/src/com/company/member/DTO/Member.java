@@ -11,6 +11,7 @@ public class Member {
 	private String member_selfresult;
 	private String member_joindate;
 	private String delete_yn;
+	private String ip;
 	
 	public String getMember_id() {
 		return member_id;
@@ -72,8 +73,12 @@ public class Member {
 	public void setDelete_yn(String delete_yn) {
 		this.delete_yn = delete_yn;
 	}
-	
-	
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
 	@Override
 	public String toString() {
 		return "Member [member_id=" + member_id + ", member_password=" + member_password + ", member_name="

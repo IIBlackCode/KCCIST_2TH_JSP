@@ -57,6 +57,9 @@ public class MemberJoinController extends HttpServlet {
 		System.out.println("member_result :" +member_result);
 		System.out.println("member_selfresult :" +member_selfresult);
 		
+		String ipAddress=request.getRemoteAddr();
+		System.out.println("클라이언트 IP 주소: "+ipAddress);
+		
 		member.setMember_id(member_id);
 		member.setMember_password(member_password);
 		member.setMember_name(member_name);
@@ -65,6 +68,7 @@ public class MemberJoinController extends HttpServlet {
 		member.setMember_phone(member_phone);
 		member.setMember_result("미진단");
 		member.setMember_selfresult("미진단");
+		member.setIp(ipAddress);
 		
 		/*SESSION에 로그인 정보 추가*/
 		HttpSession session = request.getSession();

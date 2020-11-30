@@ -43,6 +43,7 @@
 					<th style="background-color: #eeeeee; text-align: center;">검사결과</th>
 					<th style="background-color: #eeeeee; text-align: center;">가입일</th>
 					<th style="background-color: #eeeeee; text-align: center;">탈퇴상황</th>
+					<th style="background-color: #eeeeee; text-align: center;">IP</th>
 					<th style="background-color: #eeeeee; text-align: center;">수정/삭제</th>
 				</tr>
 			</thead>
@@ -60,6 +61,7 @@
 					<td><%=memberList.get(i).getMember_selfresult()%></td>
 					<td><%=memberList.get(i).getMember_joindate()%></td>
 					<td><%=memberList.get(i).getDelete_yn()%></td>
+					<td><%=memberList.get(i).getIp()%></td>
 					<td>
 						<a href="Update?member_id=<%=memberList.get(i).getMember_id()%>" class="button small">수정</a> 
 						<a href="Delete?member_id=<%=memberList.get(i).getMember_id()%>" class="button small">삭제</a></td>

@@ -30,6 +30,9 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		
+		String ipAddress=request.getRemoteAddr();
+		System.out.println("클라이언트 IP 주소: "+ipAddress);
+
 		String member_id = request.getParameter("username");
 		String member_password = request.getParameter("password");
 		System.out.println("member_id : "+member_id);
