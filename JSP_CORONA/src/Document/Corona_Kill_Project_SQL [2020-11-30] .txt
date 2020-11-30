@@ -60,14 +60,14 @@ select * from hospital;
 select * from reservation;
 
 ##	초기 데이터 세팅
-INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_phone, Member_selfresult, ip)
-VALUES('master','1234','관리자','알수없음','알수없음','알수없음','999,999,999,999');
-INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_phone, Member_selfresult, ip)
-VALUES('비회원','????','일반회원','알수없음','알수없음','알수없음','999,999,999,999');
+INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_rank, Member_phone, Member_selfresult, ip)
+VALUES('master','1234','관리자','알수없음','관리자','알수없음','알수없음','999,999,999,999');
+INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_rank, Member_phone, Member_selfresult, ip)
+VALUES('비회원','????','관리자','알수없음','일반회원','알수없음','알수없음','999,999,999,999');
 INSERT INTO board (member_id,board_title,board_content)
-values('test','BOARD_TITLE','BOARD_CONTENT');
+values('master','BOARD_TITLE','BOARD_CONTENT');
 INSERT INTO board (member_id,board_title,board_content)
-values('test','BOARD_TITLE','BOARD_CONTENT');
+values('비회원','BOARD_TITLE','BOARD_CONTENT');
 
 ## 수정 쿼리
 #	member 테이블의 member_rank 컬럼에 기본값 설정

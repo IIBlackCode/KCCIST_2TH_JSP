@@ -47,11 +47,10 @@ public class IMemberDAO implements MemberDAO{
 				member.setMember_adress(rs.getString(4));
 				member.setMember_rank(rs.getString(5));
 				member.setMember_phone(rs.getString(6));
-				member.setMember_result(rs.getString(7));
-				member.setMember_selfresult(rs.getString(8));
-				member.setMember_joindate(rs.getString(9));
-				member.setDelete_yn(rs.getString(10));
-				member.setIp(rs.getString(11));
+				member.setMember_selfresult(rs.getString(7));
+				member.setMember_joindate(rs.getString(8));
+				member.setDelete_yn(rs.getString(9));
+				member.setIp(rs.getString(10));
 				memberList.add(member);
 			}
 		} catch (Exception e) {
