@@ -713,13 +713,19 @@ background-size: cover;
 					<span class="glyphicon glyphicon-lock"> </span>
 					<h3>Form Login</h3>
 					<div class="d-flex justify-content-end social_icon">
-						<a href="https://www.facebook.com/devtai.com2019/?"
-							target="_blank"><span><i
-								class="fab fa-facebook-square"></i></span></a> <a
-							href="https://devtai.com/" target="_blank"><span><i
-								class="fab fa-google-plus-square"></i></span></a> <a
-							href="https://www.youtube.com/channel/UCeJ1ZmVB969fLWqqbwRZ89Q?"
-							target="_blank"><span><i class="fab fa-twitter-square"></i></span></a>
+						
+						<a href="https://www.facebook.com/devtai.com2019/?" target="_blank">
+							<span><i class="fab fa-facebook-square"></i></span>
+						</a> 
+						
+						<a href="https://devtai.com/" target="_blank">
+							<span><i class="fab fa-google-plus-square"></i></span>
+						</a> 
+						
+						<a href="https://www.youtube.com/watch?v=WVCM2o0E9ps" target="_blank">
+							<span><i class="fab fa-twitter-square"></i></span>
+						</a>
+						
 					</div>
 				</div>
 
