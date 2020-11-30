@@ -714,14 +714,17 @@ background-size: cover;
 					<h3>Form Login</h3>
 					<div class="d-flex justify-content-end social_icon">
 						
-						<a href="https://www.facebook.com/devtai.com2019/?" target="_blank">
+						<!-- 류경선 링크 수정 -->
+						<a href="" target="_blank">
 							<span><i class="fab fa-facebook-square"></i></span>
 						</a> 
 						
-						<a href="https://devtai.com/" target="_blank">
+						<!-- 김지훈 링크 수정 -->
+						<a href="" target="_blank">
 							<span><i class="fab fa-google-plus-square"></i></span>
 						</a> 
 						
+						<!-- 김민서 링크 수정 -->
 						<a href="https://www.youtube.com/watch?v=WVCM2o0E9ps" target="_blank">
 							<span><i class="fab fa-twitter-square"></i></span>
 						</a>
