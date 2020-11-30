@@ -12,4 +12,5 @@ public interface MemberDAO {
 	public boolean update_member(Member member);
 	public boolean delete_member(Member member);
 	public Member select_MemberRank(Member member);
+	public boolean update_UserMemberDelete(Member member);
 }

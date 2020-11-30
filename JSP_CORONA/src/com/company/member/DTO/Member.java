@@ -10,6 +10,7 @@ public class Member {
 	private String member_result;
 	private String member_selfresult;
 	private String member_joindate;
+	private String delete_yn;
 	
 	public String getMember_id() {
 		return member_id;
@@ -65,6 +66,13 @@ public class Member {
 	public void setMember_joindate(String member_joindate) {
 		this.member_joindate = member_joindate;
 	}
+	public String getDelete_yn() {
+		return delete_yn;
+	}
+	public void setDelete_yn(String delete_yn) {
+		this.delete_yn = delete_yn;
+	}
+	
 	
 	@Override
 	public String toString() {
