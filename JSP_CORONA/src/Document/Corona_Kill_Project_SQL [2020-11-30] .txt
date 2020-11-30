@@ -59,10 +59,15 @@ select * from member;
 select * from hospital;
 select * from reservation;
 
-INSERT INTO member values('test','test','test','test','test','test','test','test');
-INSERT INTO board(board_id,member_id,board_title,board_content) 
-VALUES(1,'test','Test 제목','test내용');
-UPDATE board SET board_title = 'TEST타이틀 수정', board_content='TEST내용 수정' WHERE board_id = 10;
+##	초기 데이터 세팅
+INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_phone, Member_selfresult, ip)
+VALUES('master','1234','관리자','알수없음','알수없음','알수없음','999,999,999,999');
+INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_phone, Member_selfresult, ip)
+VALUES('비회원','????','일반회원','알수없음','알수없음','알수없음','999,999,999,999');
+INSERT INTO board (member_id,board_title,board_content)
+values('test','BOARD_TITLE','BOARD_CONTENT');
+INSERT INTO board (member_id,board_title,board_content)
+values('test','BOARD_TITLE','BOARD_CONTENT');
 
 ## 수정 쿼리
 #	member 테이블의 member_rank 컬럼에 기본값 설정
