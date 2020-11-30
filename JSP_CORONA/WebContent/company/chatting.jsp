@@ -27,7 +27,7 @@
 
 	<!-- Heading -->
 	<div id="heading">
-		<h1>Generic Page</h1>
+		<h1>CHATTING Page</h1>
 	</div>
 
 	<!-- Main -->
@@ -36,14 +36,14 @@
 			<div class="content">
 			
 				<header>
-					<h2>Feugiat consequat</h2>
+					<h2>CHATTING</h2>
 				</header>
 				<!-- 로그인한 상태일 경우와 비로그인 상태일 경우의 chat_id설정 -->
 				<c:if test="${(login.id ne '') and !(empty login.id)}">
 					<input type="hidden" value='${login.id }' id='chat_id' />
 				</c:if>
 				<c:if test="${(login.id eq '') or (empty login.id)}">
-					<input type="hidden" value='<%=session.getAttribute("member")%>'
+					<input type="hidden" value='<%=member.getMember_id()%>'
 						id='chat_id' />
 				</c:if>
 				<!--     채팅창 -->
