@@ -43,7 +43,7 @@
 					<input type="hidden" value='${login.id }' id='chat_id' />
 				</c:if>
 				<c:if test="${(login.id eq '') or (empty login.id)}">
-					<input type="hidden" value='<%=member.getMember_name()%>'
+					<input type="hidden" value='비회원'
 						id='chat_id' />
 				</c:if>
 				<!--     채팅창 -->
