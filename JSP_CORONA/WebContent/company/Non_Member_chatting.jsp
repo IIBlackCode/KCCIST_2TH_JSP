@@ -33,7 +33,7 @@
 	<!-- Main -->
 	<section id="main" class="wrapper">
 		<div class="inner">
-			<div class="content">
+			<div class="content" style="overflow:scroll; width:300px; height:150px;">
 			
 				<header>
 					<h2>CHATTING</h2>
