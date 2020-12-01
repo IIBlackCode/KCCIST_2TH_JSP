@@ -10,8 +10,8 @@
 <header id="header">
 	<a class="logo" href="<%=pathHeader%>/index.jsp">COMPANY</a>
 	<nav>
-	
-		<% 	if(dao.select_MemberList().isEmpty()){%>
+		<% 	if(dao.select_rankCheck()){%>
+		<%-- <% 	if(dao.select_MemberList().isEmpty()){%> --%>
 		<a href="<%=pathHeader%>/Member/Join">관리자계정 생성 필요</a>
 		<%}%>
 		<%if (member == null){ %>

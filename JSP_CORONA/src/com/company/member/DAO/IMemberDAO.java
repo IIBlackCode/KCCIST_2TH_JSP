@@ -213,4 +213,24 @@ public class IMemberDAO implements MemberDAO{
 		} 
 		return false;
 	}// The end of Method
+
+	@Override
+	public Boolean select_rankCheck() {
+		System.out.println("select_MemberList()");
+		String SQL = "SELECT COUNT(*) FROM member WHERE member_rank like '관리자'";
+		ArrayList<Member> memberList = new ArrayList<Member>();
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				if (rs.getInt(1) == 0) {
+					return true;
+				} 
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return false;
+	}//The end of Method
 }
