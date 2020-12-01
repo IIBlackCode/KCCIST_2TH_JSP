@@ -14,23 +14,56 @@ import javax.servlet.http.HttpSession;
 import com.company.member.DAO.IMemberDAO;
 import com.company.member.DTO.Member;
 
-/**
- * Servlet implementation class JoinController
- */
 @WebServlet(urlPatterns={"/company/Member/Join","/corona/Join"})
 public class MemberJoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MemberJoinController() {
-    	System.out.println("[MemberJoinController]");
-    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
-		System.out.println("[MemberJoinController]");
+		System.out.println("[MemberJoinController] doGet");
+		Member memberAdmin = new Member();
+		Member memberUser = new Member();
+		
+		/*DAO 호출 > select Querry 실행*/
+		IMemberDAO dao = new IMemberDAO();
+		
+		memberAdmin.setMember_id("관리자");
+		memberAdmin.setMember_password("1234");
+		memberAdmin.setMember_name("관리자");
+		memberAdmin.setMember_adress("알 수 없음");
+		memberAdmin.setMember_rank("관리자");
+		memberAdmin.setMember_phone("알 수 없음");
+		memberAdmin.setMember_selfresult("미진단");
+		memberAdmin.setIp("999,999,999,999");
+		
+		
+		memberUser.setMember_id("비회원");
+		memberUser.setMember_password("???????");
+		memberUser.setMember_name("비회원");
+		memberUser.setMember_adress("알 수 없음");
+		memberUser.setMember_rank("일반회원");
+		memberUser.setMember_phone("알 수 없음");
+		memberUser.setMember_selfresult("미진단");
+		memberUser.setIp("999,999,999,999");
+		
+		/*SESSION에 로그인 정보 추가*/
+		HttpSession session = request.getSession();
+		session.setAttribute("member", memberAdmin);
+		
+		PrintWriter script = response.getWriter();
+		if (dao.insert_member(memberAdmin) && dao.insert_member(memberUser)) {
+			script.println("<script>");
+			script.println("alert('회원가입 성공')");
+			script.println("</script>");
+			response.sendRedirect(request.getContextPath()+"/company/index.jsp");
+		}else {
+			script.println("<script>");
+			script.println("alert('회원가입 실패')");
+			script.println("history.back()");
+			script.println("</script>");
+		}
+		
 	}// The end of Method
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
