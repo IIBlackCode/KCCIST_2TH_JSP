@@ -56,6 +56,7 @@
 								<td><b>등록된 공지사항이 없습니다.</b></td>
 								<td><B>관리자</B></td>
 								<td><B>알수없음</B></td>
+								<td><B>알수없음</B></td>
 							</tr>
 							<%}else{ %>
 							<tr>
@@ -63,6 +64,7 @@
 								<td><b><a href="BoardRead?Board_id=<%=adminNotice.getBoard_id()%>"><%= adminNotice.getBoard_title() %></a></b></td>
 								<td><B><%=adminNotice.getMember_id() %></B></td>
 								<td><B><%=adminNotice.getBoard_date() %></B></td>
+								<td><B><%=adminNotice.getDelete_yn() %></B></td>
 								<td><B>삭제불가</B></td>
 							</tr>
 							<%} %>

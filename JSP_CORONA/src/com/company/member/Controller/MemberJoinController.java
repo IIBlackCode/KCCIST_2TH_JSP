@@ -36,7 +36,7 @@ public class MemberJoinController extends HttpServlet {
 		memberAdmin.setMember_phone("알 수 없음");
 		memberAdmin.setMember_selfresult("미진단");
 		memberAdmin.setIp("999,999,999,999");
-		
+		dao.insert_member(memberAdmin);
 		
 		memberUser.setMember_id("비회원");
 		memberUser.setMember_password("???????");
@@ -47,12 +47,13 @@ public class MemberJoinController extends HttpServlet {
 		memberUser.setMember_selfresult("미진단");
 		memberUser.setIp("999,999,999,999");
 		
+		
 		/*SESSION에 로그인 정보 추가*/
 		HttpSession session = request.getSession();
 		session.setAttribute("member", memberAdmin);
 		
 		PrintWriter script = response.getWriter();
-		if (dao.insert_member(memberAdmin) && dao.insert_member(memberUser)) {
+		if (dao.insert_member(memberUser)) {
 			script.println("<script>");
 			script.println("alert('회원가입 성공')");
 			script.println("</script>");

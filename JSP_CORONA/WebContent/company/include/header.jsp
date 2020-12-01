@@ -12,7 +12,7 @@
 	<nav>
 	
 		<% 	if(dao.select_MemberList().isEmpty()){%>
-		<a href="<%=pathHeader%>/Member/Join?admin = 관리자">관리자계정 생성 필요</a>
+		<a href="<%=pathHeader%>/Member/Join">관리자계정 생성 필요</a>
 		<%}%>
 		<%if (member == null){ %>
 		<a href="<%=pathHeader%>/Login.jsp">로그인</a>

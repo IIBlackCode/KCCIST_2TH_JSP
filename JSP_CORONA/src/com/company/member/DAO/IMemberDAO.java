@@ -118,22 +118,31 @@ public class IMemberDAO implements MemberDAO{
 
 	@Override
 	public boolean insert_member(Member member) {
-		System.out.println("insert_member()");
-		String SQL = "INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_phone, Member_selfresult, ip)";
-			   SQL+= "VALUES(?, ?, ?, ?, ?, ?, ?)";
+		String SQL = "INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_rank, Member_phone, Member_selfresult, ip)";
+			   SQL+= " VALUES(?, ?, ?, ?, ?, ?, ?, ?) ";
 		//INSERT INTO member values('test','test','test','test','test','test','test','test');
 		try {
+			/**
+  `member_id` 			varchar(50) NOT NULL, #PK			
+  `member_password` 	varchar(50) NOT NULL,
+  `member_name` 		varchar(50) NULL,
+  `member_adress` 		varchar(50) NULL,
+  `member_rank` 		varchar(50) NULL,
+  `member_phone` 		varchar(50) NULL,
+  `member_selfresult` 	varchar(50) DEFAULT NULL,
+			 */
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, member.getMember_id());
 			pstmt.setString(2, member.getMember_password());
 			pstmt.setString(3, member.getMember_name());
 			pstmt.setString(4, member.getMember_adress());
-			pstmt.setString(5, member.getMember_phone());
-			pstmt.setString(6, member.getMember_selfresult());
-			pstmt.setString(7, member.getIp());
+			pstmt.setString(5, member.getMember_rank());
+			pstmt.setString(6, member.getMember_phone());
+			pstmt.setString(7, member.getMember_selfresult());
+			pstmt.setString(8, member.getIp());
 //			rs = pstmt.executeQuery();
 			int result = pstmt.executeUpdate();
-			System.out.println("Success Join");
+			System.out.println("Success Join : "+member.toString());
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

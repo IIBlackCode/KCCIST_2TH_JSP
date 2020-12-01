@@ -35,15 +35,18 @@ public class BoardReadController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
+		System.out.println("[BoardReadController] doGet");
 		
 		//게시판 페이지로부터 게시글 아이디를 가져온다. String > int 전환
 		Board board = new Board();
 		String board_id = request.getParameter("Board_id");
 		board.setBoard_id(Integer.parseInt(board_id));
+		System.out.println(board.toString());
 		
 		//Select 쿼리
 		IBoardDAO dao = new IBoardDAO();
 		board = dao.select_AdminBoard(board);
+		System.out.println(board.toString());
 		request.setAttribute("board", board);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardRead.jsp");
