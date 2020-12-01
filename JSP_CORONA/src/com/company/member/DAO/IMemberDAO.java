@@ -120,17 +120,7 @@ public class IMemberDAO implements MemberDAO{
 	public boolean insert_member(Member member) {
 		String SQL = "INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_rank, Member_phone, Member_selfresult, ip)";
 			   SQL+= " VALUES(?, ?, ?, ?, ?, ?, ?, ?) ";
-		//INSERT INTO member values('test','test','test','test','test','test','test','test');
 		try {
-			/**
-  `member_id` 			varchar(50) NOT NULL, #PK			
-  `member_password` 	varchar(50) NOT NULL,
-  `member_name` 		varchar(50) NULL,
-  `member_adress` 		varchar(50) NULL,
-  `member_rank` 		varchar(50) NULL,
-  `member_phone` 		varchar(50) NULL,
-  `member_selfresult` 	varchar(50) DEFAULT NULL,
-			 */
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, member.getMember_id());
 			pstmt.setString(2, member.getMember_password());
@@ -140,7 +130,6 @@ public class IMemberDAO implements MemberDAO{
 			pstmt.setString(6, member.getMember_phone());
 			pstmt.setString(7, member.getMember_selfresult());
 			pstmt.setString(8, member.getIp());
-//			rs = pstmt.executeQuery();
 			int result = pstmt.executeUpdate();
 			System.out.println("Success Join : "+member.toString());
 			return true;
@@ -187,7 +176,7 @@ public class IMemberDAO implements MemberDAO{
 			e.printStackTrace();
 		} 
 		return false;
-	}
+	}// The end of Method
 	
 	@Override
 	public Member select_MemberRank(Member member) {

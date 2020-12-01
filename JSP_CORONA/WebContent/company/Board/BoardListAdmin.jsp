@@ -64,8 +64,7 @@
 								<td><b><a href="BoardRead?Board_id=<%=adminNotice.getBoard_id()%>"><%= adminNotice.getBoard_title() %></a></b></td>
 								<td><B><%=adminNotice.getMember_id() %></B></td>
 								<td><B><%=adminNotice.getBoard_date() %></B></td>
-								<td><B><%=adminNotice.getDelete_yn() %></B></td>
-								<td><B>삭제불가</B></td>
+								<td><B>불가능</B></td>
 							</tr>
 							<%} %>
 							

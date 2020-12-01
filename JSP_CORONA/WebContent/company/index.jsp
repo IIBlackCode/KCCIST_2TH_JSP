@@ -147,7 +147,7 @@
                         <img src="images/KimMinSeo.jpg" alt="" />
                      </div>
                      <p class="credit">
-                        - <strong>김민서</strong> <span>반장 - <br>자바기반 빅데이더플렛폼
+                        - <strong>김민서</strong> <span>팀장 - <br>자바기반 빅데이더플렛폼
                            전문가 및 카리스마를 담당하고 있습니다
                         </span>
                      </p>
@@ -157,14 +157,14 @@
             <section>
                <div class="content">
                   <blockquote>
-                     <p>조장입니다. 조원들 3대 500 만들어 조지겠습니다.체력과 웹제작은 국력입니다</p>
+                     <p> 팀원들 3대 500 만들어 조지겠습니다.체력과 웹제작은 국력입니다</p>
                   </blockquote>
                   <div class="author">
                      <div class="image">
                         <img src="images/jihoonkim.jpg" alt="" />
                      </div>
                      <p class="credit">
-                        - <strong>김지훈</strong> <span>조장 -<br> 자바기반 빅데이더플렛폼
+                        - <strong>김지훈</strong> <span>팀원 -<br> 자바기반 빅데이더플렛폼
                            전문가 및 팀원 체력 향상을 책임지고 있습니다
                         </span>
                      </p>
@@ -174,14 +174,14 @@
             <section>
                <div class="content">
                   <blockquote>
-                     <p>안녕하세요 부반장 류경선 입니다. 대선에 출마할 예정입니다.</p>
+                     <p>안녕하세요 팀원 류경선 입니다. 대선에 출마할 예정입니다.</p>
                   </blockquote>
                   <div class="author">
                      <div class="image">
                         <img src="images/RyuKyungSeon.jpg" alt="" />
                      </div>
                      <p class="credit">
-                        - <strong>류경선</strong> <span>부반장 -<br> 자바기반 빅데이더플렛폼
+                        - <strong>류경선</strong> <span>팀원 -<br> 자바기반 빅데이더플렛폼
                            전문가 및 막내 귀여움을 독차지하고 있습니다.
                         </span>
                      </p>
