@@ -50,6 +50,14 @@
 						</thead>
 						<tbody>
 							<!-- 관리자 공지사항 -->
+							<%if(adminNotice.getBoard_id() == -1){ %>
+							<tr>
+								<td><B>알수없음</B></td>
+								<td><b>등록된 공지사항이 없습니다.</b></td>
+								<td><B>관리자</B></td>
+								<td><B>알수없음</B></td>
+							</tr>
+							<%}else{ %>
 							<tr>
 								<td><B>공지사항</B></td>
 								<td><b><a href="BoardRead?Board_id=<%=adminNotice.getBoard_id()%>"><%= adminNotice.getBoard_title() %></a></b></td>
@@ -57,6 +65,7 @@
 								<td><B><%=adminNotice.getBoard_date() %></B></td>
 								<td><B>삭제불가</B></td>
 							</tr>
+							<%} %>
 							
 							<!-- 게시글 -->
 							<%for (int i = 0; i < boardList.size(); i++) {%>

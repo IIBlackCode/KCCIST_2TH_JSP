@@ -53,7 +53,7 @@
 				<%if(adminNotice.getBoard_id() == -1){ %>
 				<tr>
 					<td><B>알수없음</B></td>
-					<td><b>게시글이 없음</b></td>
+					<td><b>등록된 공지사항이 없습니다.</b></td>
 					<td><B>관리자</B></td>
 					<td><B>알수없음</B></td>
 				</tr>
@@ -66,15 +66,6 @@
 				</tr>
 				<%} %>
 				
-			<!-- 게시글 -->
-			<%if(boardList.isEmpty()){ %>
-				<tr>
-					<td><B>알수없음</B></td>
-					<td><b>게시글이 없음</b></td>
-					<td><B>관리자</B></td>
-					<td><B>알수없음</B></td>
-				</tr>
-			<%}else{ %>
 				<%for(int i = 0; i<boardList.size(); i++){%>
 				<tr>
 					<td><%= boardList.get(i).getNum()	%></td>
@@ -89,7 +80,6 @@
 					</td>
 				</tr>
 				<%} %>
-			<%} %>
 				<tr>
 					<td></td>
 					<td style="text-align: center;" colspan="2">
