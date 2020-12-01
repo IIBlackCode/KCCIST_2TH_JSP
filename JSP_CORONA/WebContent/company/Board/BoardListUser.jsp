@@ -24,7 +24,7 @@
 	<%@include file="/company/include/nav.jsp"%>
 	
 	<!-- Banner -->
-	<section id="banner">
+	<section id="banner" style="opacity: 2.6;">
 		<div class="inner">
 			<h1>CORONA COMUNITY</h1>
 			<p>코로나 대책을 위한 회원간의 소통공간입니다.</p>

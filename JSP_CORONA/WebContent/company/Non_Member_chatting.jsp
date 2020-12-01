@@ -33,7 +33,7 @@
 	<!-- Main -->
 	<section id="main" class="wrapper">
 		<div class="inner">
-			<div class="content" style="overflow:scroll; width:300px; height:150px;">
+			<div class="content" style="overflow:scroll; width:1000px; height:500px;">
 			
 				<header>
 					<h2>CHATTING</h2>
@@ -43,8 +43,7 @@
 					<input type="hidden" value='${login.id }' id='chat_id' />
 				</c:if>
 				<c:if test="${(login.id eq '') or (empty login.id)}">
-					<input type="hidden" value='비회원'
-						id='chat_id' />
+					<input type="hidden" value='비회원' id='chat_id' />
 				</c:if>
 				<!--     채팅창 -->
 				<div id="_chatbox" style="display: none">
