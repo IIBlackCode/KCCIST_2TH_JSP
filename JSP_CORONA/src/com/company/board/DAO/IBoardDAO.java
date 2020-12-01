@@ -190,10 +190,12 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 				board.setBoard_title(rs.getString(4));
 				board.setBoard_content(rs.getString(5));
 				board.setBoard_date(rs.getString(6));
+				System.out.println(board.toString());
 				boardList.add(board);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		// 5. DTO리턴
 		return boardList;
@@ -239,9 +241,11 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 				board.setBoard_title(rs.getString(3));
 				board.setBoard_content(rs.getString(4));
 				board.setBoard_date(rs.getString(5));
+				System.out.println(board.toString());
 				return board;
 			}
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		// 5. DTO리턴

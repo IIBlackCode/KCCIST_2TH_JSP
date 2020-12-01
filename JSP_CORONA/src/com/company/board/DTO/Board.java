@@ -20,6 +20,9 @@ public class Board {
 		this.board_id = board_id;
 	}
 	public int getBoard_id() {
+		if (num == null) {
+			return -1;
+		}
 		return board_id;
 	}
 	public void setBoard_id(int board_id) {
