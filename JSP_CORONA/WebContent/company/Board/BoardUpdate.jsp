@@ -38,7 +38,7 @@
 				<!-- CONTENT -->
 				<div class="container">
 					<div class="">
-						<form action="BoardWrite" method="post">
+						<form action="BoardUpdate" method="post">
 							<table class=""
 								style="text-align: center; border: 1px solid #dddddd">
 								<thead>
@@ -51,14 +51,14 @@
 										<td><input type="hidden" name="Board_id" value="<%=board.getBoard_id()%>"><%=board.getBoard_id()%></td>
 									</tr>
 									<tr>
-										<td><input type="text" placeholder="글 제목" name="board_title" maxlength="50" value="<%=board.getBoard_title()%>"></td>
+										<td><input type="text" placeholder="글 제목" name="Board_title" maxlength="50" value="<%=board.getBoard_title()%>"></td>
 									</tr>
 									<tr>
-										<td><textarea placeholder="글 내용" name="board_content" maxlength="2048" style="height: 350px;"><%=board.getBoard_content()%></textarea></td>
+										<td><textarea placeholder="글 내용" name="Board_content" maxlength="2048" style="height: 350px;"><%=board.getBoard_content()%></textarea></td>
 									</tr>
 								</tbody>
 							</table>
-							<input type="submit" class="" value="글쓰기">
+							<input type="submit" class="" value="글수정">
 						</form>
 					</div>
 				</div>
