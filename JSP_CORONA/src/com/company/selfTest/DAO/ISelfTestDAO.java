@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.company.DataBaseConnection;
 import com.company.member.DTO.Member;
 
 public class ISelfTestDAO implements SelfTestDAO {
@@ -15,7 +16,10 @@ public class ISelfTestDAO implements SelfTestDAO {
 	private ResultSet rs;
 
 	public ISelfTestDAO() {
-
+		DataBaseConnection dbConnection = new DataBaseConnection();
+		this.conn = dbConnection.dataBaseConnection();
+		
+		/*
 		try {
 
 			String mariaDB = "org.mariadb.jdbc.Driver";
@@ -30,6 +34,7 @@ public class ISelfTestDAO implements SelfTestDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		*/
 	}
 
 	@Override 
@@ -41,7 +46,9 @@ public class ISelfTestDAO implements SelfTestDAO {
 	@Override
 	public boolean update_memberSelfTastResult(Member member) {
 		System.out.println("update_memberSelfTastResult()");
-		String SQL = "update member set member_selfresult =? where member_id = ?";
+		String SQL = " update member set member_selfresult =? where member_id = ? ";
+		System.out.println(member.getMember_id());
+		System.out.println(member.getMember_selfresult());
 		// INSERT INTO member
 		// values('test','test','test','test','test','test','test','test');
 		try {
