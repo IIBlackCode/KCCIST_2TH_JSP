@@ -75,8 +75,8 @@ public class IMemberDAO implements MemberDAO{
 				member.setMember_adress(rs.getString(4));
 				member.setMember_rank(rs.getString(5));
 				member.setMember_phone(rs.getString(6));
-				member.setMember_result(rs.getString(7));
-				member.setMember_selfresult(rs.getString(8));
+//				member.setMember_result(rs.getString(7));
+				member.setMember_selfresult(rs.getString(7));
 				if (rs.getString(2).equals(member.getMember_password())) {
 					System.out.println("Success Login");
 					return member;
