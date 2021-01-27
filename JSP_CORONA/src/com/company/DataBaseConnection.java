@@ -10,7 +10,7 @@ public class DataBaseConnection {
 	int a = 10;
 	static Connection conn;
 
-	public void dataBaseConnection() {
+	public Connection dataBaseConnection() {
 		try {
 			String mariaDB = "org.mariadb.jdbc.Driver";
 //			String mysql = "com.mysql.jdbc.Driver";
@@ -25,6 +25,7 @@ public class DataBaseConnection {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return this.conn;
 	}//The end of Constructor
 
 }//The end of Method
