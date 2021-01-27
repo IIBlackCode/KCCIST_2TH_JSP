@@ -67,8 +67,10 @@ public class MemberUpdateController extends HttpServlet {
 		PrintWriter script = response.getWriter();
 		if (result) {
 			script.println("<script>");
-			script.println("alert('회원정보 수정 성공! 다시 로그인하세요!')");
-			script.println("location.href ='"+request.getContextPath()+"/company/Logout'");
+//			script.println("alert('회원정보 수정 성공! 다시 로그인하세요!')");
+			script.println("alert('회원정보 수정 성공!')");
+//			script.println("location.href ='"+request.getContextPath()+"/company/Logout'");
+			script.println("location.href ='"+request.getContextPath()+"/company/Member/MemberInfo.jsp'");
 			script.println("</script>");
 		} else {
 			script.println("<script>");
