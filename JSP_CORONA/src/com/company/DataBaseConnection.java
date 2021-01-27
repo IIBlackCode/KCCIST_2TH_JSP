@@ -10,7 +10,7 @@ public class DataBaseConnection {
 	int a = 10;
 	static Connection conn;
 
-	public DataBaseConnection() {
+	public void dataBaseConnection() {
 		try {
 			String mariaDB = "org.mariadb.jdbc.Driver";
 //			String mysql = "com.mysql.jdbc.Driver";
