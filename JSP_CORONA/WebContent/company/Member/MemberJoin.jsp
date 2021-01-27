@@ -41,19 +41,19 @@
 				<form action="Join" method="post">
 					<div>
 						<div>
-							<label>아이디(필수)</label><input type="text"  id="member_id" name="member_id" placeholder="아이디 입력"  size="10"/>
+							<label>아이디(필수)</label><input type="text"  id="member_id" name="member_id" placeholder="아이디 입력"  size="10" required="required"/>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>비밀번호(필수)</label><input type="password"  id="member_password" name="member_password" placeholder="비밀번호 입력" size="10"/>
+							<label>비밀번호(필수)</label><input type="password"  id="member_password" name="member_password" placeholder="비밀번호 입력" size="10" required="required"/>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>이름(필수)</label><input type="text"  id="member_name" name="member_name"  placeholder="이름 입력" autofocus size="10"/>
+							<label>이름(필수)</label><input type="text"  id="member_name" name="member_name"  placeholder="이름 입력" autofocus size="10" required="required"/>
 						</div>
 					</div>
 					<p>
