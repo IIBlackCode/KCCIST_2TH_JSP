@@ -20,6 +20,11 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 
 	// DataBase 연결
 	public IBoardDAO() {
+		
+		DataBaseConnection dbConnection = new DataBaseConnection();
+		this.conn = dbConnection.dataBaseConnection();
+		
+		/*
 		try {
 
 			String mariaDB = "org.mariadb.jdbc.Driver";
@@ -35,6 +40,7 @@ public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		*/
 	}
 
 	// 관리자 전용 게시판

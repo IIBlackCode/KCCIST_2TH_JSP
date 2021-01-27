@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.company.DataBaseConnection;
 import com.company.member.DTO.Member;
 
 public class IMemberDAO implements MemberDAO{
@@ -15,6 +16,11 @@ public class IMemberDAO implements MemberDAO{
 	private ResultSet rs;
 	
 	public IMemberDAO() {
+		
+		DataBaseConnection dbConnection = new DataBaseConnection();
+		this.conn = dbConnection.dataBaseConnection();
+		
+		/*
 		try {
 			String mariaDB = "org.mariadb.jdbc.Driver";
 //			String mysql = "com.mysql.jdbc.Driver";
@@ -29,6 +35,8 @@ public class IMemberDAO implements MemberDAO{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		*/
+		
 	}// The end of Method
 	
 	@Override

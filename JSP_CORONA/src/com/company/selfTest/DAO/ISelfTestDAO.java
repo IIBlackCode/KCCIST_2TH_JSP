@@ -16,6 +16,7 @@ public class ISelfTestDAO implements SelfTestDAO {
 	private ResultSet rs;
 
 	public ISelfTestDAO() {
+		
 		DataBaseConnection dbConnection = new DataBaseConnection();
 		this.conn = dbConnection.dataBaseConnection();
 		
