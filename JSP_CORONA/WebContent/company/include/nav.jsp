@@ -4,7 +4,7 @@
 <!-- Nav -->
 <nav id="menu">
 	<ul class="links">
-		<li><a href="index.jsp">Home</a></li>
+		<li><a href="index2.jsp">Home</a></li>
 		<% Member memberNAV = (Member)session.getAttribute("member"); %>
 		<% String pathNAV = request.getContextPath()+"/company"; %>
 		<%if(memberNAV != null){ %>
