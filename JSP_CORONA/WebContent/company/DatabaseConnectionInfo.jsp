@@ -25,6 +25,8 @@
 	</div>
 		<%
 			DataBaseConnection conn = new DataBaseConnection();
+			String os = System.getProperty("os.name").toLowerCase();
+
 		%>
 		<!-- Main -->
 			<section id="main" class="wrapper">
@@ -33,9 +35,17 @@
 						<header>
 							<h2>DataBase Connection Info</h2>
 						</header>
+						
+						<p>SERVER OS : <%=os %></p>
 						<hr />
-						<p><%=conn.getIp() %></p>
-						<p><%=conn.getPort() %></p>
+						<p>DB IP : <%=conn.getIp() %></p>
+						<p>DB PORT : <%=conn.getPort() %></p>
+						<p>DB DRIVER : <%=conn.getDriver() %></p>
+						<hr />
+						<h5>DB 계정 정보</h5>
+						<p><%=conn.getDataBaseUrl() %></p>
+						<p><%=conn.getDataBaseId() %></p>
+						<p><%=conn.getDataBasePw() %></p>
 					</div>
 				</div>
 			</section>

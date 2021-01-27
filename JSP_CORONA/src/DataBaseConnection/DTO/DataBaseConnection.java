@@ -13,7 +13,7 @@ public class DataBaseConnection {
 //	String mysql = "com.mysql.jdbc.Driver";
 	String mysql = "com.mysql.cj.jdbc.Driver";
 
-	private String Driver;
+	private String driver = mysql;
 	
 	private String ip = "localhost";
 	private String port = "3306";
@@ -22,12 +22,13 @@ public class DataBaseConnection {
 	private String dataBaseId = "root";
 	private String dataBasePw = "1234";
 	
+	
 	/*DB Driver*/
 	public String getDriver() {
-		return Driver;
+		return driver;
 	}
 	public void setDriver(String driver) {
-		Driver = driver;
+		this.driver = driver;
 	}
 	
 	
@@ -67,7 +68,7 @@ public class DataBaseConnection {
 	
 	public Connection dataBaseConnection() {
 		try {
-			Class.forName(mysql);
+			Class.forName(driver);
 			this.conn = DriverManager.getConnection(dataBaseUrl, dataBaseId, dataBasePw);
 		} catch (Exception e) {
 			e.printStackTrace();
