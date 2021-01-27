@@ -6,8 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.company.DataBaseConnection;
 import com.company.member.DTO.Member;
+
+import DataBaseConnection.DTO.DataBaseConnection;
 
 public class ISelfTestDAO implements SelfTestDAO {
 

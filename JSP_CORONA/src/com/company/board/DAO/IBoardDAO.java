@@ -7,10 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.company.DataBaseConnection;
 import com.company.board.DTO.Board;
 import com.company.board.DTO.Criteria;
 import com.company.member.DTO.Member;
+
+import DataBaseConnection.DTO.DataBaseConnection;
 
 public class IBoardDAO extends DataBaseConnection implements BoardDAO {
 
