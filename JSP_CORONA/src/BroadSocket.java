@@ -11,6 +11,9 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+
+import com.company.chat.DAO.ChatDAO;
+import com.company.chat.DAO.IChatDAO;
  
 @ServerEndpoint("/broadcasting")
 public class BroadSocket {
@@ -25,6 +28,8 @@ public class BroadSocket {
     	
     	Date date = new Date(System.currentTimeMillis());
     	SimpleDateFormat inputDateFormat = new SimpleDateFormat("[yyyy-MM-dd HH:mm:ss] ");
+    	IChatDAO chat = new IChatDAO();
+    	chat.insert_ChatLog(id, message);
     	
         System.out.println(inputDateFormat.format(date)+" <"+id+"> "+message);
         synchronized(clients) {
