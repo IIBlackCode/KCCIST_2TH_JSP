@@ -15,7 +15,8 @@ public class DataBaseConnection {
 
 	private String driver = mariaDB;
 	
-	private String ip = "49.50.166.134";
+//	private String ip = "localhost"; 
+	private String ip = "49.50.166.134"; 
 	private String port = "3306";
 	private String databaseName = "CORONA";
 	
