@@ -54,6 +54,14 @@ CREATE TABLE `board` (
   CONSTRAINT `board_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--2021-03-16 채팅 로그기록 테이블 생성
+CREATE TABLE Chat_log (
+date 		timestamp default NOW(),
+id			VARCHAR(50) NOT null,
+message		VARCHAR(255) null
+)
+
+
 select * from board;
 select * from member;
 select * from hospital;
