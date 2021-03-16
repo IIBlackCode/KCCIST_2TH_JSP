@@ -13,12 +13,13 @@ public class DataBaseConnection {
 //	String mysql = "com.mysql.jdbc.Driver";
 	String mysql = "com.mysql.cj.jdbc.Driver";
 
-	private String driver = mysql;
+	private String driver = mariaDB;
 	
-	private String ip = "localhost";
+	private String ip = "49.50.166.134";
 	private String port = "3306";
+	private String databaseName = "CORONA";
 	
-	private String dataBaseUrl = "jdbc:mysql://"+ip+":"+port+"/corona?serverTimezone=UTC";
+	private String dataBaseUrl = "jdbc:mysql://"+ip+":"+port+"/"+databaseName+"?serverTimezone=UTC";
 	private String dataBaseId = "root";
 	private String dataBasePw = "1234";
 	
