@@ -11,8 +11,9 @@
 		<!-- 관리자인 경우 -->
 			<%if(memberNAV.getMember_rank().equals("관리자")){ %>
 		<li><a href="<%=pathNAV%>/BoardListAdmin">관리자 게시판</a></li>
-		<li><a href="<%=pathNAV%>/Member/MemberListAdmin">회원 정보</a></li>
+		<li><a href="<%=pathNAV%>/MemberListAdmin">회원 정보</a></li>
 		<li><a href="<%=pathNAV%>/chatting.jsp">코로나톡</a></li>
+		<li><a href="<%=pathNAV%>/ChatLog">코로나톡 로그</a></li>
 		<li><a href="<%=pathNAV%>/DatabaseConnectionInfo.jsp">DB Connection 정보</a></li>
 			<%}else{ %>
 		<!-- 관리자가 아닌 경우 -->
