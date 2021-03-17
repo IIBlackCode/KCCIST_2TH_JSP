@@ -48,9 +48,61 @@
 								<tr>
 									<td>[<%=board.getBoard_id()%>] <%=board.getBoard_title()%></td>
 								</tr>
+								<tr>
+									<td><p><%=board.getBoard_content()%><p></td>
+								</tr>
 							</tbody>
 						</table>
-						<p><%=board.getBoard_content()%><p>
+						
+						<!-- COMMENT -->
+						<div class="table-wrapper">
+							<table  class="alt">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th> - Content - </th>
+										<th>Date</th>
+									</tr>
+								</thead>								
+								<%for (int i = 0; i < 5; i++) {%>
+								<tr>
+									<td style="width: 150px;">
+										아이디<br>
+										<sub>2021-03-17</sub>
+										
+									</td>
+									<td>
+										<p style="margin: 0 0 0 0;">댓글 내용 TEST MessageTEST MessageTEST MessageTEST MessageTEST MessageTEST MessageTEST MessageTEST MessageTEST Message</p>
+										<!-- <h5 style="margin: 0 0 0 0;">댓글 시간</h5> -->
+									</td>
+									<td style="width: 100px;">
+										<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button fit small">수정</a>
+										<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>" class="button fit small">삭제</a>
+									</td>
+								</tr>
+								<%}%>
+							</table>
+						</div>
+							<form action="BoardWrite" method="post">
+								<thead>
+									<tr>작성자 : <%= board.getMember_id() %></tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<textarea placeholder="댓글 내용" name="board_content" maxlength="2048" style="height: 100px;"></textarea>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td>
+										<input type="submit" class="button fit small" value="댓글 남기기">
+										</td>
+									</tr>
+								</tfoot>
+							</form>
+							
 						<%if(member != null){ %>
 						<%if(member.getMember_id().equals(board.getMember_id())){%>
 							<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button primary">수정</a>
