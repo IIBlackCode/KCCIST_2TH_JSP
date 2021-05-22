@@ -63,8 +63,9 @@ message		VARCHAR(255) null
 
 
 --2021-03-18 댓글 테이블
+DROP TABLE comment;
 CREATE TABLE `comment` (
-  `comment_id` 	INT NOT NULL,	#PK
+  `comment_id` 	INT auto_increment NOT NULL,	#PK
   `board_id` 		int NOT NULL, 	#FK
   `member_id` 		varchar(50) NULL,
   `comment` 		VARCHAR(255) NULL,

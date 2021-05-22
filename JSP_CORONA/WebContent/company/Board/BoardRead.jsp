@@ -1,8 +1,10 @@
 <%@page import="com.company.board.DTO.Board"%>
+<%@page import="com.company.comment.DTO.Comment"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <% Board board = (Board)request.getAttribute("board"); %>
+<% ArrayList<Comment> commentList = (ArrayList<Comment>)request.getAttribute("commentList"); %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -41,12 +43,12 @@
 						<table class="" style="text-align:center; border:1px solid #dddddd">
 							<thead>
 								<tr>
-									<th>JSP PROJECT OF KMS COMPANY</th>
+									<th>JSP PROJECT OF KMS COMPANY [<%=board.getBoard_id()%>]</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>[<%=board.getBoard_id()%>] <%=board.getBoard_title()%></td>
+									<td><%=board.getBoard_title()%></td>
 								</tr>
 								<tr>
 									<td><p><%=board.getBoard_content()%><p></td>
@@ -64,15 +66,15 @@
 										<th>Date</th>
 									</tr>
 								</thead>								
-								<%for (int i = 0; i < 5; i++) {%>
+								<%for (int i = 0; i < commentList.size(); i++) {%>
 								<tr>
 									<td style="width: 150px;">
-										아이디<br>
-										<sub>2021-03-17</sub>
+										<%=commentList.get(i).getMember_id() %><br>
+										<sub><%=commentList.get(i).getComment_date()%></sub>
 										
 									</td>
 									<td>
-										<p style="margin: 0 0 0 0;">댓글 내용 TEST MessageTEST MessageTEST MessageTEST MessageTEST MessageTEST MessageTEST MessageTEST MessageTEST Message</p>
+										<p style="margin: 0 0 0 0;"><%=commentList.get(i).getComment() %></p>
 										<!-- <h5 style="margin: 0 0 0 0;">댓글 시간</h5> -->
 									</td>
 									<td style="width: 100px;">
@@ -83,26 +85,31 @@
 								<%}%>
 							</table>
 						</div>
-							<form action="BoardWrite" method="post">
-								<thead>
-									<tr>작성자 : <%= board.getMember_id() %></tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<textarea placeholder="댓글 내용" name="board_content" maxlength="2048" style="height: 100px;"></textarea>
-										</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td>
-										<input type="submit" class="button fit small" value="댓글 남기기">
-										</td>
-									</tr>
-								</tfoot>
-							</form>
-							
+						
+						
+						<form action="CommentWrite" method="post">
+						<!-- 댓글에 전달될 hidden값-->
+						<input type="hidden" name="board_id" value="<%=board.getBoard_id()%>"/>
+							<thead>
+								<tr>작성자 : <%= board.getMember_id() %></tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<textarea placeholder="댓글 내용" name="comment_content" maxlength="2048" style="height: 100px;"></textarea>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td>
+									<input type="submit" class="button fit small" value="댓글 남기기">
+									</td>
+								</tr>
+							</tfoot>
+						</form>
+						<!-- The end of COMMENT -->
+						
 						<%if(member != null){ %>
 						<%if(member.getMember_id().equals(board.getMember_id())){%>
 							<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button primary">수정</a>

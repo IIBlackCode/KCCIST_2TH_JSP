@@ -11,6 +11,7 @@
 		<!-- 관리자인 경우 -->
 			<%if(memberNAV.getMember_rank().equals("관리자")){ %>
 		<li><a href="<%=pathNAV%>/BoardListAdmin">관리자 게시판</a></li>
+		<li><a href="<%=pathNAV%>/BoardListUser">회원 게시판</a></li>
 		<li><a href="<%=pathNAV%>/MemberListAdmin">회원 정보</a></li>
 		<li><a href="<%=pathNAV%>/chatting.jsp">코로나톡</a></li>
 		<li><a href="<%=pathNAV%>/ChatLog">코로나톡 로그</a></li>
