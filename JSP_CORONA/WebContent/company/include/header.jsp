@@ -8,7 +8,7 @@
 <%Member member = (Member)session.getAttribute("member");%>
 <%String pathHeader = request.getContextPath()+"/company"; %>
 <header id="header">
-	<a class="logo" href="<%=pathHeader%>/index.jsp">COMPANY [VER 1.5]</a>
+	<a class="logo" href="<%=pathHeader%>/index.jsp">COMPANY</a>
 	<nav>
 		<% 	if(dao.select_rankCheck()){%>
 		<%-- <% 	if(dao.select_MemberList().isEmpty()){%> --%>
