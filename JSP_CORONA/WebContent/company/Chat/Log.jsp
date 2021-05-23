@@ -32,9 +32,9 @@
 		<table class="" style="text-align: center">
 			<thead>
 				<tr>
-					<th style="background-color: #eeeeee; text-align: center;">날짜</th>
 					<th style="background-color: #eeeeee; text-align: center;">아이디</th>
 					<th style="background-color: #eeeeee; text-align: center;">내용</th>
+					<th style="background-color: #eeeeee; text-align: center;">날짜</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,9 +43,9 @@
 					for (int i = 0; i < chatList.size(); i++) {
 				%>
 				<tr>
-					<td><%=chatList.get(i).getDate() %></td>
 					<td><%=chatList.get(i).getId() %></td>
 					<td><%=chatList.get(i).getMessage() %></td>
+					<td><%=chatList.get(i).getDate() %></td>
 				</tr>
 				<%
 					}

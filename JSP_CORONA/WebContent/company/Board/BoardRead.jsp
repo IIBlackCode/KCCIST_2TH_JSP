@@ -68,24 +68,25 @@
 								</thead>								
 								<%for (int i = 0; i < commentList.size(); i++) {%>
 								<tr>
-									<td style="width: 150px;">
-										<%=commentList.get(i).getMember_id() %><br>
-										<sub><%=commentList.get(i).getComment_date()%></sub>
+									<td style="width: 200px;">
+										<%=commentList.get(i).getMember_id() %> 
+										<h6><%=commentList.get(i).getComment_date()%></h6>
 										
 									</td>
 									<td>
 										<p style="margin: 0 0 0 0;"><%=commentList.get(i).getComment() %></p>
 										<!-- <h5 style="margin: 0 0 0 0;">댓글 시간</h5> -->
 									</td>
-									<td style="width: 100px;">
-										<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button fit small">수정</a>
-										<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>" class="button fit small">삭제</a>
+									<td style="width: 150px;">
+										<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button small">수정</a>
+										<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>" class="button small">삭제</a>
 									</td>
 								</tr>
 								<%}%>
 							</table>
 						</div>
 						
+						<hr>
 						
 						<form action="CommentWrite" method="post">
 						<!-- 댓글에 전달될 hidden값-->

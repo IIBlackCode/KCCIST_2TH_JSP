@@ -72,8 +72,23 @@ public class CommentWriteController extends HttpServlet {
 
 		// DAO호출 및 script 알람
 		if (dao.insert_Comment(comment)) {
-			System.out.println("댓글 작성 성공");
-		} // The end of if
+			/*
+			script.println("<script>");
+			script.println("alert('댓글 입력 성공')");
+			script.println("location.href ='"+request.getContextPath()+"/company/BoardRead?Board_id='"+request.getParameter("board_id"));
+			script.println("lhistory.back()");
+			script.println("</script>");
+			*/
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/company/BoardRead?Board_id="+board_id);
+			dispatcher.forward(request, response);
+			
+		}else {
+			script.println("<script>");
+			script.println("alert('댓글 입력 실패')");
+//			script.println("location.href ='"+request.getContextPath()+"/company/BoardRead?Board_id='"+board_id);
+			script.println("</script>");
+		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

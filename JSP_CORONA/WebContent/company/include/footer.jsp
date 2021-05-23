@@ -13,12 +13,11 @@
 				</p>
 			</section>
 			<section>
-				<h4>Sem turpis amet semper</h4>
+				<h4>Team Leader : 김민서</h4>
 				<ul class="alt">
-					<li><a href="#">-</a></li>
-					<li><a href="#">-</a></li>
-					<li><a href="#">-</a></li>
-					<li><a href="#">https://github.com/IIBlackCode</a></li>
+					<li><a href="https://www.youtube.com/channel/UC-yZxlTfgLnZV0gv6a4mNMg">YouTube 채널</a></li>
+					<li><a href="https://blog.naver.com/catastroph2">Naver Blog</a></li>
+					<li><a href="https://github.com/IIBlackCode">Github</a></li>
 				</ul>
 			</section>
 			<section>

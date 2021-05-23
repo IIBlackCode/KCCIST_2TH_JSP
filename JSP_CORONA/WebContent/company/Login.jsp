@@ -16,7 +16,7 @@
 	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
 	crossorigin="anonymous">
 <!--Custom styles-->
-<link rel="stylesheet" type="text/css" href="styles.css">
+<!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
 <style type="text/css">
 /* Made with love by Mutiullah Samim*/
 @import url('https://fonts.googleapis.com/css?family=Numans');
@@ -685,7 +685,7 @@ video#bgvid {
 position: fixed; right: 0; bottom: 0;
 min-width: 100%; min-height: 100%;
 width: auto; height: auto; z-index: -100;
-background: url(polina.jpg) no-repeat;
+/* background: url(polina.jpg) no-repeat; */
 background-size: cover;
 }
 </style>

@@ -15,7 +15,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="/JSP_CORONA/company/assets/css/main.css" />
 </head>
 <body class="is-preload">
 
@@ -33,7 +33,7 @@
 	<!-- Main -->
 	<section id="main" class="wrapper">
 		<div class="inner">
-			<div class="content" style="overflow:scroll; width:1000px; height:500px;">
+			<div class="content">
 			
 				<header>
 					<h2>CHATTING</h2>
@@ -43,7 +43,8 @@
 					<input type="hidden" value='${login.id }' id='chat_id' />
 				</c:if>
 				<c:if test="${(login.id eq '') or (empty login.id)}">
-					<input type="hidden" value='비회원' id='chat_id' />
+					<input type="hidden" value='<%=member.getMember_name()%>'
+						id='chat_id' />
 				</c:if>
 				<!--     채팅창 -->
 				<div id="_chatbox" style="display: none">
@@ -53,7 +54,12 @@
 						<input type="submit" value="send" onclick="send()" />
 					</fieldset>
 				</div>
-				<img class="chat" src="images/chat.png" />
+				<% if(member.getMember_id().equals("휘파람")||member.getMember_id().equals("관리자")){ %>
+					<h5>휘파람님만 볼 수 있는 특별한 채널입니다. 말풍선 클릭해주세요</h5>
+					<img class="secretChat" src="/JSP_CORONA/company/images/EZ2ON_logo.png" />
+				<%}else{ %>
+				<img class="chat" src="/JSP_CORONA/company/images/chat.png" />
+				<%} %>
 			</div>
 	</section>
 
@@ -68,11 +74,22 @@
 <script>
 	$(".chat").on({
 		"click" : function() {
-			if ($(this).attr("src") == "images/chat.png") {
-				$(".chat").attr("src", "images/chathide.png");
+			if ($(this).attr("src") == "/JSP_CORONA/company/images/chat.png") {
+				$(".chat").attr("src", "/JSP_CORONA/company/images/chathide.png");
 				$("#_chatbox").css("display", "block");
-			} else if ($(this).attr("src") == "images/chathide.png") {
-				$(".chat").attr("src", "images/chat.png");
+			} else if ($(this).attr("src") == "/JSP_CORONA/company/images/chathide.png") {
+				$(".chat").attr("src", "/JSP_CORONA/company/images/chat.png");
+				$("#_chatbox").css("display", "none");
+			}
+		}
+	});
+	$(".secretChat").on({
+		"click" : function() {
+			if ($(this).attr("src") == "/JSP_CORONA/company/images/EZ2ON_logo.png") {
+				$(".secretChat").attr("src", "/JSP_CORONA/company/images/chathide.png");
+				$("#_chatbox").css("display", "block");
+			} else if ($(this).attr("src") == "/JSP_CORONA/company/images/chathide.png") {
+				$(".secretChat").attr("src", "/JSP_CORONA/company/images/EZ2ON_logo.png");
 				$("#_chatbox").css("display", "none");
 			}
 		}
@@ -80,8 +97,8 @@
 </script>
 <script type="text/javascript">
 	var textarea = document.getElementById("messageWindow");
-//	var webSocket = new WebSocket('ws://localhost:8080/JSP_CORONA/broadcasting');
-	var webSocket = new WebSocket('ws://192.168.219.103:8080/JSP_CORONA/broadcasting');
+	var webSocket = new WebSocket('ws://localhost:8080/JSP_CORONA/broadcasting');
+//	var webSocket = new WebSocket('ws://192.168.90.97:8080/JSP_CORONA/broadcasting');
 	var inputMessage = document.getElementById('inputMessage');
 	webSocket.onerror = function(event) {
 		onError(event)
