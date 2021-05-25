@@ -70,16 +70,32 @@
 								<tr>
 									<td style="width: 200px;">
 										<%=commentList.get(i).getMember_id() %> 
-										<h6><%=commentList.get(i).getComment_date()%></h6>
+										<h6 style="margin: 0 0 0 0;"><%=commentList.get(i).getComment_date()%></h6>
 										
 									</td>
 									<td>
 										<p style="margin: 0 0 0 0;"><%=commentList.get(i).getComment() %></p>
 										<!-- <h5 style="margin: 0 0 0 0;">댓글 시간</h5> -->
 									</td>
-									<td style="width: 150px;">
-										<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>" class="button small">수정</a>
-										<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>" class="button small">삭제</a>
+									<td style="width: 150px; text-align: center;">
+									<% if(member != null){ %>
+										<!-- 회원중 자기 댓글은 컨트롤 가능 -->
+										<%if(member.getMember_id().equals(commentList.get(i).getMember_id())){%>
+										<a href="CommentUpdate?comment_id=<%=commentList.get(i).getComment_id()%>" class="button small">수정</a>
+										<a href="CommentUpdate?comment_id=<%=commentList.get(i).getComment_id()%>" class="button small">삭제</a>
+										<%}else if(member.getMember_rank().equals("관리자")){ %>
+										<!-- 관리자는 전부 컨트롤 가능 -->
+										<a href="CommentUpdate?comment_id=<%=commentList.get(i).getComment_id()%>" class="button small">관리자 권한 수정</a>
+										<a href="CommentUpdate?comment_id=<%=commentList.get(i).getComment_id()%>" class="button small">관리자 권한 삭제</a>
+										<%}else{ %>
+										<span class="button disabled small">수정</span>
+										<span class="button disabled small">삭제</span>
+										<%} %>
+									<% } else { %>
+										<!-- 회원이 아니면 버튼 자체에 권한이 없음 -->
+										<span class="button disabled small">수정</span>
+										<span class="button disabled small">삭제</span>
+									<% } %>
 									</td>
 								</tr>
 								<%}%>
@@ -92,7 +108,11 @@
 						<!-- 댓글에 전달될 hidden값-->
 						<input type="hidden" name="board_id" value="<%=board.getBoard_id()%>"/>
 							<thead>
-								<tr>작성자 : <%= board.getMember_id() %></tr>
+							<% if(member != null) {%>
+								<tr>작성자 : <%=member.getMember_id() %></tr>
+							<%}else{ %>
+								<tr>작성자 : 비회원</tr>
+							<%} %>
 							</thead>
 							<tbody>
 								<tr>

@@ -2,11 +2,19 @@ package com.company.comment.DTO;
 
 public class Comment {
 	
+	private int comment_id;
 	private int board_id;
 	private String member_id;
 	private String comment;
 	private String comment_date;
 	
+	
+	public int getComment_id() {
+		return comment_id;
+	}
+	public void setComment_id(int comment_id) {
+		this.comment_id = comment_id;
+	}
 	public int getBoard_id() {
 		return board_id;
 	}

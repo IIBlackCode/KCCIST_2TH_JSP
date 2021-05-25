@@ -28,7 +28,7 @@ public class ICommentDAO implements CommentDAO {
 	public ArrayList<Comment> select_CommentList(int board_id) {
 		// 1. SQL
 		//SELECT board_id, member_id, comment, comment_date FROM comment WHERE board_id = 10;
-		String SQL = " SELECT board_id, member_id, comment, comment_date FROM comment WHERE board_id = ? ";
+		String SQL = " SELECT comment_id, board_id, member_id, comment, comment_date FROM comment WHERE board_id = ? ";
 		ArrayList<Comment> commentList = new ArrayList<Comment>();
 		try {
 			// 2. SQL Querry 실행
@@ -40,10 +40,11 @@ public class ICommentDAO implements CommentDAO {
 			// 5. SQL에서 뽑은 데이터 ArrayList에 저장
 			while (rs.next()) {
 				Comment comment = new Comment();
-				comment.setBoard_id(rs.getInt(1));
-				comment.setMember_id(rs.getString(2));
-				comment.setComment(rs.getString(3));
-				comment.setComment_date(rs.getString(4));
+				comment.setComment_id(rs.getInt(1));
+				comment.setBoard_id(rs.getInt(2));
+				comment.setMember_id(rs.getString(3));
+				comment.setComment(rs.getString(4));
+				comment.setComment_date(rs.getString(5));
 				commentList.add(comment);
 			}
 		} catch (Exception e) {
