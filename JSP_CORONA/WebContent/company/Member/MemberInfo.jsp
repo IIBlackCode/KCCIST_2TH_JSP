@@ -1,6 +1,11 @@
 <%@page import="com.company.member.DTO.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%	
+	Member memberInfo_session = (Member)session.getAttribute("member");
+	IMemberDAO memberInfo_dao = new IMemberDAO();
+	Member memberInfo_dto =  memberInfo_dao.select_Member(memberInfo_session);
+%>
 <!DOCTYPE HTML>
 <!--
 	Industrious by TEMPLATED
@@ -41,37 +46,37 @@
 				<form>					
 					<div>
 						<div>
-							<label>아이디 : <%=member.getMember_id()%></label>
+							<label>아이디 : <%=memberInfo_dto.getMember_id()%></label>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>비밀번호 : <%=member.getMember_password()%></label>
+							<label>비밀번호 : <%=memberInfo_dto.getMember_password()%></label>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>이름 : <%=member.getMember_name()%></label>
+							<label>이름 : <%=memberInfo_dto.getMember_name()%></label>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>주소 : <%=member.getMember_adress()%></label>
+							<label>주소 : <%=memberInfo_dto.getMember_adress()%></label>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>전화번호 : <%=member.getMember_phone()%></label>
+							<label>전화번호 : <%=memberInfo_dto.getMember_phone()%></label>
 						</div>
 					</div>
 					<p>
 					<div>
 						<div>
-							<label>자가진단 결과 : <%=member.getMember_selfresult()%></label>
+							<label>자가진단 결과 : <%=memberInfo_dto.getMember_selfresult()%></label>
 						</div>
 					</div>
 					<p>

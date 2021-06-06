@@ -18,6 +18,7 @@
 		<li><a href="<%=pathNAV%>/DatabaseConnectionInfo.jsp">DB Connection 정보</a></li>
 			<%}else{ %>
 		<!-- 관리자가 아닌 경우 -->
+		<li><a href="<%=pathNAV%>/Member/MemberInfo.jsp">내 정보</a></li>
 		<li><a href="<%=pathNAV%>/BoardListUser">게시판</a></li>
 		<li><a href="<%=pathNAV%>/CoronaSelfTest.jsp">코로나 자가진단</a></li>
 		<li><a href="<%=pathNAV%>/Chatting">코로나톡</a></li>

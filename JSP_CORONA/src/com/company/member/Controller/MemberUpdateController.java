@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.company.member.DAO.IMemberDAO;
 import com.company.member.DTO.Member;
@@ -58,6 +59,12 @@ public class MemberUpdateController extends HttpServlet {
 		member.setMember_phone(member_phone);
 		member.setMember_result(member_result);
 		member.setMember_selfresult(member_selfresult);
+		
+		/*SESSION에 로그인 정보 추가*/
+		HttpSession session = request.getSession();
+		Member sessionMember = (Member)session.getAttribute("member");
+		member.setMember_rank(sessionMember.getMember_rank());
+		session.setAttribute("member", member);
 		
 		/*DAO 호출 > select Querry 실행*/
 		IMemberDAO dao = new IMemberDAO();

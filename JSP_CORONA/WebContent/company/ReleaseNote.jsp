@@ -32,7 +32,16 @@
 						</header>
 						<p>JSP PROJECT START</p>
 						<hr />
-						<p>2021-05-23 <br>1. 댓글기능 구현 완료<br> 2. 비밀채팅기능 구현 및 비회원이 채팅 url 접근제한<br> 3. 버전관리 추가</p>
+						<p>
+							2021-05-23 <br>
+							1. 댓글기능 구현 완료<br> 
+							2. 비밀채팅기능 구현 및 비회원이 채팅 url 접근제한<br> 
+							3. 버전관리 추가<br> 
+							
+							2021-06-06 <br>
+							1. 회원 수정시 페이지 내에서 변경안되는 현상 수정
+								세션값을 불러오는 방식 > DB에서 select 하는 방식으로 변경
+						</p>
 						<hr />
 						<h3>Magna odio tempus commodo</h3>
 						<p>Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus lorem ipsum dolor sit amet nullam.</p>
