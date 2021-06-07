@@ -12,7 +12,7 @@
 		<a href="SelfTest.jsp">자가진단</a>
 		<a href="Inform.jsp">선별진료소 안내</a>
 		<a href="MyPages.jsp">내정보</a>
-		<a href="Board.jsp">게시판</a>
+		<a href="UserBoard.jsp">게시판</a>
 		<hr>
 	</div>
 </div>
