@@ -40,27 +40,52 @@ public class BoardReadController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		System.out.println("[BoardReadController] doGet");
 		
-		//게시판 페이지로부터 게시글 아이디를 가져온다. String > int 전환
 		Board board = new Board();
 		String board_id = request.getParameter("Board_id");
-		board.setBoard_id(Integer.parseInt(board_id));
-		System.out.println(board.toString());
 		
-		//Select Board 쿼리
-		IBoardDAO boardDao = new IBoardDAO();
-		board = boardDao.select_AdminBoard(board);
-		System.out.println(board.toString());
-		
-		//Select Comment 쿼리
-		ICommentDAO commentDao = new ICommentDAO();
-		ArrayList<Comment> commentList = new ArrayList<Comment>();
-		commentList = commentDao.select_CommentList(Integer.parseInt(board_id));
-		
-		request.setAttribute("board", board);
-		request.setAttribute("commentList", commentList);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardRead.jsp");
-		dispatcher.forward(request, response);
+		if (board_id.substring(0,1).equals("v")) {
+			System.out.println("Ver 1.0");
+			//게시판 페이지로부터 게시글 아이디를 가져온다. String > int 전환
+			board.setBoard_id(Integer.parseInt(board_id.substring(5)));
+			System.out.println(board.toString());
+			
+			//Select Board 쿼리
+			IBoardDAO boardDao = new IBoardDAO();
+			board = boardDao.select_AdminBoard(board);
+			System.out.println(board.toString());
+			
+			//Select Comment 쿼리
+			ICommentDAO commentDao = new ICommentDAO();
+			ArrayList<Comment> commentList = new ArrayList<Comment>();
+			commentList = commentDao.select_CommentList(Integer.parseInt(board_id.substring(5)));
+			
+			request.setAttribute("board", board);
+			request.setAttribute("commentList", commentList);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/corona/MainMenu/Board/BoardRead.jsp");
+			dispatcher.forward(request, response);
+		}else {
+			System.out.println("Ver 2.0");
+			//게시판 페이지로부터 게시글 아이디를 가져온다. String > int 전환
+			board.setBoard_id(Integer.parseInt(board_id));
+			System.out.println(board.toString());
+			
+			//Select Board 쿼리
+			IBoardDAO boardDao = new IBoardDAO();
+			board = boardDao.select_AdminBoard(board);
+			System.out.println(board.toString());
+			
+			//Select Comment 쿼리
+			ICommentDAO commentDao = new ICommentDAO();
+			ArrayList<Comment> commentList = new ArrayList<Comment>();
+			commentList = commentDao.select_CommentList(Integer.parseInt(board_id));
+			
+			request.setAttribute("board", board);
+			request.setAttribute("commentList", commentList);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/company/Board/BoardRead.jsp");
+			dispatcher.forward(request, response);
+		}
 		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

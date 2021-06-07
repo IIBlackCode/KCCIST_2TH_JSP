@@ -1,4 +1,5 @@
 <%@page import="com.company.board.DTO.Board"%>
+<%@ page import="com.company.member.DTO.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -38,13 +39,16 @@
 					</tr>
 				</tbody>
 			</table>
-			<%if(request.getAttribute("member_id").equals(board.getMember_id())){%>
+			<%Member member = (Member)session.getAttribute("member");%>
+			<%if(member != null){ %>
+			<%if(member.getMember_id().equals(board.getMember_id())){%>
+			<%-- <%if(request.getAttribute("member_id").equals(board.getMember_id())){%> --%>
 				<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>">수정</a>
 				<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>">삭제</a>
 			<%}else if(session.getAttribute("member_rank").equals("관리자")){ %>
 				<a href="BoardUpdate?Board_id=<%=board.getBoard_id()%>">관리자 권한 수정</a>
 				<a href="BoardDelete?Board_id=<%=board.getBoard_id()%>">관리자 권한 삭제</a>
-			<%} %>
+			<%} }%>
 		</div>
 	</div>
 

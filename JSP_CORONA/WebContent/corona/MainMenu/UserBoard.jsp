@@ -1,8 +1,12 @@
 <%@page import="com.company.board.DTO.Board"%>
+<%@page import="com.company.board.DAO.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% ArrayList<Board> boardList = (ArrayList)request.getAttribute("boardList"); %>
+<%-- <% ArrayList<Board> boardList = (ArrayList)request.getAttribute("boardList"); System.out.println("boardList : " + boardList);%> --%>
+<% 
+IBoardDAO dao = new IBoardDAO();
+ArrayList<Board> boardList = dao.select_UserBoardList();%>
 <%-- <jsp:useBean id="boardList" class=java.util.ArrayList scope="request"></jsp:useBean> --%>
 <!DOCTYPE html>
 <html>
@@ -37,7 +41,7 @@
 			<tbody>
 				<tr>
 					<td><%= boardList.get(i).getBoard_id() 	%></td>
-					<td><a href="Board/BoardRead?Board_id=<%=boardList.get(i).getBoard_id()%>"><%= boardList.get(i).getBoard_title() %></a></td>
+					<td><a href="Board/BoardRead?Board_id=ver1_<%=boardList.get(i).getBoard_id()%>"><%= boardList.get(i).getBoard_title() %></a></td>
 					<td><%= boardList.get(i).getMember_id() %></td>
 					<td><%= boardList.get(i).getBoard_date() %></td>
 				</tr>

@@ -7,6 +7,7 @@
 <nav id="menu">
 	<ul class="links">
 		<li><a href="<%=pathNAV%>/index2.jsp">Home</a></li>
+		<li><a href="/JSP_CORONA/corona/MainMenu/Main.jsp">Ver 1.0</a></li>
 		<%if(memberNAV != null){ %>
 		<!-- 관리자인 경우 -->
 			<%if(memberNAV.getMember_rank().equals("관리자")){ %>
