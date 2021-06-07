@@ -1,0 +1,12 @@
+작명규칙
+
+1. 파일명(html,jsp,css)은 대문자로 시작할 것 
+	- 소문자로 시작하는것이 더 편하지만 기존에 작성된 html파일명이 대부분 대문자로 시작
+	- EX) Main.html, Main.jsp, Main.css
+	
+2. 변수명은 카멜표기법에 따를것
+	-ex) user, member, userInfo, board
+
+3. 폴더명은 대문자로 작명할 것
+	단, corona폴더와 같이 project단위로 전체 View 페이지를 담는 폴더만 예외
+	CSS, IMAGE, corona

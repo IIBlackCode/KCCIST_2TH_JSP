@@ -1,0 +1,111 @@
+CREATE DATABASE CORONA;
+USE CORONA;
+
+drop table member;
+CREATE TABLE `member` (
+  `member_id` 			varchar(50) NOT NULL, #PK			
+  `member_password` 	varchar(50) NOT NULL,
+  `member_name` 		varchar(50) NULL,
+  `member_adress` 		varchar(50) NULL,
+  `member_rank` 		varchar(50) NULL,
+  `member_phone` 		varchar(50) NULL,
+  `member_result` 		varchar(50) DEFAULT NULL,
+  `member_selfresult` 	varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`member_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+drop table hospital;
+CREATE TABLE `hospital` (
+  `hospital_id` 		int auto_increment NOT NULL, #PK
+  `hospital_adress` 	varchar(50) NULL,
+  `hospital_name` 		varchar(50) NULL,
+  `hospital_type` 		varchar(50) NULL,
+  `hospital_time` 		varchar(50) NULL,
+  `hospital_password` 	varchar(50) NULL,
+  `hospital_number` 	varchar(50) NULL,
+  PRIMARY KEY (`hospital_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+drop table reservation;
+CREATE TABLE `reservation` (
+  `reservation_id` 		int auto_increment NOT NULL,#PK
+  `member_id` 			varchar(50) NULL,			#FK
+  `hospital_id` 		int NULL,					#FK
+  `reservation_adr` 	varchar(50) NULL,
+  `reservation_hospital`varchar(50) NULL,
+  `reservation_date` 	varchar(50) NULL,
+  `reservation_type` 	varchar(50) NULL,
+  PRIMARY KEY (`reservation_id`),
+  KEY `R_2` (`member_id`),
+  KEY `R_3` (`hospital_id`),
+  CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`),
+  CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`hospital_id`) REFERENCES `hospital` (`hospital_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+drop table board;
+CREATE TABLE `board` (
+  `board_id` 		int auto_increment NOT NULL, 	#PK
+  `member_id` 		varchar(50) NULL,				#FK
+  `board_title` 	varchar(50) NULL,
+  `board_content` 	varchar(50) NULL,
+  `board_date` 		timestamp default now(),
+  PRIMARY KEY (`board_id`),
+  KEY `R_1` (`member_id`),
+  CONSTRAINT `board_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`member_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--2021-03-16 채팅 로그기록 테이블 생성
+CREATE TABLE Chat_log (
+date 		timestamp default NOW(),
+id			VARCHAR(50) NOT null,
+message		VARCHAR(255) null
+)
+
+
+--2021-03-18 댓글 테이블
+DROP TABLE comment;
+CREATE TABLE `comment` (
+  `comment_id` 	INT auto_increment NOT NULL,	#PK
+  `board_id` 		int NOT NULL, 	#FK
+  `member_id` 		varchar(50) NULL,
+  `comment` 		VARCHAR(255) NULL,
+  `comment_date` 		timestamp default now(),
+  PRIMARY KEY (`comment_id`),
+  KEY `R_1` (`board_id`),
+  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`board_id`) REFERENCES `board` (`board_id`)
+);
+
+
+select * from board;
+select * from member;
+select * from hospital;
+select * from reservation;
+
+##	초기 데이터 세팅
+INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_rank, Member_phone, Member_selfresult, ip)
+VALUES('master','1234','관리자','알수없음','관리자','알수없음','알수없음','999,999,999,999');
+INSERT INTO member(member_id, Member_password, Member_name, Member_adress, Member_rank, Member_phone, Member_selfresult, ip)
+VALUES('비회원','????','비회원','알수없음','일반회원','알수없음','알수없음','999,999,999,999');
+INSERT INTO board (member_id,board_title,board_content)
+values('master','BOARD_TITLE','BOARD_CONTENT');
+INSERT INTO board (member_id,board_title,board_content)
+values('비회원','BOARD_TITLE','BOARD_CONTENT');
+
+## 수정 쿼리
+#	member 테이블의 member_rank 컬럼에 기본값 설정
+ALTER TABLE member MODIFY member_rank VARCHAR(10) DEFAULT '일반회원';
+#	member_selfResult 자가진단 관련 컬럼 기본값 설정
+ALTER TABLE member MODIFY member_selfResult VARCHAR(10) DEFAULT '미진단';
+#	회원가입시 자동으로 가입일 입력 컬럼 추가
+ALTER TABLE member add member_joindate timestamp default now();
+#	board 테이블에 게시글 삭제여부 컬럼 추가
+ALTER TABLE board add delete_yn char(1) not null default 'N';
+# 	member 데이블에 회원 삭제컬럼 추가
+ALTER TABLE member add delete_yn char(1) not null default 'N';
+#	회원 삭제시 해당 회원이 쓴 게시글 삭제 제약조건 추가
+ALTER TABLE board ADD CONSTRAINT memberDelteToBoard FOREIGN KEY (member_id)  
+REFERENCES member(member_id) ON DELETE CASCADE; 
+#	회원 테이블에서 불필요한 result 컬럼 삭제
+ALTER TABLE member DROP member_result;
+#	회원가입시 IP저장할 컬럼 추가
+ALTER TABLE member add ip char(30);

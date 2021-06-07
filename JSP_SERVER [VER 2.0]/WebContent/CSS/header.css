@@ -1,0 +1,51 @@
+* { }
+.section {
+   float: left;
+   width: 100%; /*그리드100이랑 똑같다*/
+} 
+#header-area h3 {
+   margin: 0;
+   text-align: left; 
+   color: white;
+   height: 50px; 
+   line-height: 50px;
+}
+
+.icon .photo{
+   float : center;
+   padding :0px;
+   width: 200px;
+   height : 70px;
+   overflow : hidden;
+   margin-right: 10px;
+   background-position: no-repeat;
+   background-size: cover;
+   background-image: url("로고.jpg");
+}
+
+.autor .photo{
+
+   float : center;
+   padding :0px;
+   width:70px;
+   height : 70px;
+   overflow : hidden;
+   margin-right: 10px;
+   background-position: no-repeat;
+   background-size: cover;
+   background-image: url("프로필사진.jpg");
+   border:1px solid #ddd;
+   border-radius: 30px;
+}
+.autor .name{
+
+   margin-left: 5px;
+   line-height: 28px;
+   font-weight: bold;
+   font-size: 32px;
+}
+.autor .date{
+   line-height:16px ;
+   font-size : 0.8em;
+   color: #999;
+}
