@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="JSP_SERVER [VER 2.0]">
+    <wb-module deploy-name="JSP_CORONA">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="java-output-path" value="/JSP_SERVER [VER 2.0]/build/classes"/>
-        <property name="context-root" value="JSP_SERVER [VER 2.0]"/>
+        <property name="java-output-path" value="/JSP_CORONA/build/classes"/>
+        <property name="context-root" value="JSP_CORONA"/>
     </wb-module>
 </project-modules>
