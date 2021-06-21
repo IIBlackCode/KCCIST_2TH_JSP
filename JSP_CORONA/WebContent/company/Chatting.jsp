@@ -82,7 +82,7 @@
 <%DataBaseConnection conn = new DataBaseConnection(); %>
 <script type="text/javascript">
 	var textarea = document.getElementById("messageWindow");
-	var webSocket = new WebSocket('ws://<%=conn.getServerIP() %>:8080/JSP_CORONA/broadcasting');
+	var webSocket = new WebSocket('ws://<%=conn.getIp() %>:8080/JSP_CORONA/broadcasting');
 	var inputMessage = document.getElementById('inputMessage');
 	webSocket.onerror = function(event) {
 		onError(event)

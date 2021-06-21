@@ -168,8 +168,7 @@
 <% DataBaseConnection dbCnn = new DataBaseConnection(); %>
 <script type="text/javascript">
 	var textarea = document.getElementById("messageWindow");
-//	var webSocket = new WebSocket('ws://localhost:8080/JSP_CORONA/broadcasting');
-	var webSocket = new WebSocket('ws://<%=dbCnn.getServerIP()%>:8080/JSP_CORONA/broadcasting');
+	var webSocket = new WebSocket('ws://<%=dbCnn.getIp()%>:8080/JSP_CORONA/broadcasting');
 	var inputMessage = document.getElementById('inputMessage');
 	webSocket.onerror = function(event) {
 		onError(event)
