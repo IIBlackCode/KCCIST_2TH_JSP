@@ -80,7 +80,7 @@ public class DataBaseConnection {
 		this.dataBaseId = dataBaseId;
 	}
 	public String getDataBasePw() {
-		return dataBasePw;
+		return "***************";
 	}
 	public void setDataBasePw(String dataBasePw) {
 		this.dataBasePw = dataBasePw;
