@@ -34,6 +34,7 @@
 					<div class="content">
 						<header>
 							<h2>DataBase Connection Info</h2>
+							<h5>SERVER IP : <%=conn.getServerIP() %></h5>
 						</header>
 						
 						<p>SERVER OS : <%=os %></p>

@@ -1,3 +1,4 @@
+<%@page import="DataBaseConnection.DTO.DataBaseConnection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -164,10 +165,11 @@
 		}
 	});
 </script>
+<% DataBaseConnection dbCnn = new DataBaseConnection(); %>
 <script type="text/javascript">
 	var textarea = document.getElementById("messageWindow");
-	var webSocket = new WebSocket('ws://localhost:8080/JSP_CORONA/broadcasting');
-	//	var webSocket = new WebSocket('ws://192.168.90.97:8080/JSP_CORONA/broadcasting');
+//	var webSocket = new WebSocket('ws://localhost:8080/JSP_CORONA/broadcasting');
+	var webSocket = new WebSocket('ws://<%=dbCnn.getServerIP()%>:8080/JSP_CORONA/broadcasting');
 	var inputMessage = document.getElementById('inputMessage');
 	webSocket.onerror = function(event) {
 		onError(event)

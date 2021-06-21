@@ -1,5 +1,7 @@
 package DataBaseConnection.DTO;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,8 +24,24 @@ public class DataBaseConnection {
 	
 	private String dataBaseUrl = "jdbc:mysql://"+ip+":"+port+"/"+databaseName+"?serverTimezone=UTC";
 	private String dataBaseId = "root";
-	private String dataBasePw = "1234";
+	private String dataBasePw = "dlsrb@41632";
 	
+	/*Local IP*/
+	public String getServerIP() {
+		InetAddress local = null;
+		try {
+			local = InetAddress.getLocalHost();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+		
+		if(local == null) {
+			return "";
+		}else {
+			String ip = local.getHostAddress();
+			return ip;
+		}
+	}
 	
 	/*DB Driver*/
 	public String getDriver() {

@@ -4,6 +4,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@page import="DataBaseConnection.DTO.DataBaseConnection"%>
 <%@ page session="true"%>
 
 <!DOCTYPE HTML>
@@ -95,9 +96,10 @@
 		}
 	});
 </script>
+<% DataBaseConnection conn = new DataBaseConnection(); %>
 <script type="text/javascript">
 	var textarea = document.getElementById("messageWindow");
-	var webSocket = new WebSocket('ws://localhost:8080/JSP_CORONA/broadcasting');
+	var webSocket = new WebSocket('ws://<%=conn.getServerIP() %>:8080/JSP_CORONA/broadcasting');
 //	var webSocket = new WebSocket('ws://192.168.90.97:8080/JSP_CORONA/broadcasting');
 	var inputMessage = document.getElementById('inputMessage');
 	webSocket.onerror = function(event) {
