@@ -13,7 +13,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/company/assets/css/main.css" />
 </head>
 <body class="is-preload">
 

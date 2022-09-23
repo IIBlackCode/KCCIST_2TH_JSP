@@ -16,7 +16,7 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<link rel="stylesheet" href="/JSP_CORONA/company/assets/css/main.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/company/assets/css/main.css" />
 </head>
 <body class="is-preload">
 
@@ -39,13 +39,65 @@
 				<header>
 					<h2>CHATTING</h2>
 				</header>
+				
 				<!-- 로그인한 상태일 경우와 비로그인 상태일 경우의 chat_id설정 -->
 				<c:if test="${(login.id ne '') and !(empty login.id)}">
 					<input type="hidden" value='${login.id }' id='chat_id' />
 				</c:if>
 				<c:if test="${(login.id eq '') or (empty login.id)}">
-					<input type="hidden" value='<%=member.getMember_name()%>'
-						id='chat_id' />
+					<input type="hidden" value=<%=member.getMember_name()%> id='chat_id' />
+				</c:if>
+				
+				<!--     채팅창 -->
+				<% if(member.getMember_id().equals("megazone")||member.getMember_id().equals("관리자")){ %>
+					<div id="_chatbox_megazone" style="display: none">
+						<fieldset>
+							<div id="messageWindow" style="overflow: auto; height:250px;"></div>
+							<br /> <input id="inputMessage" type="text" onkeyup="enterkey()" />
+							<input type="submit" value="send" onclick="send()" />
+						</fieldset>
+					</div>
+					<h5>MEGAZONECLOUD 전용 채팅</h5>
+					<img style="width: 30%" class="chat_megazone" src="<%=request.getContextPath()%>/company/images/MEGAZONE CLOUD CI_03.png" />
+				
+				<%}if(member.getMember_id().equals("관리자")||member.getMember_id() !=("megazone")){ %>
+					<hr>
+					<div id="_chatbox" style="display: none">
+						<fieldset>
+							<div id="messageWindow"></div>
+							<br /> <input id="inputMessage" type="text" onkeyup="enterkey()" />
+							<input type="submit" value="send" onclick="send()" />
+						</fieldset>
+					</div>
+					<img class="chat" src="<%=request.getContextPath()%>/company/images/chat.png" />
+				<%}else{%>
+					<hr>
+					<div id="_chatbox" style="display: none">
+						<fieldset>
+							<div id="messageWindow"></div>
+							<br /> <input id="inputMessage" type="text" onkeyup="enterkey()" />
+							<input type="submit" value="send" onclick="send()" />
+						</fieldset>
+					</div>
+					<img class="chat" src="<%=request.getContextPath()%>/company/images/chat.png" />
+				<%}%>
+				
+			</div>
+	</section>
+	
+	<%-- <section id="main" class="wrapper">
+		<div class="inner">
+			<div class="content">
+			
+				<header>
+					<h2>CHATTING</h2>
+				</header>
+				<!-- 로그인한 상태일 경우와 비로그인 상태일 경우의 chat_id설정 -->
+				<c:if test="${(login.id ne '') and !(empty login.id)}">
+					<input type="hidden" value='${login.id }' id='chat_id' />
+				</c:if>
+				<c:if test="${(login.id eq '') or (empty login.id)}">
+					<input type="hidden" value='비회원' id='chat_id' />
 				</c:if>
 				<!--     채팅창 -->
 				<div id="_chatbox" style="display: none">
@@ -55,127 +107,18 @@
 						<input type="submit" value="send" onclick="send()" />
 					</fieldset>
 				</div>
-				<% if(member.getMember_id().equals("휘파람")||member.getMember_id().equals("관리자")){ %>
-					<h5>휘파람님만 볼 수 있는 특별한 채널입니다. 말풍선 클릭해주세요</h5>
-					<img class="secretChat" src="/JSP_CORONA/company/images/EZ2ON_logo.png" />
-				<%}else{ %>
-				<img class="chat" src="/JSP_CORONA/company/images/chat.png" />
-				<%} %>
+				<img class="chat" src="<%=request.getContextPath()%>/company/images/chat.png" />
 			</div>
-	</section>
-
+	</section> --%>
+	
 	<!-- FOOTER -->
 	<%@include file="/company/include/footer.jsp"%>
 	<!-- SCRIPT -->
 	<%@include file="/company/include/script.jsp"%>
+	<!-- CHATTING -->
+	<%@include file="/company/include/Chatting.jsp"%>
 
 </body>
 
-<!-- 말풍선아이콘 클릭시 채팅창 열고 닫기 -->
-<script>
-	$(".chat").on({
-		"click" : function() {
-			if ($(this).attr("src") == "/JSP_CORONA/company/images/chat.png") {
-				$(".chat").attr("src", "/JSP_CORONA/company/images/chathide.png");
-				$("#_chatbox").css("display", "block");
-			} else if ($(this).attr("src") == "/JSP_CORONA/company/images/chathide.png") {
-				$(".chat").attr("src", "/JSP_CORONA/company/images/chat.png");
-				$("#_chatbox").css("display", "none");
-			}
-		}
-	});
-	$(".secretChat").on({
-		"click" : function() {
-			if ($(this).attr("src") == "/JSP_CORONA/company/images/EZ2ON_logo.png") {
-				$(".secretChat").attr("src", "/JSP_CORONA/company/images/chathide.png");
-				$("#_chatbox").css("display", "block");
-			} else if ($(this).attr("src") == "/JSP_CORONA/company/images/chathide.png") {
-				$(".secretChat").attr("src", "/JSP_CORONA/company/images/EZ2ON_logo.png");
-				$("#_chatbox").css("display", "none");
-			}
-		}
-	});
-</script>
-<% DataBaseConnection conn = new DataBaseConnection(); %>
-<script type="text/javascript">
-	var textarea = document.getElementById("messageWindow");
-	var webSocket = new WebSocket('ws://<%=conn.getIp() %>:8080/JSP_CORONA/broadcasting');
-	var inputMessage = document.getElementById('inputMessage');
-	webSocket.onerror = function(event) {
-		onError(event)
-	};
-	webSocket.onopen = function(event) {
-		onOpen(event)
-	};
-	webSocket.onmessage = function(event) {
-		onMessage(event)
-	};
-	function onMessage(event) {
-		var message = event.data.split("|");
-		var sender = message[0];
-		var content = message[1];
-		if (content == "") {
 
-		} else {
-			if (content.match("/")) {
-				if (content.match(("/" + $("#chat_id").val()))) {
-					var temp = content.replace("/" + $("#chat_id").val(),
-							"(귓속말) :").split(":");
-					if (temp[1].trim() == "") {
-					} else {
-						$("#messageWindow").html(
-								$("#messageWindow").html()
-										+ "<p class='whisper'>"
-										+ sender
-										+ content.replace("/"
-												+ $("#chat_id").val(),
-												"(귓속말) :") + "</p>");
-					}
-				} else {
-				}
-			} else {
-				if (content.match("!")) {
-					$("#messageWindow")
-							.html(
-									$("#messageWindow").html()
-											+ "<p class='chat_content'><b class='impress'>"
-											+ sender + " : " + content
-											+ "</b></p>");
-				} else {
-					$("#messageWindow").html(
-							$("#messageWindow").html()
-									+ "<p class='chat_content'>" + sender
-									+ " : " + content + "</p>");
-				}
-			}
-		}
-	}
-	function onOpen(event) {
-		$("#messageWindow").html("<p class='chat_content'>채팅에 참여하였습니다.</p>");
-	}
-	function onError(event) {
-		alert(event.data);
-	}
-	function send() {
-		if (inputMessage.value == "") {
-		} else {
-			$("#messageWindow").html(
-					$("#messageWindow").html() + "<p class='chat_content'>나 : "
-							+ inputMessage.value + "</p>");
-		}
-		webSocket.send($("#chat_id").val() + "|" + inputMessage.value);
-		inputMessage.value = "";
-	}
-	//     엔터키를 통해 send함
-	function enterkey() {
-		if (window.event.keyCode == 13) {
-			send();
-		}
-	}
-	//     채팅이 많아져 스크롤바가 넘어가더라도 자동적으로 스크롤바가 내려가게함
-	window.setInterval(function() {
-		var elem = document.getElementById('messageWindow');
-		elem.scrollTop = elem.scrollHeight;
-	}, 0);
-</script>
 </html>

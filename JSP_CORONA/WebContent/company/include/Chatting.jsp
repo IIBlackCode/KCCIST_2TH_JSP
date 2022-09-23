@@ -1,82 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ page session="true"%>
 
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Generic Page - Industrious by TEMPLATED</title>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<link rel="stylesheet" href="<%=request.getContextPath()%>/company/assets/css/main.css" />
-</head>
-<body class="is-preload">
-
-	<!-- HEADER -->
-	<%@include file="/company/include/header.jsp"%>
-
-	<!-- Nav -->
-	<%@include file="/company/include/nav.jsp"%>
-
-	<!-- Heading -->
-	<div id="heading">
-		<h1>CHATTING Page</h1>
-	</div>
-
-	<!-- Main -->
-	<section id="main" class="wrapper">
-		<div class="inner">
-			<div class="content">
-			
-				<header>
-					<h2>CHATTING</h2>
-				</header>
-				<!-- 로그인한 상태일 경우와 비로그인 상태일 경우의 chat_id설정 -->
-				<c:if test="${(login.id ne '') and !(empty login.id)}">
-					<input type="hidden" value='${login.id }' id='chat_id' />
-				</c:if>
-				<c:if test="${(login.id eq '') or (empty login.id)}">
-					<input type="hidden" value='비회원' id='chat_id' />
-				</c:if>
-				<!--     채팅창 -->
-				<div id="_chatbox" style="display: none">
-					<fieldset>
-						<div id="messageWindow"></div>
-						<br /> <input id="inputMessage" type="text" onkeyup="enterkey()" />
-						<input type="submit" value="send" onclick="send()" />
-					</fieldset>
-				</div>
-				<img class="chat" src="images/chat.png" />
-			</div>
-	</section>
-
-	<!-- FOOTER -->
-	<%@include file="/company/include/footer.jsp"%>
-	<!-- SCRIPT -->
-	<%@include file="/company/include/script.jsp"%>
-
-</body>
 
 <!-- 말풍선아이콘 클릭시 채팅창 열고 닫기 -->
 <script>
+	//index
+	$(".chat_index").on({
+		"click" : function() {
+			if ($(this).attr("src") == "<%=request.getContextPath()%>/company/images/chat.png") {
+				console.log("INDEX TEST")
+				$(".chat_index").attr("src", "<%=request.getContextPath()%>/company/images/chathide.png");
+				$("#_chatbox_index").css("display", "block");
+			} else if ($(this).attr("src") == "<%=request.getContextPath()%>/company/images/chathide.png") {
+				$(".chat_index").attr("src", "<%=request.getContextPath()%>/company/images/chat.png");
+				$("#_chatbox_index").css("display", "none");
+			}
+		}
+	});
+
+	//Chat/CHATTING
 	$(".chat").on({
 		"click" : function() {
-			if ($(this).attr("src") == "images/chat.png") {
-				$(".chat").attr("src", "images/chathide.png");
+			if ($(this).attr("src") == "<%=request.getContextPath()%>/company/images/chat.png") {
+				console.log("TEST")
+				$(".chat").attr("src", "<%=request.getContextPath()%>/company/images/chathide.png");
 				$("#_chatbox").css("display", "block");
-			} else if ($(this).attr("src") == "images/chathide.png") {
-				$(".chat").attr("src", "images/chat.png");
+			} else if ($(this).attr("src") == "<%=request.getContextPath()%>/company/images/chathide.png") {
+				$(".chat").attr("src", "<%=request.getContextPath()%>/company/images/chat.png");
 				$("#_chatbox").css("display", "none");
 			}
 		}
 	});
+	
+	// Chat/MEGAZONE CHATTING
+	$(".chat_megazone").on({
+		"click" : function() {
+			console.log("MEGAZONE TEST")
+			if ($(this).attr("src") == "<%=request.getContextPath()%>/company/images/MEGAZONE CLOUD CI_03.png") {
+				$(".chat_megazone").attr("src", "<%=request.getContextPath()%>/company/images/MEGAZONE CLOUD CI_02.png");
+				$("#_chatbox_megazone").css("display", "block");
+			} else if ($(this).attr("src") == "<%=request.getContextPath()%>/company/images/MEGAZONE CLOUD CI_02.png") {
+				$(".chat_megazone").attr("src", "<%=request.getContextPath()%>/company/images/MEGAZONE CLOUD CI_03.png");
+				$("#_chatbox_megazone").css("display", "none");
+			}
+		}
+	});
+	
+	
+	/* $(function test(){
+		$('#messageWindow').scrollTop($('#messageWindow')[0].scrollHeight)
+	});  */
+
 </script>
 
 <script type="text/javascript">
@@ -160,4 +134,3 @@
 		elem.scrollTop = elem.scrollHeight;
 	}, 0);
 </script>
-</html>

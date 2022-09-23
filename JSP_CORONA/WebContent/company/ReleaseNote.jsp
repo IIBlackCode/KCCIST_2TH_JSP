@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/company/assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 
@@ -37,10 +37,17 @@
 							1. 댓글기능 구현 완료<br> 
 							2. 비밀채팅기능 구현 및 비회원이 채팅 url 접근제한<br> 
 							3. 버전관리 추가<br> 
-							
+							<br> 
 							2021-06-06 <br>
-							1. 회원 수정시 페이지 내에서 변경안되는 현상 수정
-								세션값을 불러오는 방식 > DB에서 select 하는 방식으로 변경
+							* 회원 수정시 페이지 내에서 변경안되는 현상 수정<br> 
+								- 세션값을 불러오는 방식 > DB에서 select 하는 방식으로 변경<br> 
+							<br> 
+							2022-09-24 <br>
+							1. URL 하드코딩 수정 및 정리<br> 
+								- navbar<br> 
+								- old ver, header<br>
+							2. Azure PaaS DB (Public)연동<br>
+							3. Chat 관련 javascript 기능 하나로 통합<br>
 						</p>
 						<hr />
 						<h3>Magna odio tempus commodo</h3>
