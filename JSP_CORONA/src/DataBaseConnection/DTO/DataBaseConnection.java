@@ -18,13 +18,13 @@ public class DataBaseConnection {
 	private String driver = mariaDB;
 	
 //	private String ip = "localhost"; 
-	private String ip = "49.50.166.134"; 
+	private String ip = "ncsoft-db.mysql.database.azure.com"; 
 	private String port = "3306";
 	private String databaseName = "CORONA";
 	
-	private String dataBaseUrl = "jdbc:mysql://"+ip+":"+port+"/"+databaseName+"?serverTimezone=UTC";
-	private String dataBaseId = "root";
-	private String dataBasePw = "dlsrb@41632";
+	private String dataBaseUrl 	= "jdbc:mysql://"+ip+":"+port+"/"+databaseName+"?serverTimezone=UTC";
+	private String dataBaseId 	= "ncsoft@ncsoft-db";
+	private String dataBasePw 	= "dlsrb@41632";
 	
 	/*Local IP*/
 	public String getServerIP() {
